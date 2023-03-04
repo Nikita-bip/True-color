@@ -6,7 +6,7 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] TMP_Text _timerText;
+    [SerializeField] private TMP_Text _timerText;
     [SerializeField] public float TimeStart;
 
     [HideInInspector] public float CountOfSeconds;
