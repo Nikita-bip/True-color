@@ -12,10 +12,17 @@ public class SpawnPlane : MonoBehaviour
     [SerializeField] private Material _standartMaterial;
 
     private Timer _timer;
+    private int _countOfPlane;
+    private int _countOfColors;
+    private int _counter = 0;
+    private int _indexOfColor = 0;
+
 
     private void Start()
     {
         _timer = GetComponent<Timer>();
+        _countOfPlane = _plane.Length;
+        _countOfColors = _colors.Length;
         PaintPlane();
     }
 
@@ -42,12 +49,24 @@ public class SpawnPlane : MonoBehaviour
 
     private void PaintPlane()
     {
-        foreach(var plane in _plane)
+        int _countOfPlanesCertainColor  = _countOfPlane / _countOfColors;
+
+        for (int i = 0; i < _plane.Length; i++) 
         {
-            if (plane.GetComponent<MeshRenderer>().material = _standartMaterial)
+            _plane[i].GetComponent<MeshRenderer>().material = _colors[_indexOfColor];
+            _counter++;
+
+            if (_counter >= _countOfPlanesCertainColor)
             {
-                plane.GetComponent<MeshRenderer>().material = _colors[Random.Range(0, _colors.Length)];
+                _counter = 0;
+                _indexOfColor++;
+            }
+
+            if (_indexOfColor >= _colors.Length)
+            {
+                _indexOfColor = 0;
             }
         }
     }
+
 }

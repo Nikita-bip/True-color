@@ -17,9 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(float directionX, float directionZ)
     {
-        _rigidbody.velocity = new Vector3(directionX * _movementSpeed, _rigidbody.velocity.y,
-            directionZ * _movementSpeed);
-
-
+        _rigidbody.velocity = new Vector3(directionX * _movementSpeed, _rigidbody.velocity.y, directionZ * _movementSpeed);
     }
 }

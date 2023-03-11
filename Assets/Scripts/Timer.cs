@@ -6,12 +6,12 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] TMP_Text _timerText;
+    [SerializeField] private TMP_Text _timerText;
     [SerializeField] public float TimeStart;
 
     [HideInInspector] public float CountOfSeconds;
 
-    private float _delay = 2f;
+    private float _delay = 1f;
     private const string _restartTimer = nameof(RestartTimer);
 
     private void Start()
