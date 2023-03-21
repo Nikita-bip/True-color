@@ -8,9 +8,10 @@ public class Rebirth : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.TryGetComponent<PlayerInput>(out PlayerInput playerInput))
+        if (collider.TryGetComponent(out Movement movement))
         {
-            playerInput.transform.position = _spawnPoint.transform.position;
+            movement.transform.position = _spawnPoint.transform.position;
+            Debug.Log("w12321");
         }
     }
 }

@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerMovement))]
 public class PlayerInput : MonoBehaviour
 {
-    [SerializeField] private Joystick _joystick;
+    //[SerializeField] private GameObject _spawnPoint;
 
-    private PlayerMovement _playerMovement;
+    //private Player _player;
 
-    private void Awake()
-    {
-        _playerMovement = GetComponent<PlayerMovement>();
-    }
+    //private void Start()
+    //{
+    //    _player = GetComponent<Player>();
+    //}
 
-    private void Update()
-    {
-        _playerMovement.Move(_joystick.Horizontal, _joystick.Vertical);
-    }
-
+    //private void OnTriggerEnter(Collider collider)
+    //{
+    //    if (collider.TryGetComponent<Rebirth>(out Rebirth rebirth))
+    //    {
+    //        _player.transform.position = _spawnPoint.transform.position;
+    //        Debug.Log("w12321");
+    //    }
+    //}
 }

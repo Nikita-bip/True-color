@@ -19,4 +19,12 @@ public class PlayerMovement : MonoBehaviour
     {
         _rigidbody.velocity = new Vector3(directionX * _movementSpeed, _rigidbody.velocity.y, directionZ * _movementSpeed);
     }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.TryGetComponent<Finish>(out Finish _finish))
+        {
+            _rigidbody.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
+    }
 }
