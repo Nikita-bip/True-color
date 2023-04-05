@@ -7,25 +7,26 @@ using TMPro;
 public class Finish : MonoBehaviour
 {
     [SerializeField] private GameObject _finishPanel;
+    [SerializeField] private GameObject _joystick;
+    [SerializeField] private float _animationSpeed;
 
-    private Player _player;
+    private Movement _player;
+    [HideInInspector] public bool IsFinished = false;
 
-    private void Start()
+    private void OnTriggerEnter(Collider collision)
     {
-        _player = GetComponent<Player>();
-    }
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.TryGetComponent<Player>(out Player player))
+        if (collision.TryGetComponent(out Movement player))
         {
+            _joystick.SetActive(false);
             _finishPanel.SetActive(true);
-            _player.enabled = false;
+            IsFinished = true;
+            player.enabled = false;
         }
     }
 
     private void ClosePanel()
     {
+        _joystick.SetActive(true);
         _finishPanel.SetActive(false);
         _player.enabled = true;
     }

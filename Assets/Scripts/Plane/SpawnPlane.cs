@@ -9,9 +9,9 @@ public class SpawnPlane : MonoBehaviour
 {
     [SerializeField] private GameObject[] _plane;
     [SerializeField] private Material[] _colors;
+    [SerializeField] private Image _selectColor;
     [SerializeField] private Material _standartMaterial;
-
-    private Timer _timer;
+    [SerializeField] private Timer _timer;
     private int _countOfPlane;
     private int _countOfColors;
     private int _counter = 0;
@@ -68,5 +68,4 @@ public class SpawnPlane : MonoBehaviour
             }
         }
     }
-
 }

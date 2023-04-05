@@ -27,13 +27,13 @@ public class Volume : MonoBehaviour
         if (PlayerPrefs.GetInt("music") == 0)
         {
             _volumeButton.GetComponent<Image>().sprite = _volumeOn;
-            _audio.enabled = false;
+            _audio.enabled = true;
             IsOn = true;
         }
         else
         {
             _volumeButton.GetComponent<Image>().sprite = _volumeOff;
-            _audio.enabled = true;
+            _audio.enabled = false;
             IsOn = false;
         }
     }
