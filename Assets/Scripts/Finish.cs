@@ -11,6 +11,8 @@ public class Finish : MonoBehaviour
     [SerializeField] private float _animationSpeed;
 
     private Movement _player;
+    private static string _strCountLevel = "CountLevel";
+    public static int CountLevel { get; private set; } = 1;
     [HideInInspector] public bool IsFinished = false;
 
     private void OnTriggerEnter(Collider collision)
@@ -21,6 +23,7 @@ public class Finish : MonoBehaviour
             _finishPanel.SetActive(true);
             IsFinished = true;
             player.enabled = false;
+            SaveScore();
         }
     }
 
@@ -29,5 +32,12 @@ public class Finish : MonoBehaviour
         _joystick.SetActive(true);
         _finishPanel.SetActive(false);
         _player.enabled = true;
+    }
+
+    public static void SaveScore()
+    {
+        CountLevel++;
+        PlayerPrefs.SetInt(_strCountLevel, CountLevel);
+        PlayerPrefs.Save();
     }
 }

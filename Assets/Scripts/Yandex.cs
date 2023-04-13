@@ -1,24 +1,26 @@
-#pragma warning disable
-
 using System.Collections;
 using Agava.YandexGames;
 using Agava.YandexGames.Samples;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Agava.YandexGames.Samples
 {
     public class Yandex : MonoBehaviour
     {
-        private IEnumerator Init()
+        private void Awake()
         {
-#if !UNITY_WEBGL || UNITY_EDITOR
-            yield break;
-#endif
+            YandexGamesSdk.CallbackLogging = true;
+        }
 
-            // Always wait for it if invoking something immediately in the first scene.
-            yield return Agava.YandexGames.YandexGamesSdk.Initialize();
+        private IEnumerator Start()
+        {
+            yield return YandexGamesSdk.Initialize(OnInitialized);
+        }
+
+        private void OnInitialized()
+        {
+            SceneManager.LoadScene("Main Menu");
         }
 
     }

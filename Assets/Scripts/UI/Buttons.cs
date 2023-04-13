@@ -10,6 +10,10 @@ public class Buttons : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
     }
 
+    public void TestScene()
+    {
+        SceneManager.LoadScene(5);
+    }
     public void MainMenu()
     {
         SceneManager.LoadScene("Main Menu");
