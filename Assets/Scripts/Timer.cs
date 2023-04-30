@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[RequireComponent(typeof(Animator))]
 public class Timer : MonoBehaviour
 {
     [SerializeField] private TMP_Text _timerText;
@@ -11,11 +12,13 @@ public class Timer : MonoBehaviour
 
     [HideInInspector] public float CountOfSeconds;
 
+    private Animator _animator;
     private float _delay = 1f;
     private const string _restartTimer = nameof(RestartTimer);
 
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         CountOfSeconds = TimeStart;
         _timerText.text = CountOfSeconds.ToString();
     }

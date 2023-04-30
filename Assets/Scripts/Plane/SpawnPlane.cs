@@ -1,17 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System.Linq;
 
-[RequireComponent(typeof(Timer))]
 public class SpawnPlane : MonoBehaviour
 {
     [SerializeField] private GameObject[] _plane;
     [SerializeField] private Material[] _colors;
-    [SerializeField] private Image _selectColor;
+    [SerializeField] private Material _selectColor;
     [SerializeField] private Material _standartMaterial;
     [SerializeField] private Timer _timer;
+
     private int _countOfPlane;
     private int _countOfColors;
     private int _counter = 0;
@@ -20,7 +18,6 @@ public class SpawnPlane : MonoBehaviour
 
     private void Start()
     {
-        _timer = GetComponent<Timer>();
         _countOfPlane = _plane.Length;
         _countOfColors = _colors.Length;
         PaintPlane();
@@ -37,10 +34,17 @@ public class SpawnPlane : MonoBehaviour
         {
             if (_timer.CountOfSeconds == 0)
             {
-                _plane[i].SetActive(false);
+                if (_plane[i].GetComponent<MeshRenderer>().material = _selectColor)
+                {
+                    _plane[i].SetActive(true);
+                }
+                else
+                {
+                    _plane[i].SetActive(false);
+                }
             }
 
-            if (_timer.CountOfSeconds == _timer.TimeStart)
+            if (_timer.CountOfSeconds > 0)
             {
                 _plane[i].SetActive(true);
             }
