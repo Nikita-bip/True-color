@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class Finish : MonoBehaviour
 {
@@ -11,8 +7,6 @@ public class Finish : MonoBehaviour
     [SerializeField] private float _animationSpeed;
 
     private Movement _player;
-    private const string _strCountLevel = "CountLevel";
-    private const string _strCountMoney = "Money";
 
     public static int CountLevel { get; private set; }
     [HideInInspector] public bool IsFinished = false;
@@ -40,8 +34,8 @@ public class Finish : MonoBehaviour
     {
         CountLevel++;
 
-        PlayerPrefs.SetInt(_strCountLevel, PlayerPrefs.GetInt(_strCountLevel) + CountLevel);
-        PlayerPrefs.SetInt(_strCountMoney, PlayerPrefs.GetInt(_strCountMoney) + 50);
+        PlayerPrefs.SetInt(Constantes.StrCountLevel, PlayerPrefs.GetInt(Constantes.StrCountLevel) + CountLevel);
+        PlayerPrefs.SetInt(Constantes.StrCountMoney, PlayerPrefs.GetInt(Constantes.StrCountMoney) + 50);
 
 
         PlayerPrefs.Save();

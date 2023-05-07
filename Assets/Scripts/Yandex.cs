@@ -1,6 +1,4 @@
 using System.Collections;
-using Agava.YandexGames;
-using Agava.YandexGames.Samples;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +18,7 @@ namespace Agava.YandexGames.Samples
 
         private void OnInitialized()
         {
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene(Constantes.StrMainMenuScene);
         }
 
     }

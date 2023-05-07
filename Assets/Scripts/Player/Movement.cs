@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -42,11 +40,11 @@ public class Movement : MonoBehaviour
 
         if (_moveVector.x != 0 || _moveVector.z != 0)
         {
-            _animator.SetBool("Move", true);
+            _animator.SetBool(Constantes.StrMove, true);
         }
         else
         {
-            _animator.SetBool("Move", false);
+            _animator.SetBool(Constantes.StrMove, false);
         }
 
         if (Vector3.Angle(Vector3.forward, _moveVector) > 1f || Vector3.Angle(Vector3.forward, _moveVector) == 0)
@@ -79,11 +77,11 @@ public class Movement : MonoBehaviour
         {
             Vector3 direct = Vector3.RotateTowards(transform.forward, _moveVector, _speedMove, 0.0f);
             transform.rotation = Quaternion.LookRotation(direct);
-            _animator.SetBool("MoveJoystic", true);
+            _animator.SetBool(Constantes.StrMoveJoystic, true);
         }
         else
         {
-            _animator.SetBool("MoveJoystic", false);
+            _animator.SetBool(Constantes.StrMoveJoystic, false);
         }
 
         _moveVector.y = _gravityForce;
@@ -95,7 +93,7 @@ public class Movement : MonoBehaviour
         if (collider.TryGetComponent(out Finish _finish))
         {
             _characterController.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-            _animator.SetInteger("Dance", 2);
+            _animator.SetInteger(Constantes.StrDance, 2);
         }
 
         if (collider.TryGetComponent(out Rebirth rebirth))

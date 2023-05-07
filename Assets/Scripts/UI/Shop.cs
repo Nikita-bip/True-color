@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -22,7 +20,7 @@ public class Shop : MonoBehaviour
         _shopButton.gameObject.SetActive(false);
         _cube.gameObject.SetActive(false);
 
-        _countOfMoney.text = PlayerPrefs.GetInt("Money").ToString();
+        _countOfMoney.text = PlayerPrefs.GetInt(Constantes.StrCountMoney).ToString();
     }
 
     private void OnDisable()

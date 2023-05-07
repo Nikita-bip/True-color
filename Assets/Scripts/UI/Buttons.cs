@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +5,7 @@ public class Buttons : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene(Constantes.StrTutorialScene);
     }
 
     public void TestScene()
@@ -16,7 +14,7 @@ public class Buttons : MonoBehaviour
     }
     public void MainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene(Constantes.StrMainMenuScene);
     }
 
     public void NextLevelButton()

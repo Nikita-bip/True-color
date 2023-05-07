@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -17,7 +15,7 @@ public class FinishPanel : MonoBehaviour
     {
         if(_finish.IsFinished == true)
         {
-            _animator.SetBool("Finish", true);
+            _animator.SetBool(Constantes.StrFinish, true);
         }
     }
 }

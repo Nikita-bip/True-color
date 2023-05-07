@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +22,7 @@ public class Volume : MonoBehaviour
 
     private void ChangeVolume()
     {
-        if (PlayerPrefs.GetInt("music") == 0)
+        if (PlayerPrefs.GetInt(Constantes.StrMusic) == 0)
         {
             _volumeButton.GetComponent<Image>().sprite = _volumeOn;
             _audio.enabled = true;
@@ -42,11 +40,11 @@ public class Volume : MonoBehaviour
     {
         if (IsOn == false)
         {
-            PlayerPrefs.SetInt("music", 0);
+            PlayerPrefs.SetInt(Constantes.StrMusic, 0);
         }
         else
         {
-            PlayerPrefs.SetInt("music", 1);
+            PlayerPrefs.SetInt(Constantes.StrMusic, 1);
         }
     }
 }
