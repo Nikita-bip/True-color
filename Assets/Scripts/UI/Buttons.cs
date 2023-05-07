@@ -22,11 +22,11 @@ public class Buttons : MonoBehaviour
     public void NextLevelButton()
     {
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
-        int nextLevel = Random.Range(2, 4);
+        int nextLevel = Random.Range(3, 14);
 
         if (nextLevel != currentLevel) 
         {
-            SceneManager.LoadScene(Random.Range(2, 5));
+            SceneManager.LoadScene(Random.Range(3, 14));
         }
         else
         {

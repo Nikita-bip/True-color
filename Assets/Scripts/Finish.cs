@@ -11,8 +11,10 @@ public class Finish : MonoBehaviour
     [SerializeField] private float _animationSpeed;
 
     private Movement _player;
-    private static string _strCountLevel = "CountLevel";
-    public static int CountLevel { get; private set; } = 1;
+    private const string _strCountLevel = "CountLevel";
+    private const string _strCountMoney = "Money";
+
+    public static int CountLevel { get; private set; }
     [HideInInspector] public bool IsFinished = false;
 
     private void OnTriggerEnter(Collider collision)
@@ -37,7 +39,13 @@ public class Finish : MonoBehaviour
     public static void SaveScore()
     {
         CountLevel++;
-        PlayerPrefs.SetInt(_strCountLevel, CountLevel);
+
+        PlayerPrefs.SetInt(_strCountLevel, PlayerPrefs.GetInt(_strCountLevel) + CountLevel);
+        PlayerPrefs.SetInt(_strCountMoney, PlayerPrefs.GetInt(_strCountMoney) + 50);
+
+
         PlayerPrefs.Save();
+
+        Leaderboard.AddPlayer(CountLevel);
     }
 }

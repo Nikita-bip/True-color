@@ -1,0 +1,33 @@
+using UnityEngine.UI;
+using UnityEngine;
+
+public class LoginPanel : MonoBehaviour
+{
+    [SerializeField] private SettingsButton _settingsButton;
+    [SerializeField] private LeaderboardButton _leaderboardButton;
+    [SerializeField] private PlayButton _playButton;
+
+    private void OnEnable()
+    {
+        if (_leaderboardButton.TryGetComponent(out Button button))
+            button.interactable = false;
+
+        if (_playButton.TryGetComponent(out Button playButton))
+            playButton.interactable = false;
+
+        if (_settingsButton.TryGetComponent(out Button settingsButton))
+            settingsButton.interactable = false;
+    }
+
+    private void OnDisable()
+    {
+        if (_leaderboardButton.TryGetComponent(out Button button))
+            button.interactable = true;
+
+        if (_playButton.TryGetComponent(out Button playButton))
+            playButton.interactable = true;
+
+        if (_settingsButton.TryGetComponent(out Button settingsButton))
+            settingsButton.interactable = true;
+    }
+}
