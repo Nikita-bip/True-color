@@ -12,4 +12,5 @@ public class Constantes : MonoBehaviour
     public const string StrMainMenuScene = "Main Menu";
     public const string StrFinish = "Finish";
     public const string StrMusic = "Music";
+    public const string StrSelectedScin = "SelectedScin";
 }

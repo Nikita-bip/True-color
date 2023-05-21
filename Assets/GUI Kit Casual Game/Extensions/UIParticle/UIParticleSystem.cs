@@ -110,7 +110,7 @@ namespace UnityEngine.UI.Extensions
 
             imageUV = new Vector4(0, 0, 1, 1);
 
-            // prepare texture sheet animation
+            // prepare texture sheet _animation
             textureSheetAnimation = pSystem.textureSheetAnimation;
             textureSheetAnimationFrames = 0;
             textureSheetAnimationFrameSize = Vector2.zero;
@@ -186,7 +186,7 @@ namespace UnityEngine.UI.Extensions
                         position /= canvas.scaleFactor;
 #endif
 
-                // apply texture sheet animation
+                // apply texture sheet _animation
                 Vector4 particleUV = imageUV;
                 if (textureSheetAnimation.enabled)
                 {

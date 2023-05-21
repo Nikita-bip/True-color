@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class CameraPlayer : MonoBehaviour
 {
-    [SerializeField] Transform _player;
-    [SerializeField] float _smoothSpeed = 0.125f;
-    [SerializeField] Vector3 _offset;
+    [SerializeField] private Transform _player;
+    [SerializeField] private float _smoothSpeed = 0.125f;
+    [SerializeField] private Vector3 _offset;
 
     private void FixedUpdate()
     {

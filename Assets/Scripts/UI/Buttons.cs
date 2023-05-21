@@ -12,6 +12,7 @@ public class Buttons : MonoBehaviour
     {
         SceneManager.LoadScene(5);
     }
+
     public void MainMenu()
     {
         SceneManager.LoadScene(Constantes.StrMainMenuScene);

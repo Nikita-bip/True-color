@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Movement))]
 public class Particle : MonoBehaviour
 {
     [SerializeField] private GameObject _effectWater;

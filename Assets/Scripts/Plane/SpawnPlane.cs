@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SpawnPlane : MonoBehaviour
@@ -42,21 +43,33 @@ public class SpawnPlane : MonoBehaviour
                 }
             }
 
+            if (_timer.CountOfSeconds == 3f)
+            {
+                StartCoroutine(AddScore());
+            }
+
             if (_timer.CountOfSeconds > 0)
             {
                 _plane[i].SetActive(true);
             }
-
-            if (_timer.CountOfSeconds == 3)
-            {
-                _selectedColorNumber++;
-            }
-
-            if(_selectedColorNumber >= _selectColor.Length)
-            {
-                _selectedColorNumber = 0;
-            }
         }
+    }
+
+    private IEnumerator AddScore()
+    {
+
+        if (_selectedColorNumber > _selectColor.Length)
+        {
+            _selectedColorNumber = 0;
+        }
+        else
+        {
+            _selectedColorNumber++;
+            Debug.Log(_selectedColorNumber);
+            yield break;
+        }
+
+        yield return new WaitForSeconds(1f);
     }
 
     private void PaintPlane()
