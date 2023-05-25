@@ -13,4 +13,5 @@ public class Constantes : MonoBehaviour
     public const string StrFinish = "Finish";
     public const string StrMusic = "Music";
     public const string StrSelectedScin = "SelectedScin";
+    public const string StrTutorial = "Tutorial";
 }

@@ -6,14 +6,11 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float _speedMove;
     [SerializeField] private Joystick _joystick;
-    [SerializeField] private GameObject _spawnPoint;
 
     private float _gravityForce;
     private Vector3 _moveVector;
-    private float _delay = 0.1f;
     private Animator _animator;
     private CharacterController _characterController;
-    private const string _respawn = nameof(Respawn);
 
     private void Start()
     {
@@ -57,18 +54,6 @@ public class Movement : MonoBehaviour
         _characterController.Move(_moveVector * Time.fixedDeltaTime);
     }
 
-    private void GamingGravity()
-    {
-        if (!_characterController.isGrounded)
-        {
-            _gravityForce -= 20f * Time.deltaTime;
-        }
-        else
-        {
-            _gravityForce = -1f;
-        }
-    }
-
     private void MoveByJoystick()
     {
         Vector3 _moveVector = new Vector3(_joystick.Horizontal * _speedMove, 0, _joystick.Vertical * _speedMove);
@@ -88,24 +73,15 @@ public class Movement : MonoBehaviour
         _characterController.Move(_moveVector * Time.fixedDeltaTime);
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void GamingGravity()
     {
-        if (collider.TryGetComponent(out Finish _finish))
+        if (!_characterController.isGrounded)
         {
-            _characterController.transform.eulerAngles = new Vector3(0f, 180f, 0f);
-            _animator.SetInteger(Constantes.StrDance, 2);
+            _gravityForce -= 20f * Time.deltaTime;
         }
-
-        if (collider.TryGetComponent(out Rebirth rebirth))
+        else
         {
-            _characterController.enabled = false;
-            Invoke(_respawn, _delay);
+            _gravityForce = -1f;
         }
-    }
-
-    private void Respawn()
-    {
-        _characterController.transform.position = _spawnPoint.transform.position;
-        _characterController.enabled = true;
     }
 }

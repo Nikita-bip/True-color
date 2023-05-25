@@ -3,43 +3,19 @@ using UnityEngine;
 public class Finish : MonoBehaviour
 {
     [SerializeField] private GameObject _finishPanel;
-    [SerializeField] private GameObject _joystick;
-    [SerializeField] private float _animationSpeed;
+    [SerializeField] private CharacterController _characterController;
 
-    private Movement _player;
+    private Vector3 _changesAngles = new Vector3(0f, 180f, 0f);
 
-    public static int CountLevel { get; private set; }
-    [HideInInspector] public bool IsFinished = false;
+    [HideInInspector] public static bool IsFinished = false;
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.TryGetComponent(out Movement player))
+        if (collision.TryGetComponent(out Movement movement))
         {
-            _joystick.SetActive(false);
             _finishPanel.SetActive(true);
             IsFinished = true;
-            player.enabled = false;
-            SaveScore();
+            _characterController.transform.eulerAngles = _changesAngles;
         }
-    }
-
-    private void ClosePanel()
-    {
-        _joystick.SetActive(true);
-        _finishPanel.SetActive(false);
-        _player.enabled = true;
-    }
-
-    public static void SaveScore()
-    {
-        CountLevel++;
-
-        PlayerPrefs.SetInt(Constantes.StrCountLevel, PlayerPrefs.GetInt(Constantes.StrCountLevel) + CountLevel);
-        PlayerPrefs.SetInt(Constantes.StrCountMoney, PlayerPrefs.GetInt(Constantes.StrCountMoney) + 50);
-
-
-        PlayerPrefs.Save();
-
-        Leaderboard.AddPlayer(CountLevel);
     }
 }

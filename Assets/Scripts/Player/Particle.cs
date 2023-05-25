@@ -18,7 +18,7 @@ public class Particle : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.TryGetComponent(out Rebirth rebirth))
+        if (collider.TryGetComponent(out Dead dead))
         {
             Instantiate(_effectWater, _movement.transform.position + _changesHeight, Quaternion.identity);
         }

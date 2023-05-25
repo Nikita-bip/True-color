@@ -230,9 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _finishPanel: {fileID: 0}
-  _joystick: {fileID: 0}
-  _animationSpeed: 2
-  IsFinished: 0
+  _characterController: {fileID: 0}
 --- !u!65 &4508937661816508476
 BoxCollider:
   m_ObjectHideFlags: 0

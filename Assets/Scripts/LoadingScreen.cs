@@ -10,6 +10,8 @@ public class LoadingScreen : MonoBehaviour
     [SerializeField] private int _nextScene;
     [SerializeField] private Slider _scale;
 
+    private float _delay = 2.2f;
+
     public void Loading()
     {
         _loadingScreen.SetActive(true);
@@ -27,7 +29,7 @@ public class LoadingScreen : MonoBehaviour
 
             if (loadAsync.progress >= 9f && !loadAsync.allowSceneActivation)
             {
-                yield return new WaitForSeconds(2.2f);
+                yield return new WaitForSeconds(_delay);
                 loadAsync.allowSceneActivation = true;
             }
 
