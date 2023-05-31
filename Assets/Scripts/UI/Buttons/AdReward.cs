@@ -14,9 +14,6 @@ public class AdReward : MonoBehaviour
         _adv.interactable = false;
         Invoke(_inactiveButton, _delay);
         _adShower.Show();
-
-        PlayerPrefs.SetInt(Constantes.StrCountMoney, PlayerPrefs.GetInt(Constantes.StrCountMoney) + 100);
-        PlayerPrefs.Save();
     }
 
     private void InactiveButton()

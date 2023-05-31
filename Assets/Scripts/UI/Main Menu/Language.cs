@@ -1,23 +1,44 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Agava.YandexGames;
+using Lean.Localization;
 
 public class Language : MonoBehaviour
 {
-    [SerializeField] private Sprite _mainImage;
-    [SerializeField] private Sprite[] _languages;
-    [SerializeField] private Button _button;
+    [SerializeField] private Button _russianButton;
+    [SerializeField] private Button _englishButton;
+    [SerializeField] private Button _turkishButton;
+    [SerializeField] private LeanLocalization _leanLocalization;
 
-    private void Start()
+    private void Update()
     {
-        for (int i = 0; i < _languages.Length; i++)
-        {
-            int index = i;
-            _button.onClick.AddListener(() => changeMainImage(index));
-        }
+        ChangeLanguage();
     }
 
-    private void changeMainImage(int imageIndex)
+    private void ChangeLanguage()
     {
-        _button.GetComponent<Image>().sprite = _languages[imageIndex];
+        switch (PlayerPrefs.GetString(Constantes.Language))
+        {
+            case "ru":
+                _russianButton.gameObject.SetActive(true);
+                _leanLocalization.SetCurrentLanguage("Russian");
+                _englishButton.gameObject.SetActive(false);
+                _turkishButton.gameObject.SetActive(false);
+                break;
+            case "en":
+                _englishButton.gameObject.SetActive(true);
+                _leanLocalization.SetCurrentLanguage("English");
+                _russianButton.gameObject.SetActive(false);
+                _turkishButton.gameObject.SetActive(false);
+                break;
+            case "tr":
+                _turkishButton.gameObject.SetActive(true);
+                _leanLocalization.SetCurrentLanguage("Turkish");
+                _russianButton.gameObject.SetActive(false);
+                _englishButton.gameObject.SetActive(false);
+                break;
+        }
+
+        PlayerPrefs.Save();
     }
 }

@@ -7,7 +7,7 @@ public class Finish : MonoBehaviour
 
     private Vector3 _changesAngles = new Vector3(0f, 180f, 0f);
 
-    [HideInInspector] public static bool IsFinished = false;
+    [HideInInspector] public bool IsFinished = false;
 
     private void OnTriggerEnter(Collider collision)
     {

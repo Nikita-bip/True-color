@@ -12,12 +12,15 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject _mainCanvas;
     [SerializeField] private GameObject _tutorialTimer;
     [SerializeField] private GameObject _tutorialSwitcher;
+    [SerializeField] private GameObject _tutorialColor;
     [SerializeField] private GameObject _tutorialCamera;
     [SerializeField] private GameObject _tutorialCanvas;
     [SerializeField] private GameObject _timerPointer;
     [SerializeField] private GameObject _switcherPointer;
+    [SerializeField] private GameObject _colorPointer;
 
     private int _counter;
+
     [HideInInspector] public bool IsOpenedSwitcher = false;
     [HideInInspector] public bool IsOpenedTimer = false;
 
@@ -74,6 +77,16 @@ public class Tutorial : MonoBehaviour
             {
                 plane.SetActive(true);
             }
+        }
+
+        if (_counter == 3)
+        {
+            _tutorialColor.SetActive(true);
+            _colorPointer.SetActive(true);
+        }
+        else
+        {
+            _colorPointer.SetActive(false);
         }
 
         if (_counter == 5)

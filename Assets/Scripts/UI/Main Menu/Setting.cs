@@ -9,6 +9,17 @@ public class Setting : MonoBehaviour
     [SerializeField] private ShopButton _shopButton;
     [SerializeField] private Cube _cube;
     [SerializeField] private CloseButton _closeButton;
+    [SerializeField] private GameObject _label;
+    [SerializeField] private Animator _labelSettingAnimator;
+    [SerializeField] private Animator _closeSettingAnimator;
+
+    private Animator _animator;
+    private const string _openAnimation = nameof(OpenAnimation);
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     private void OnEnable()
     {
@@ -18,6 +29,9 @@ public class Setting : MonoBehaviour
         _shopButton.gameObject.SetActive(false);
         _cube.gameObject.SetActive(false);
         _closeButton.gameObject.SetActive(true);
+        _label.gameObject.SetActive(true);
+
+        Invoke(_openAnimation, 0.1f);
     }
 
     private void OnDisable()
@@ -28,5 +42,13 @@ public class Setting : MonoBehaviour
         _shopButton.gameObject.SetActive(true);
         _cube.gameObject.SetActive(true);
         _closeButton.gameObject.SetActive(false);
+        _label.gameObject.SetActive(false);
+    }
+
+    private void OpenAnimation()
+    {
+        _animator.SetBool("Open", true);
+        _labelSettingAnimator.SetBool("Open", true);
+        _closeSettingAnimator.SetBool("Open", true);
     }
 }

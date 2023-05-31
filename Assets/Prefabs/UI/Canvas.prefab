@@ -1111,6 +1111,10 @@ PrefabInstance:
       propertyPath: _movement
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4396229212331141801, guid: 8d3f82e776e987941a49711b77b2a4c5, type: 3}
+      propertyPath: _switcher
+      value: 
+      objectReference: {fileID: 814747083}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d3f82e776e987941a49711b77b2a4c5, type: 3}
 --- !u!224 &2254658042719739783 stripped
@@ -1137,6 +1141,10 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 2254267489565603182}
+    - target: {fileID: 508529912, guid: b528b509d5e652d408c38361fd4fb0fd, type: 3}
+      propertyPath: _switcher
+      value: 
+      objectReference: {fileID: 814747083}
     - target: {fileID: 508529912, guid: b528b509d5e652d408c38361fd4fb0fd, type: 3}
       propertyPath: _countOfMoneyText
       value: 

@@ -10,6 +10,7 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private Movement _movement;
     [SerializeField] private GameObject _joystick;
     [SerializeField] private GameObject _switcher;
+    [SerializeField] private Finish _finish;
 
     private Animator _animator;
     private static int _countOfMoney;
@@ -22,7 +23,7 @@ public class FinishPanel : MonoBehaviour
 
     private void Update()
     {
-        if (Finish.IsFinished == true)
+        if (_finish.IsFinished == true)
         {
             _animator.SetBool(Constantes.StrFinish, true);
         }
