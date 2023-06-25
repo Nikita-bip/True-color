@@ -379,7 +379,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedMove: 1.5
   _joystick: {fileID: 0}
-  _spawnPoint: {fileID: 0}
 --- !u!114 &919132148120026936
 MonoBehaviour:
   m_ObjectHideFlags: 0

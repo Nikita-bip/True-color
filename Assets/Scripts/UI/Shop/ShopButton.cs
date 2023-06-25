@@ -1,11 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopButton : MonoBehaviour
 {
-    [SerializeField] private Shop _shop;
-
-    public void OnClick()
+    // Start is called before the first frame update
+    void Start()
     {
-        _shop.gameObject.SetActive(true);
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

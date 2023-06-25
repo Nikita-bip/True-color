@@ -21,6 +21,7 @@ public class SpawnPlane : MonoBehaviour
         _countOfColors = _colors.Length;
         PaintPlane();
         //StartCoroutine(AddScore());
+
     }
 
     private void Update()
@@ -53,7 +54,7 @@ public class SpawnPlane : MonoBehaviour
 
     //private IEnumerator AddScore()
     //{
-    //    while (true)
+    //    while (_timer.CountOfSeconds == 3)
     //    {
     //        if (_selectedColorNumber > _selectColor.Length)
     //        {
@@ -65,7 +66,7 @@ public class SpawnPlane : MonoBehaviour
     //            Debug.Log(_selectedColorNumber);
     //        }
 
-    //        yield return null;
+    //        yield return new WaitForSeconds(0.5f);
     //    }
     //}
 

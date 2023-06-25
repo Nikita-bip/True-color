@@ -21,6 +21,7 @@ public class Leaderboard : MonoBehaviour
         {
             Agava.YandexGames.Leaderboard.SetScore(LeaderboardName, score);
         });
+        PlayerPrefs.Save();
     }
 
     public void Fill()
@@ -45,6 +46,7 @@ public class Leaderboard : MonoBehaviour
                 _leaderboardPlayers.Add(new LeaderboardPlayer(playerName, score));
             }
             _leaderboardView.Create(_leaderboardPlayers);
+            PlayerPrefs.Save();
         });
     }
 }

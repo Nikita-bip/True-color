@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Init.unity
     guid: 2c03964fafb3af446afcaaa82ed7230a
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
-    guid: 297bb9927e6007f44811edd2bee11538
+    path: Assets/Scenes/Main_Menu.unity
+    guid: f504cae5900f3b24786b0a3fd16583fe
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
@@ -48,6 +48,15 @@ EditorBuildSettings:
     path: Assets/Scenes/11Level.unity
     guid: 844763789a1627a4cb100fd5428b43b7
   - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 67bd0ae323714814d97e5a7aaf2d6ece
+  - enabled: 0
     path: Assets/Scenes/PlaytestingScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Samples/Web Utility/2.2.0/Playtesting Sample/Teeeest.unity
+    guid: f217115a68ee0f9459dd5bd77192cdae
+  - enabled: 0
+    path: Assets/Plugins/TypedScenes/Samples/SampleScene.unity
+    guid: b3142ea3a77ad3a418e6bc7c16eeaa53
   m_configObjects: {}

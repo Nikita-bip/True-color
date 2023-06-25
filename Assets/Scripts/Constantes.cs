@@ -9,10 +9,11 @@ public class Constantes : MonoBehaviour
     public const string StrMoveJoystic = "MoveJoystic";
     public const string StrDance = "Dance";
     public const string StrTutorialScene = "Tutorial";
-    public const string StrMainMenuScene = "Main Menu";
+    public const string StrMainMenuScene = "Main_Menu";
+    public const string StrShopScene = "Shop";
     public const string StrFinish = "Finish";
     public const string StrMusic = "Music";
-    public const string StrSelectedScin = "SelectedScin";
+    public const string StrSelectedScin = "ChosenSkin";
     public const string StrTutorial = "Tutorial";
     public const string Language = "Language";
 }

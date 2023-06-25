@@ -13,9 +13,19 @@ public class Buttons : MonoBehaviour
         SceneManager.LoadScene(Constantes.StrMainMenuScene);
     }
 
+    public void Test()
+    {
+        SceneManager.LoadScene("Teeeest");
+    }
+
+    public void Shop()
+    {
+        SceneManager.LoadScene(Constantes.StrShopScene);
+    }
+
     public void NextLevelButton()
     {
-        int nextLevel = Random.Range(3, 14);
+        int nextLevel = Random.Range(4, 15);
 
         SceneManager.LoadScene(nextLevel);
     }
