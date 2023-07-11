@@ -5,9 +5,10 @@ public class LosePanel : MonoBehaviour
 {
     [SerializeField] private AudioSource _myFX;
     [SerializeField] private AudioClip _lose;
-    [SerializeField] private Movement _movement;
+    [SerializeField] private Movement[] _movements;
     [SerializeField] private GameObject _joystick;
     [SerializeField] private GameObject _switcher;
+    [SerializeField] private Dead _dead;
 
     private Animator _animator;
 
@@ -18,7 +19,7 @@ public class LosePanel : MonoBehaviour
 
     private void Update()
     {
-        if (Dead.IsDead == true)
+        if (_dead.IsDead == true)
         {
             _animator.SetBool(Constantes.StrFinish, true);
         }
@@ -26,7 +27,11 @@ public class LosePanel : MonoBehaviour
 
     private void OnEnable()
     {
-        _movement.enabled = false;
+        foreach (var movement in _movements)
+        {
+            movement.enabled = false;
+        }
+
         _switcher.SetActive(false);
         _joystick.SetActive(false);
         _myFX.PlayOneShot(_lose);

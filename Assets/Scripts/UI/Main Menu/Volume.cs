@@ -6,7 +6,7 @@ public class Volume : MonoBehaviour
     [SerializeField] private Sprite _volumeOff;
     [SerializeField] private Sprite _volumeOn;
     [SerializeField] private Button _volumeButton;
-    [SerializeField] private AudioSource _audio;
+    [SerializeField] private AudioSource[] _audios;
 
     public static bool IsOn;
 
@@ -25,14 +25,22 @@ public class Volume : MonoBehaviour
         if (PlayerPrefs.GetInt(Constantes.StrMusic) == 0)
         {
             _volumeButton.GetComponent<Image>().sprite = _volumeOn;
-            _audio.enabled = true;
             IsOn = true;
+
+            foreach (var audio in _audios)
+            {
+                audio.enabled = true;
+            }
         }
         else
         {
             _volumeButton.GetComponent<Image>().sprite = _volumeOff;
-            _audio.enabled = false;
             IsOn = false;
+
+            foreach (var audio in _audios)
+            {
+                audio.enabled = false;
+            }
         }
     }
 

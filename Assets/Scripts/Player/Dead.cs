@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Dead : MonoBehaviour
 {
-    [SerializeField] private CharacterController _characterController;
+    [SerializeField] private CharacterController[] _characterControllers;
     [SerializeField] private LosePanel _losePanel;
 
-    [HideInInspector] public static bool IsDead = false;
+    [HideInInspector] public bool IsDead = false;
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -13,7 +13,6 @@ public class Dead : MonoBehaviour
         {
             IsDead = true;
             _losePanel.gameObject.SetActive(true);
-            _characterController.enabled = false;
         }
     }
 }

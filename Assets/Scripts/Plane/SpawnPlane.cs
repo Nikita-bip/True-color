@@ -20,12 +20,28 @@ public class SpawnPlane : MonoBehaviour
         _countOfPlane = _plane.Length;
         _countOfColors = _colors.Length;
         PaintPlane();
-        //StartCoroutine(AddScore());
+    }
 
+    private void FixedUpdate()
+    {
+        
     }
 
     private void Update()
     {
+        if (_timer.IsTimerZero == true)
+        {
+            if (_selectedColorNumber > _selectColor.Length)
+            {
+                _selectedColorNumber = 0;
+            }
+            else
+            {
+                _selectedColorNumber++;
+                Debug.Log(_selectedColorNumber);
+            }
+        }
+
         SwitchPlane();
     }
 
@@ -33,8 +49,11 @@ public class SpawnPlane : MonoBehaviour
     {
         for (int i = 0; i < _plane.Length; i++)
         {
+
             if (_timer.CountOfSeconds == 0)
             {
+                //Invoke("AddScores", 0f);
+
                 if (_plane[i].GetComponent<MeshRenderer>().sharedMaterial == _selectColor[_selectedColorNumber])
                 {
                     _plane[i].SetActive(true);
@@ -43,6 +62,7 @@ public class SpawnPlane : MonoBehaviour
                 {
                     _plane[i].SetActive(false);
                 }
+                //StartCoroutine(AddScore());
             }
 
             if (_timer.CountOfSeconds > 0)
@@ -52,23 +72,34 @@ public class SpawnPlane : MonoBehaviour
         }
     }
 
-    //private IEnumerator AddScore()
-    //{
-    //    while (_timer.CountOfSeconds == 3)
-    //    {
-    //        if (_selectedColorNumber > _selectColor.Length)
-    //        {
-    //            _selectedColorNumber = 0;
-    //        }
-    //        else
-    //        {
-    //            _selectedColorNumber++;
-    //            Debug.Log(_selectedColorNumber);
-    //        }
+    private IEnumerator AddScore()
+    {
+        //while (true)
+        //{
+            if (_selectedColorNumber > _selectColor.Length)
+            {
+                _selectedColorNumber = 0;
+            }
+            else
+            {
+                _selectedColorNumber++;
+                Debug.Log(_selectedColorNumber);
+            }
 
-    //        yield return new WaitForSeconds(0.5f);
-    //    }
-    //}
+            yield return new WaitForSeconds(1f);
+        //}
+    }
+
+    private void AddScores()
+    {
+        _selectedColorNumber++;
+        Debug.Log(_selectedColorNumber);
+
+        if (_selectedColorNumber > _selectColor.Length)
+        {
+            _selectedColorNumber = 0;
+        }
+    }
 
     private void PaintPlane()
     {

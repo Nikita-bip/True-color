@@ -91,7 +91,7 @@ public class PlayerData : MonoBehaviour, IDisposable
         }
     }
 
-    public int SelectedCgaracter
+    public int SelectedCharacter
     {
         get
         {
@@ -151,8 +151,8 @@ public class PlayerData : MonoBehaviour, IDisposable
 
     private void LoadData()
     {
-        _money = PlayerPrefs.HasKey(Constantes.StrCountMoney) ? PlayerPrefs.GetInt(Constantes.StrCountMoney) : MoneyDefault;
-        //_money = 12_345;
+        _money = PlayerPrefs.GetInt(Constantes.StrCountMoney);
+        _money = 12_345;
         _level = PlayerPrefs.HasKey(LevelKey) ? PlayerPrefs.GetInt(LevelKey) : LevelDefault;
         _isMusicOn = PlayerPrefs.HasKey(MusicKey) ? Convert.ToBoolean(PlayerPrefs.GetInt(MusicKey)) : MusicDefault;
         _isSFXOn = PlayerPrefs.HasKey(SFXKey) ? Convert.ToBoolean(PlayerPrefs.GetInt(SFXKey)) : SFXDefault;
@@ -222,7 +222,6 @@ public class PlayerData : MonoBehaviour, IDisposable
     [ContextMenu("Reset Data")]
     private void ResetData()
     {
-        _money = MoneyDefault;
         _level = LevelDefault;
         _isMusicOn = MusicDefault;
         _isSFXOn = SFXDefault;

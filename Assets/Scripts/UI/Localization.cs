@@ -7,7 +7,6 @@ using System.Collections;
 public class Localization : MonoBehaviour
 {
     [SerializeField] private LeanLocalization _leanLocalization;
-
     private IEnumerator Start()
     {
         yield return YandexGamesSdk.Initialize();

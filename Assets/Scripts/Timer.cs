@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 [RequireComponent(typeof(Animator))]
@@ -10,8 +11,10 @@ public class Timer : MonoBehaviour
 
     [HideInInspector] public float CountOfSeconds;
 
+    [HideInInspector] public bool IsTimerZero;
+
     private Animator _animator;
-    private float _delay = 1f;
+    private float _delay = 0f; 
     private const string _restartTimer = nameof(RestartTimer);
 
     private void Start()
@@ -26,6 +29,7 @@ public class Timer : MonoBehaviour
         if (CountOfSeconds < 0)
         {
             CountOfSeconds = 0;
+            IsTimerZero = true;
             Invoke(_restartTimer, _delay);
         }
         else
@@ -37,6 +41,7 @@ public class Timer : MonoBehaviour
 
     private void RestartTimer()
     {
+        IsTimerZero = false;
         CountOfSeconds = TimeStart;
     }
 }

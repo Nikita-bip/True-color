@@ -5,29 +5,30 @@ public class Buttons : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene(Constantes.StrTutorialScene);
+        if(PlayerPrefs.GetInt(Constantes.StrTutorial) > 0)
+            NextLevelButton();
+        else
+            SceneManager.LoadScene(Constantes.StrTutorialScene);
     }
 
     public void MainMenu()
     {
         SceneManager.LoadScene(Constantes.StrMainMenuScene);
-    }
-
-    public void Test()
-    {
-        SceneManager.LoadScene("Teeeest");
+        PlayerPrefs.Save();
     }
 
     public void Shop()
     {
         SceneManager.LoadScene(Constantes.StrShopScene);
+
     }
 
     public void NextLevelButton()
     {
-        int nextLevel = Random.Range(4, 15);
+        int nextLevel = Random.Range(3, 13);
 
         SceneManager.LoadScene(nextLevel);
+        PlayerPrefs.Save();
     }
 
     public void RestartLevel()

@@ -96,7 +96,6 @@ namespace Lean.Localization
 				return currentLanguage;
 			}
 		}
-
 		/// <summary>When rebuilding translations this method is called from any <b>LeanSource</b> components that define a token.</summary>
 		public static void RegisterToken(string name, LeanToken token)
 		{

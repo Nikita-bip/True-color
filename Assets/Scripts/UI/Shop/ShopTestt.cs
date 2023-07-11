@@ -52,7 +52,7 @@ public class ShopTestt : MonoBehaviour
         else if (price.IsBuyForAd)
             ShowMessageBoxWatchAd();
         else
-            TryBuyCar();
+            TryBuyCharacter();
     }
 
     private void ChangeSelectCar()
@@ -61,10 +61,10 @@ public class ShopTestt : MonoBehaviour
             product.UnSelect();
 
         _currentProduct.Select();
-        PlayerData.Instance.SelectedCgaracter = (int)_currentPrice.PlayerCharacterName;
+        PlayerData.Instance.SelectedCharacter = (int)_currentPrice.PlayerCharacterName;
     }
 
-    private void TryBuyCar()
+    private void TryBuyCharacter()
     {
         bool ñanPay = PlayerData.Instance.Money - _currentPrice.Cost >= 0;
 

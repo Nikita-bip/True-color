@@ -13,6 +13,7 @@ public class Constantes : MonoBehaviour
     public const string StrShopScene = "Shop";
     public const string StrFinish = "Finish";
     public const string StrMusic = "Music";
+    public const string StrSfx = "Sfx";
     public const string StrSelectedScin = "ChosenSkin";
     public const string StrTutorial = "Tutorial";
     public const string Language = "Language";

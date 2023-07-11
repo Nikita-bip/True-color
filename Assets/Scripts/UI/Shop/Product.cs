@@ -13,7 +13,6 @@ public class Product : MonoBehaviour
     [SerializeField] private GameObject _iconLock;
     [SerializeField] private GameObject _adIcon;
     [SerializeField] private TMP_Text _cost;
-    [SerializeField] private LeanLocalizedTextMeshProUGUI _localized;
 
     private Price _price;
     private Button _button;
@@ -34,9 +33,6 @@ public class Product : MonoBehaviour
         _button = GetComponent<Button>();
         _button.onClick.AddListener(OnClick);
 
-        _localized.TranslationName = price.NameKey;
-        _localized.UpdateLocalization();
-
         _iconCheck.SetActive(false);
 
         var numberOfOperationBeforeBuy = PlayerData.Instance.ConditionsForCharacters[price.PlayerCharacterName];
@@ -55,7 +51,7 @@ public class Product : MonoBehaviour
             _cost.text = NumberSeparator.SplitNumber(price.Cost);
         }
 
-        if (PlayerData.Instance.SelectedCgaracter == (int)price.PlayerCharacterName)
+        if (PlayerData.Instance.SelectedCharacter == (int)price.PlayerCharacterName)
             Select();
     }
 

@@ -3,7 +3,7 @@ using UnityEngine;
 public class Finish : MonoBehaviour
 {
     [SerializeField] private GameObject _finishPanel;
-    [SerializeField] private CharacterController _characterController;
+    [SerializeField] private CharacterController[] _characterControllers;
     [SerializeField] private InterstitialAdShower _interstitialAdShower;
 
     private const string _adv = nameof(Adv);
@@ -15,10 +15,14 @@ public class Finish : MonoBehaviour
     {
         if (collision.TryGetComponent(out Movement movement))
         {
+            foreach (var characterController in _characterControllers)
+            {
+                characterController.transform.eulerAngles = _changesAngles;
+            }
+
             _finishPanel.SetActive(true);
             Invoke(_adv, 0.2f);
             IsFinished = true;
-            _characterController.transform.eulerAngles = _changesAngles;
         }
     }
 

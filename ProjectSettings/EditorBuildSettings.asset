@@ -45,18 +45,6 @@ EditorBuildSettings:
     path: Assets/Scenes/10Level.unity
     guid: 1d5bc22ef212d2a4ebded6d6e9402038
   - enabled: 1
-    path: Assets/Scenes/11Level.unity
-    guid: 844763789a1627a4cb100fd5428b43b7
-  - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 67bd0ae323714814d97e5a7aaf2d6ece
-  - enabled: 0
-    path: Assets/Scenes/PlaytestingScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Samples/Web Utility/2.2.0/Playtesting Sample/Teeeest.unity
-    guid: f217115a68ee0f9459dd5bd77192cdae
-  - enabled: 0
-    path: Assets/Plugins/TypedScenes/Samples/SampleScene.unity
-    guid: b3142ea3a77ad3a418e6bc7c16eeaa53
   m_configObjects: {}

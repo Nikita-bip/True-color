@@ -7,7 +7,7 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private TMP_Text _countOfMoneyText;
     [SerializeField] private AudioSource _myFX;
     [SerializeField] private AudioClip _win;
-    [SerializeField] private Movement _movement;
+    [SerializeField] private Movement[] _movements;
     [SerializeField] private GameObject _joystick;
     [SerializeField] private GameObject _switcher;
     [SerializeField] private Finish _finish;
@@ -37,7 +37,6 @@ public class FinishPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        _movement.enabled = false;
         _joystick.SetActive(false);
         _switcher.SetActive(false);
         GenerateCountOfMoney();
@@ -45,12 +44,12 @@ public class FinishPanel : MonoBehaviour
         SaveScore();
     }
 
-    public static void SaveScore()
+    private void SaveScore()
     {
         CountLevel++;
-
+        PlayerData.Instance.Money += _countOfMoney;
         PlayerPrefs.SetInt(Constantes.StrCountLevel, PlayerPrefs.GetInt(Constantes.StrCountLevel) + CountLevel);
-        PlayerPrefs.SetInt(Constantes.StrCountMoney, PlayerPrefs.GetInt(Constantes.StrCountMoney) + _countOfMoney);
+        //PlayerPrefs.SetInt(Constantes.StrCountMoney, PlayerPrefs.GetInt(Constantes.StrCountMoney) + _countOfMoney);
 
         PlayerPrefs.Save();
 

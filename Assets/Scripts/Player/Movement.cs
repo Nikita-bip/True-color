@@ -6,6 +6,8 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float _speedMove;
     [SerializeField] private Joystick _joystick;
+    [SerializeField] private Finish _finish;
+    [SerializeField] private Dead _dead;
 
     private float _gravityForce;
     private Vector3 _moveVector;
@@ -20,6 +22,11 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if ((_finish.IsFinished == true)||(_dead.IsDead == true))
+        {
+            _speedMove = 0f;
+        }
+
         MoveByJoystick();
         MoveByKeyboard();
     }
