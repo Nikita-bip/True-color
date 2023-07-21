@@ -14,7 +14,6 @@ public class SpawnPlane : MonoBehaviour
     private int _indexOfColor = 0;
     private int _selectedColorNumber = 0;
 
-
     private void Start()
     {
         _countOfPlane = _plane.Length;
