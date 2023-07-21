@@ -22,82 +22,61 @@ public class SpawnPlane : MonoBehaviour
         PaintPlane();
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
-
     private void Update()
     {
-        if (_timer.IsTimerZero == true)
-        {
-            if (_selectedColorNumber > _selectColor.Length)
-            {
-                _selectedColorNumber = 0;
-            }
-            else
-            {
-                _selectedColorNumber++;
-                Debug.Log(_selectedColorNumber);
-            }
-        }
-
-        SwitchPlane();
+        //Debug.Log($"{_selectedColorNumber}");
     }
 
-    private void SwitchPlane()
+    private void OnEnable()
+    {
+        _timer.IsZero += SwitchPlane;
+        _timer.Restarted += IncreaseColorNumber;
+    }
+
+    private void OnDisable()
+    {
+        _timer.IsZero -= SwitchPlane;
+        _timer.Restarted -= IncreaseColorNumber;
+    }
+
+    private void SwitchPlane(bool zero)
     {
         for (int i = 0; i < _plane.Length; i++)
         {
-
-            if (_timer.CountOfSeconds == 0)
+            if (zero == true)
             {
-                //Invoke("AddScores", 0f);
+                if (_selectedColorNumber >= _selectColor.Length)
+                {
+                    _selectedColorNumber = 0;
+                }
 
                 if (_plane[i].GetComponent<MeshRenderer>().sharedMaterial == _selectColor[_selectedColorNumber])
                 {
                     _plane[i].SetActive(true);
+                    Debug.Log($"{_selectedColorNumber}");
                 }
                 else
                 {
                     _plane[i].SetActive(false);
                 }
-                //StartCoroutine(AddScore());
             }
-
-            if (_timer.CountOfSeconds > 0)
+            else
             {
                 _plane[i].SetActive(true);
             }
         }
     }
 
-    private IEnumerator AddScore()
+    private void IncreaseColorNumber(bool restart)
     {
-        //while (true)
-        //{
-            if (_selectedColorNumber > _selectColor.Length)
+        if (restart == true)
+        {
+            _selectedColorNumber++;
+
+            if (_selectedColorNumber >= _selectColor.Length)
             {
                 _selectedColorNumber = 0;
             }
-            else
-            {
-                _selectedColorNumber++;
-                Debug.Log(_selectedColorNumber);
-            }
-
-            yield return new WaitForSeconds(1f);
-        //}
-    }
-
-    private void AddScores()
-    {
-        _selectedColorNumber++;
-        Debug.Log(_selectedColorNumber);
-
-        if (_selectedColorNumber > _selectColor.Length)
-        {
-            _selectedColorNumber = 0;
         }
     }
 

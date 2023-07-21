@@ -1047,8 +1047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerText: {fileID: 7938425301762920791}
-  TimeStart: 3
-  CountOfSeconds: 0
+  _timeStart: 3
 --- !u!1 &7938425302930787671
 GameObject:
   m_ObjectHideFlags: 0
