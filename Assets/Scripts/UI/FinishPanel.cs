@@ -10,6 +10,7 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private Movement[] _movements;
     [SerializeField] private GameObject _joystick;
     [SerializeField] private GameObject _switcher;
+    [SerializeField] private GameObject _color;
     [SerializeField] private Finish _finish;
 
     private Animator _animator;
@@ -39,6 +40,7 @@ public class FinishPanel : MonoBehaviour
     {
         _joystick.SetActive(false);
         _switcher.SetActive(false);
+        _color.SetActive(false);
         GenerateCountOfMoney();
         _myFX.PlayOneShot(_win);
         SaveScore();
@@ -48,7 +50,8 @@ public class FinishPanel : MonoBehaviour
     {
         CountLevel++;
         PlayerData.Instance.Money += _countOfMoney;
-        PlayerPrefs.SetInt(Constantes.StrCountLevel, PlayerPrefs.GetInt(Constantes.StrCountLevel) + CountLevel);
+        PlayerData.Instance.Level += 1;
+        //PlayerPrefs.SetInt(Constantes.StrCountLevel, PlayerPrefs.GetInt(Constantes.StrCountLevel) + CountLevel);
         //PlayerPrefs.SetInt(Constantes.StrCountMoney, PlayerPrefs.GetInt(Constantes.StrCountMoney) + _countOfMoney);
 
         PlayerPrefs.Save();

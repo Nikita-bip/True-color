@@ -5,43 +5,55 @@ using UnityEngine.UI;
 public class SelectedColor : MonoBehaviour
 {
     [SerializeField] private Image _background;
-    [SerializeField] private TMP_Text _text;
     [SerializeField] private Material[] _colorsBackground;
-    [SerializeField] private Material[] _colorsText;
-    [SerializeField] private TMP_Text _timer;
+    [SerializeField] private Timer _timer;
 
-    private void Update()
+    private int _selectedColor = 0;
+    private bool _flag = true;
+
+    private void Start()
     {
-        if (_timer.text == "5")
+        _background.material = _colorsBackground[_selectedColor];
+    }
+
+    private void OnEnable()
+    {
+        _timer.Restarted += IncreaseColor;
+        _timer.IsZero += SwitchColor;
+    }
+
+    private void OnDisable()
+    {
+        _timer.Restarted -= IncreaseColor;
+        _timer.IsZero -= SwitchColor;
+    }
+
+    private void IncreaseColor(bool restart)
+    {
+        if (restart == true & _flag == true)
         {
-            GenerateRandom();
+            _selectedColor++;
+            Debug.Log($"ïëþñ öâåò");
+
+            _flag = false; //ÎÒÐÅÄÀÊÒÈÐÎÂÀÒÜ!
+
+            if (_selectedColor >= _colorsBackground.Length)
+            {
+                _selectedColor = 0;
+            }
+        }
+
+        if (restart == false)
+        {
+            _flag = true;
         }
     }
 
-    private void GenerateRandom()
+    private void SwitchColor(bool zero)
     {
-        for (int i = 0; i < _colorsBackground.Length; i++)
+        if (zero == false)
         {
-            _background.material = _colorsBackground[i];
-        }
-
-        for (int i = 0; i < _colorsText.Length; i++)
-        {
-            _text.color = _colorsText[i].color;
+            _background.material = _colorsBackground[_selectedColor];
         }
     }
-
-        //int rightColorBackground = Random.Range(0, _colors.Length);
-        //int rightColorText = Random.Range(0, _colors.Length);
-
-        //if (rightColorBackground != rightColorText)
-        //{
-        //    _text.color = _colors[rightColorText].color;
-        //    _background.material = _colors[rightColorBackground];
-        //}
-        //else 
-        //{
-        //    Debug.Log("Îäèíàêîâûå öâåòà");
-        //}
-
 }

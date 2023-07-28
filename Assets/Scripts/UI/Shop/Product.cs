@@ -12,6 +12,7 @@ public class Product : MonoBehaviour
     [SerializeField] private GameObject _iconCheck;
     [SerializeField] private GameObject _iconLock;
     [SerializeField] private GameObject _adIcon;
+    [SerializeField] private GameObject _coinIcon;
     [SerializeField] private TMP_Text _cost;
 
     private Price _price;
@@ -61,6 +62,7 @@ public class Product : MonoBehaviour
     {
         _iconLock.SetActive(false);
         _adIcon.SetActive(false);
+        _coinIcon.SetActive(false);
         _cost.text = "";
     }
 

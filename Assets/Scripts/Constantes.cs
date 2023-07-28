@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Constantes : MonoBehaviour
 {
-    public const string Level = "Level";
     public const string StrCountLevel = "CountLevel";
     public const string StrCountMoney = "Money";
     public const string StrMove = "Move";

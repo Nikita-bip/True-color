@@ -13,17 +13,14 @@ public class SpawnPlane : MonoBehaviour
     private int _counter = 0;
     private int _indexOfColor = 0;
     private int _selectedColorNumber = 0;
+    private bool _flag = true;
+
 
     private void Start()
     {
         _countOfPlane = _plane.Length;
         _countOfColors = _colors.Length;
         PaintPlane();
-    }
-
-    private void Update()
-    {
-        //Debug.Log($"{_selectedColorNumber}");
     }
 
     private void OnEnable()
@@ -44,15 +41,10 @@ public class SpawnPlane : MonoBehaviour
         {
             if (zero == true)
             {
-                if (_selectedColorNumber >= _selectColor.Length)
-                {
-                    _selectedColorNumber = 0;
-                }
-
                 if (_plane[i].GetComponent<MeshRenderer>().sharedMaterial == _selectColor[_selectedColorNumber])
                 {
                     _plane[i].SetActive(true);
-                    Debug.Log($"{_selectedColorNumber}");
+                    //Debug.Log($"{_selectedColorNumber}");
                 }
                 else
                 {
@@ -68,14 +60,22 @@ public class SpawnPlane : MonoBehaviour
 
     private void IncreaseColorNumber(bool restart)
     {
-        if (restart == true)
+        if (restart == true & _flag == true)
         {
             _selectedColorNumber++;
+            Debug.Log($"ïëþñ");
+
+            _flag = false; //ÎÒÐÅÄÀÊÒÈÐÎÂÀÒÜ!
 
             if (_selectedColorNumber >= _selectColor.Length)
             {
                 _selectedColorNumber = 0;
             }
+        }
+
+        if (restart == false)
+        {
+            _flag = true;
         }
     }
 

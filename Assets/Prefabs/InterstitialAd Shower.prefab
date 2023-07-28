@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSources:
   - {fileID: 0}
+  - {fileID: 0}
   _volumes:
-  - 0.2
+  - 0.04
+  - 0.04
   _audioListener: {fileID: 0}

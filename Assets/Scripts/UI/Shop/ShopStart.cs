@@ -5,7 +5,7 @@ using TMPro;
 public class ShopStart : MonoBehaviour
 {
     [SerializeField] private PlayerData _playerData;
-    [SerializeField] private ShopTestt _shop;
+    [SerializeField] private ShopTest _shop;
     [SerializeField] private TMP_Text _money;
 
     private void Awake()

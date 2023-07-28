@@ -8,6 +8,7 @@ public class LosePanel : MonoBehaviour
     [SerializeField] private Movement[] _movements;
     [SerializeField] private GameObject _joystick;
     [SerializeField] private GameObject _switcher;
+    [SerializeField] private GameObject _color;
     [SerializeField] private Dead _dead;
 
     private Animator _animator;
@@ -33,6 +34,7 @@ public class LosePanel : MonoBehaviour
         }
 
         _switcher.SetActive(false);
+        _color.SetActive(false);
         _joystick.SetActive(false);
         _myFX.PlayOneShot(_lose);
     }

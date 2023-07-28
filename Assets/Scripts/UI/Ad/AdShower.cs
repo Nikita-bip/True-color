@@ -33,7 +33,7 @@ public abstract class AdShower : MonoBehaviour
         for (var i = 0; i < s_audioSources.Length; i++)
             s_audioSources[i].volume = s_volumes[i];
 
-        PlayerPrefs.SetInt(Constantes.StrCountMoney, PlayerPrefs.GetInt(Constantes.StrCountMoney) + 100);
+        PlayerData.Instance.Money += 50;
         PlayerPrefs.Save();
     }
 

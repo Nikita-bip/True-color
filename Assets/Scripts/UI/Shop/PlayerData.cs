@@ -8,26 +8,15 @@ using System;
 
 public class PlayerData : MonoBehaviour, IDisposable
 {
-    private const string LevelKey = "Level";
-    private const string MusicKey = "Music";
-    private const string SFXKey = "SFX";
-    private const string LocalizationKey = "Localization";
-    private const string SelectedCarKey = "Car";
+    private const string SelectedCharacterKey = "Character";
     private const string ConditionsForCharactersKey = "Conditions";
 
-    private const int MoneyDefault = 100;
-    private const int LevelDefault = 1;
-    private const bool MusicDefault = true;
-    private const bool SFXDefault = true;
     private const int SelectedCharacterDefault = 0;
 
     public static PlayerData Instance { get; private set; }
 
     private int _money;
     private int _level;
-    private bool _isMusicOn;
-    private bool _isSFXOn;
-    private string _currentLocalization;
     private int _selectedCharacter;
     private Dictionary<PlayerCharacterName, int> _conditionsForCharacters = new Dictionary<PlayerCharacterName, int>();
 
@@ -48,46 +37,15 @@ public class PlayerData : MonoBehaviour, IDisposable
         }
     }
 
-    public int Level => _level;
-
-    public bool IsMusicOn
+    public int Level
     {
         get
         {
-            return _isMusicOn;
+            return _level;
         }
         set
         {
-            _isMusicOn = value;
-            MusicStatusChange?.Invoke();
-            SaveData();
-        }
-    }
-
-    public bool IsSFXOn
-    {
-        get
-        {
-            return _isSFXOn;
-        }
-        set
-        {
-            _isSFXOn = value;
-            SFXStatusChange?.Invoke();
-            SaveData();
-        }
-    }
-
-    public string CurrentLocalization
-    {
-        get
-        {
-            return _currentLocalization;
-        }
-        set
-        {
-            _currentLocalization = value;
-            LanguageChange?.Invoke(_currentLocalization);
+            _level += value;
         }
     }
 
@@ -102,7 +60,7 @@ public class PlayerData : MonoBehaviour, IDisposable
             if (0 <= value)
                 _selectedCharacter = value;
             else
-                throw new RankException("Incorrect value of car type!");
+                throw new RankException("Incorrect value of character type!");
         }
     }
 
@@ -110,10 +68,7 @@ public class PlayerData : MonoBehaviour, IDisposable
 
     public bool IsDataLoaded { get; private set; } = false;
 
-    public event UnityAction MusicStatusChange;
-    public event UnityAction SFXStatusChange;
     public event UnityAction<int> MoneyChanged;
-    public event UnityAction<string> LanguageChange;
 
     public void Init()
     {
@@ -131,7 +86,7 @@ public class PlayerData : MonoBehaviour, IDisposable
     public void ChangeConditionForCharacter(PlayerCharacterName type)
     {
         if (_conditionsForCharacters[type] - 1 < 0)
-            throw new RankException("Incorrect value for the car condition");
+            throw new RankException("Incorrect value for the character condition");
 
         _conditionsForCharacters[type]--;
     }
@@ -139,11 +94,8 @@ public class PlayerData : MonoBehaviour, IDisposable
     public void SaveData()
     {
         PlayerPrefs.SetInt(Constantes.StrCountMoney, _money);
-        PlayerPrefs.SetInt(LevelKey, _level);
-        PlayerPrefs.SetInt(MusicKey, Convert.ToInt32(_isMusicOn));
-        PlayerPrefs.SetInt(SFXKey, Convert.ToInt32(_isSFXOn));
-        PlayerPrefs.SetString(LocalizationKey, _currentLocalization);
-        PlayerPrefs.SetInt(SelectedCarKey, _selectedCharacter);
+        PlayerPrefs.SetInt(Constantes.StrCountLevel, _level);
+        PlayerPrefs.SetInt(SelectedCharacterKey, _selectedCharacter);
         PlayerPrefs.SetString(ConditionsForCharactersKey, ConvertConditionsForCharacterToString());
 
         PlayerPrefs.Save();
@@ -152,12 +104,9 @@ public class PlayerData : MonoBehaviour, IDisposable
     private void LoadData()
     {
         _money = PlayerPrefs.GetInt(Constantes.StrCountMoney);
-        _money = 12_345;
-        _level = PlayerPrefs.HasKey(LevelKey) ? PlayerPrefs.GetInt(LevelKey) : LevelDefault;
-        _isMusicOn = PlayerPrefs.HasKey(MusicKey) ? Convert.ToBoolean(PlayerPrefs.GetInt(MusicKey)) : MusicDefault;
-        _isSFXOn = PlayerPrefs.HasKey(SFXKey) ? Convert.ToBoolean(PlayerPrefs.GetInt(SFXKey)) : SFXDefault;
-        _currentLocalization = PlayerPrefs.HasKey(LocalizationKey) ? PlayerPrefs.GetString(LocalizationKey) : "English";
-        _selectedCharacter = PlayerPrefs.HasKey(SelectedCarKey) ? PlayerPrefs.GetInt(SelectedCarKey) : SelectedCharacterDefault;
+        //_level = PlayerPrefs.HasKey(Constantes.Level) ? PlayerPrefs.GetInt(Constantes.StrCountLevel) : LevelDefault;
+        _level = PlayerPrefs.GetInt(Constantes.StrCountLevel);
+        _selectedCharacter = PlayerPrefs.HasKey(SelectedCharacterKey) ? PlayerPrefs.GetInt(SelectedCharacterKey) : SelectedCharacterDefault;
         LoadConditionsForCharacters();
 
         IsDataLoaded = true;
@@ -222,10 +171,10 @@ public class PlayerData : MonoBehaviour, IDisposable
     [ContextMenu("Reset Data")]
     private void ResetData()
     {
-        _level = LevelDefault;
-        _isMusicOn = MusicDefault;
-        _isSFXOn = SFXDefault;
-        _currentLocalization = "English";
+        //_level = LevelDefault;
+        //_isMusicOn = MusicDefault;
+        //_isSFXOn = SFXDefault;
+        //_currentLocalization = "English";
         _selectedCharacter = SelectedCharacterDefault;
         LoadConditionsFromPriceList();
 

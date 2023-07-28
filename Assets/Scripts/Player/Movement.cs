@@ -27,8 +27,17 @@ public class Movement : MonoBehaviour
             _speedMove = 0f;
         }
 
-        MoveByJoystick();
-        MoveByKeyboard();
+        if (Application.isMobilePlatform)
+        {
+            MoveByJoystick();
+        }
+        else
+        {
+            _joystick.gameObject.SetActive(false);
+            MoveByKeyboard();
+        }
+        //MoveByJoystick();
+        //MoveByKeyboard();
     }
 
     private void Update()

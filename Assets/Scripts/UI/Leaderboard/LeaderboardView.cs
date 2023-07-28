@@ -49,6 +49,7 @@ public class LeaderboardView : MonoBehaviour
         _leaderboardButton.gameObject.SetActive(true);
         _shopButton.gameObject.SetActive(true);
         _cube.gameObject.SetActive(true);
+        PlayerPrefs.Save();
     }
 
     private void OpenAnimation()
@@ -69,6 +70,8 @@ public class LeaderboardView : MonoBehaviour
 
             _spawnedPlayerViews.Add(leaderboardPlayerView);
         }
+
+        PlayerPrefs.Save();
     }
 
     private void Clear()

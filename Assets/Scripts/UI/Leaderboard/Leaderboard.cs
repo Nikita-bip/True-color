@@ -46,7 +46,7 @@ public class Leaderboard : MonoBehaviour
                 _leaderboardPlayers.Add(new LeaderboardPlayer(playerName, score));
             }
             _leaderboardView.Create(_leaderboardPlayers);
-            PlayerPrefs.Save();
         });
+        PlayerPrefs.Save();
     }
 }
