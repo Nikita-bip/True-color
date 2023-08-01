@@ -45,7 +45,8 @@ public class PlayerData : MonoBehaviour, IDisposable
         }
         set
         {
-            _level += value;
+            _level = value;
+            SaveLevel();
         }
     }
 
@@ -69,6 +70,7 @@ public class PlayerData : MonoBehaviour, IDisposable
     public bool IsDataLoaded { get; private set; } = false;
 
     public event UnityAction<int> MoneyChanged;
+    public event UnityAction<int> LevelChanged;
 
     public void Init()
     {
@@ -158,6 +160,12 @@ public class PlayerData : MonoBehaviour, IDisposable
 
         string result = String.Join(';', data.ToArray());
         return result;
+    }
+
+    private void SaveLevel()
+    {
+        PlayerPrefs.SetInt(Constantes.StrCountLevel, PlayerPrefs.GetInt(Constantes.StrCountLevel) + _level);
+        PlayerPrefs.Save();
     }
 
     private void SaveMoney()

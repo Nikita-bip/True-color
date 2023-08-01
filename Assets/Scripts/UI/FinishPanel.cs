@@ -12,10 +12,12 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private GameObject _switcher;
     [SerializeField] private GameObject _color;
     [SerializeField] private Finish _finish;
+    [SerializeField] private GameObject _timer;
+    [SerializeField] private InterstitialAdShower _interstitialAdShower;
 
     private Animator _animator;
-    private static int _countOfMoney;
-    public static int CountLevel { get; private set; }
+    private int _countOfMoney;
+    private static int CountLevel;
 
     private void Start()
     {
@@ -41,9 +43,15 @@ public class FinishPanel : MonoBehaviour
         _joystick.SetActive(false);
         _switcher.SetActive(false);
         _color.SetActive(false);
+        _timer.SetActive(false);
         GenerateCountOfMoney();
         _myFX.PlayOneShot(_win);
         SaveScore();
+    }
+
+    private void OnDisable()
+    {
+        _interstitialAdShower.Show();
     }
 
     private void SaveScore()
@@ -51,11 +59,12 @@ public class FinishPanel : MonoBehaviour
         CountLevel++;
         PlayerData.Instance.Money += _countOfMoney;
         PlayerData.Instance.Level += 1;
-        //PlayerPrefs.SetInt(Constantes.StrCountLevel, PlayerPrefs.GetInt(Constantes.StrCountLevel) + CountLevel);
-        //PlayerPrefs.SetInt(Constantes.StrCountMoney, PlayerPrefs.GetInt(Constantes.StrCountMoney) + _countOfMoney);
+        PlayerPrefs.SetInt(Constantes.StrCountLevel, PlayerPrefs.GetInt(Constantes.StrCountLevel) + CountLevel);
+        ////PlayerPrefs.SetInt(Constantes.StrCountMoney, PlayerPrefs.GetInt(Constantes.StrCountMoney) + _countOfMoney);
 
+        //PlayerPrefs.Save();
+
+        Leaderboard.AddPlayer(PlayerData.Instance.Level);
         PlayerPrefs.Save();
-
-        Leaderboard.AddPlayer(CountLevel);
     }
 }

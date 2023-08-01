@@ -49,6 +49,7 @@ MonoBehaviour:
   _volumeButton: {fileID: 0}
   _audios:
   - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &452437519577145724
 GameObject:
   m_ObjectHideFlags: 0

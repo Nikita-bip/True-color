@@ -41,7 +41,7 @@ public class Leaderboard : MonoBehaviour
                 var playerName = result.entries[i].player.publicName;
 
                 if (string.IsNullOrEmpty(playerName))
-                    playerName = "Anonymous";
+                    playerName = AnonimLanguage.GetAnonymous(PlayerPrefs.GetString(Constantes.Language));
 
                 _leaderboardPlayers.Add(new LeaderboardPlayer(playerName, score));
             }
