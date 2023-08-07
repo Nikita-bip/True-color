@@ -36,9 +36,7 @@ public class Switcher : MonoBehaviour
         if (restart == true & _flag == true)
         {
             _selectedText++;
-            Debug.Log($"ïëþñ òåêñò");
-
-            _flag = false; //ÎÒÐÅÄÀÊÒÈÐÎÂÀÒÜ!
+            _flag = false;
 
             if (_selectedText >= _texts.Length)
             {
