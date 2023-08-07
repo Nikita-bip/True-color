@@ -64,7 +64,7 @@ public class PlayerSelect : MonoBehaviour
 
     public void BuyButtonAction()
     {
-        if (_buyButton.interactable/* && !_characters[_index].inStock*/)
+        if (_buyButton.interactable)
         {
             if (_money > int.Parse(_priceText.text))
             {
@@ -78,14 +78,6 @@ public class PlayerSelect : MonoBehaviour
                 Save();
             }
         }
-
-        //if (_buyButton.interactable && !_characters[_index].isChosen && _characters[_index].inStock)
-        //{
-        //    PlayerPrefs.SetInt(Constantes.StrSelectedScin, _index);
-        //    _buyButton.interactable = false;
-        //    _choosenText.gameObject.SetActive(true);
-        //    _priceText.gameObject.SetActive(false);
-        //}
     }
 
     public void ChoosenButtonAction()
