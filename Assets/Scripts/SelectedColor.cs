@@ -33,10 +33,7 @@ public class SelectedColor : MonoBehaviour
         if (restart == true & _flag == true)
         {
             _selectedColor++;
-            Debug.Log($"ïëþñ öâåò");
-
-            _flag = false; //ÎÒÐÅÄÀÊÒÈÐÎÂÀÒÜ!
-
+            _flag = false;
             if (_selectedColor >= _colorsBackground.Length)
             {
                 _selectedColor = 0;
