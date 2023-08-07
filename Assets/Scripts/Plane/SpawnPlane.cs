@@ -44,7 +44,6 @@ public class SpawnPlane : MonoBehaviour
                 if (_plane[i].GetComponent<MeshRenderer>().sharedMaterial == _selectColor[_selectedColorNumber])
                 {
                     _plane[i].SetActive(true);
-                    //Debug.Log($"{_selectedColorNumber}");
                 }
                 else
                 {
@@ -63,9 +62,7 @@ public class SpawnPlane : MonoBehaviour
         if (restart == true & _flag == true)
         {
             _selectedColorNumber++;
-            Debug.Log($"ïëþñ");
-
-            _flag = false; //ÎÒÐÅÄÀÊÒÈÐÎÂÀÒÜ!
+            _flag = false;
 
             if (_selectedColorNumber >= _selectColor.Length)
             {
