@@ -1,44 +1,78 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class AdShower : MonoBehaviour
 {
+    [SerializeField] private AudioSource[] _audioSources;
+    [SerializeField] private float[] _volumes;
     [SerializeField] private AudioListener _audioListener;
 
-    private Volume _volume;
+    private static AudioSource[] s_audioSources;
+    private static float[] s_volumes;
+    private bool _isMuted;
 
-    private void Start()
+    protected void OnOpenCallback()
     {
-        _volume = GetComponent<Volume>();
+        PauseGame();
     }
 
-    public abstract void Show();
+    protected void OnCloseCallback()
+    {
+        ContinueGame();
+    }
 
-    protected void OnOpenCallBack()
+    protected void OnOpenCallbackInLevel()
+    {
+        foreach (var audioSource in _audioSources)
+            audioSource.volume = 0;
+
+        PauseGame();
+    }
+
+    protected void OnCloseCallbackInLevel(bool isClosed)
+    {
+        for (var i = 0; i < s_audioSources.Length; i++)
+            s_audioSources[i].volume = s_volumes[i];
+
+        ContinueGame();
+
+        int nextLevel = UnityEngine.Random.Range(3, 13);
+
+        SceneManager.LoadScene(nextLevel);
+        PlayerPrefs.Save();
+    }
+
+    protected void OnCloseCallBackReward()
+    {
+        PlayerData.Instance.Money += 50;
+        PlayerPrefs.Save();
+    }
+
+    protected void OnErrorCallback(string errorMessage)
+    {
+        ContinueGame();
+    }
+
+    private void ContinueGame()
+    {
+        Time.timeScale = 1;
+
+        if (_isMuted)
+            return;
+
+        _audioListener.enabled = true;
+        SoundMuter.Unmute();
+    }
+
+    private void PauseGame()
     {
         Time.timeScale = 0;
 
+        _isMuted = SoundMuter.IsMuted;
+
         _audioListener.enabled = false;
-        _volume.IsOn = false;
+        SoundMuter.Mute();
     }
 
-    protected void OnCloseCallBack()
-    {
-        Time.timeScale = 1;
-
-        _audioListener.enabled = true;
-        _volume.IsOn = true;
-    }
-
-    protected void OnCloseCallBack(bool state)
-    {
-        if (state)
-            return;
-
-        Time.timeScale = 1;
-
-        _audioListener.enabled = true;
-        _volume.IsOn = true;
-    }
+    public abstract void Show();
 }
