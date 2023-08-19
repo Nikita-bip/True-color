@@ -4,6 +4,6 @@ public class InterstitialAdShower : AdShower
 {
     public override void Show()
     {
-        InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
+        InterstitialAd.Show(OnOpenCallbackInLevel, OnCloseCallbackInLevel, OnErrorCallback);
     }
 }
