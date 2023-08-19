@@ -4,6 +4,6 @@ public class VideoAdShower : AdShower
 {
     public override void Show()
     {
-        VideoAd.Show(OnOpenCallBack, OnCloseCallBackReward);
+        VideoAd.Show(OnOpenCallback, OnCloseCallBackReward, OnCloseCallback);
     }
 }
