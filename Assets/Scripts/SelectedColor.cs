@@ -33,7 +33,10 @@ public class SelectedColor : MonoBehaviour
         {
             _selectedColor++;
             _flag = false;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7fcba35c0f20af8c87af357ea4ab3ee4ccb24927
             if (_selectedColor >= _colorsBackground.Length)
             {
                 _selectedColor = 0;

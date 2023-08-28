@@ -1,6 +1,9 @@
 using Agava.YandexGames.Samples;
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.EventSystems;
+=======
+>>>>>>> 7fcba35c0f20af8c87af357ea4ab3ee4ccb24927
 using UnityEngine.SceneManagement;
 
 public abstract class AdShower : MonoBehaviour
@@ -13,6 +16,7 @@ public abstract class AdShower : MonoBehaviour
     private static AudioSource[] s_audioSources;
     private static float[] s_volumes;
     private bool _isMuted;
+<<<<<<< HEAD
     public static bool IsEnd = true;
 
     private void Update()
@@ -45,6 +49,16 @@ public abstract class AdShower : MonoBehaviour
         for (var i = 0; i < s_audioSources.Length; i++)
             s_audioSources[i].volume = s_volumes[i];
 
+=======
+
+    protected void OnOpenCallback()
+    {
+        PauseGame();
+    }
+
+    protected void OnCloseCallback()
+    {
+>>>>>>> 7fcba35c0f20af8c87af357ea4ab3ee4ccb24927
         ContinueGame();
     }
 
@@ -87,7 +101,10 @@ public abstract class AdShower : MonoBehaviour
         if (_isMuted)
             return;
 
+<<<<<<< HEAD
         IsEnd = true;
+=======
+>>>>>>> 7fcba35c0f20af8c87af357ea4ab3ee4ccb24927
         _audioListener.enabled = true;
         SoundMuter.Unmute();
     }
@@ -98,10 +115,17 @@ public abstract class AdShower : MonoBehaviour
 
         _isMuted = SoundMuter.IsMuted;
 
+<<<<<<< HEAD
         IsEnd = false;
+=======
+>>>>>>> 7fcba35c0f20af8c87af357ea4ab3ee4ccb24927
         _audioListener.enabled = false;
         SoundMuter.Mute();
     }
 
     public abstract void Show();
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7fcba35c0f20af8c87af357ea4ab3ee4ccb24927

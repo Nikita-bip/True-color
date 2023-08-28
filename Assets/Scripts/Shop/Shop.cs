@@ -110,28 +110,6 @@ public class Shop : MonoBehaviour
 
     private void UpdateUI()
     {
-        //ScinBlueprint scin = _scins[_scinIndex];
-        _countOfMoney.text = PlayerPrefs.GetInt(Constantes.StrCountMoney).ToString();
-
-        //if (scin.isUnlocked)
-        //{
-        //    _buyButton.gameObject.SetActive(false);
-
-        //}
-        //else
-        //{
-        //    _buyButton.gameObject.SetActive(true);
-        //    _buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "" + scin.price;
-
-        //    if (PlayerPrefs.GetInt(Constantes.StrCountMoney, 0) > scin.price)
-        //    {
-        //        _buyButton.interactable = true;
-
-        //    }
-        //    else
-        //    {
-        //        _buyButton.interactable = false;
-        //    }
-        //}
+        _countOfMoney.text = PlayerPrefs.GetInt(Constantes.StrCountMoney).ToString()
     }
 }

@@ -35,4 +35,8 @@ public class LoadingScreen : MonoBehaviour
             yield return null;
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7fcba35c0f20af8c87af357ea4ab3ee4ccb24927

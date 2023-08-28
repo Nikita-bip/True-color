@@ -20,6 +20,5 @@ namespace Agava.YandexGames.Samples
         {
             SceneManager.LoadScene(Constantes.StrMainMenuScene);
         }
-
     }
 }
