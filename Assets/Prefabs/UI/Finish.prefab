@@ -127,6 +127,7 @@ MonoBehaviour:
   _switcher: {fileID: 0}
   _color: {fileID: 0}
   _finish: {fileID: 0}
+  _timer: {fileID: 0}
   _interstitialAdShower: {fileID: 0}
 --- !u!1 &2470414224724959430
 GameObject:
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 94.25
+  m_fontSize: 69
   m_fontSizeBase: 78
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -372,7 +373,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 118.5
+  m_fontSize: 94.35
   m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -567,6 +568,7 @@ GameObject:
   - component: {fileID: 2470414225524490992}
   - component: {fileID: 2129307410}
   - component: {fileID: 2129307412}
+  - component: {fileID: 818632613508646873}
   m_Layer: 5
   m_Name: Next
   m_TagString: Untagged
@@ -744,6 +746,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &818632613508646873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2470414225524490997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c8cbc1b77e4fc438a8b3e67c0da2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interstitialAdShower: {fileID: 0}
 --- !u!1 &2470414225603569982
 GameObject:
   m_ObjectHideFlags: 0

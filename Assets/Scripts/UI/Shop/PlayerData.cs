@@ -106,7 +106,6 @@ public class PlayerData : MonoBehaviour, IDisposable
     private void LoadData()
     {
         _money = PlayerPrefs.GetInt(Constantes.StrCountMoney);
-        //_level = PlayerPrefs.HasKey(Constantes.Level) ? PlayerPrefs.GetInt(Constantes.StrCountLevel) : LevelDefault;
         _level = PlayerPrefs.GetInt(Constantes.StrCountLevel);
         _selectedCharacter = PlayerPrefs.HasKey(SelectedCharacterKey) ? PlayerPrefs.GetInt(SelectedCharacterKey) : SelectedCharacterDefault;
         LoadConditionsForCharacters();
@@ -179,10 +178,6 @@ public class PlayerData : MonoBehaviour, IDisposable
     [ContextMenu("Reset Data")]
     private void ResetData()
     {
-        //_level = LevelDefault;
-        //_isMusicOn = MusicDefault;
-        //_isSFXOn = SFXDefault;
-        //_currentLocalization = "English";
         _selectedCharacter = SelectedCharacterDefault;
         LoadConditionsFromPriceList();
 

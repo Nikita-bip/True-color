@@ -49,10 +49,10 @@ public class FinishPanel : MonoBehaviour
         SaveScore();
     }
 
-    private void OnDisable()
-    {
-        _interstitialAdShower.Show();
-    }
+    //private void OnDisable()
+    //{
+    //    _interstitialAdShower.Show();
+    //}
 
     private void SaveScore()
     {
@@ -60,10 +60,6 @@ public class FinishPanel : MonoBehaviour
         PlayerData.Instance.Money += _countOfMoney;
         PlayerData.Instance.Level += 1;
         PlayerPrefs.SetInt(Constantes.StrCountLevel, PlayerPrefs.GetInt(Constantes.StrCountLevel) + CountLevel);
-        ////PlayerPrefs.SetInt(Constantes.StrCountMoney, PlayerPrefs.GetInt(Constantes.StrCountMoney) + _countOfMoney);
-
-        //PlayerPrefs.Save();
-
         Leaderboard.AddPlayer(PlayerData.Instance.Level);
         PlayerPrefs.Save();
     }

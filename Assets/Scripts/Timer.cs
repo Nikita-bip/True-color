@@ -1,8 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
-using System;
 
 [RequireComponent(typeof(Animator))]
 public class Timer : MonoBehaviour

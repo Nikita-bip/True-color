@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -9,14 +7,12 @@ public class Switcher : MonoBehaviour
     [SerializeField] private TMP_Text[] _texts;
     [SerializeField] private Timer _timer;
 
-    private Animator _animator;
     private bool _flag = true;
     private int _selectedText = 0;
 
     private void Start()
     {
         _texts[_selectedText].gameObject.SetActive(true);
-        _animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -36,9 +32,7 @@ public class Switcher : MonoBehaviour
         if (restart == true & _flag == true)
         {
             _selectedText++;
-            Debug.Log($"ïëþñ òåêñò");
-
-            _flag = false; //ÎÒÐÅÄÀÊÒÈÐÎÂÀÒÜ!
+            _flag = false;
 
             if (_selectedText >= _texts.Length)
             {

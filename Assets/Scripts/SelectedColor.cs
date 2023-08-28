@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,9 +32,7 @@ public class SelectedColor : MonoBehaviour
         if (restart == true & _flag == true)
         {
             _selectedColor++;
-            Debug.Log($"ïëþñ öâåò");
-
-            _flag = false; //ÎÒÐÅÄÀÊÒÈÐÎÂÀÒÜ!
+            _flag = false;
 
             if (_selectedColor >= _colorsBackground.Length)
             {

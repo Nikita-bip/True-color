@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ((_finish.IsFinished == true)||(_dead.IsDead == true))
+        if ((_finish.IsFinished == true) || (_dead.IsDead == true))
         {
             _speedMove = 0f;
         }
@@ -36,8 +36,6 @@ public class Movement : MonoBehaviour
             _joystick.gameObject.SetActive(false);
             MoveByKeyboard();
         }
-        //MoveByJoystick();
-        //MoveByKeyboard();
     }
 
     private void Update()

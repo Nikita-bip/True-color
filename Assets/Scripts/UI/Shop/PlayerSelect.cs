@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 
@@ -64,28 +63,18 @@ public class PlayerSelect : MonoBehaviour
 
     public void BuyButtonAction()
     {
-        if (_buyButton.interactable/* && !_characters[_index].inStock*/)
+        if (_buyButton.interactable)
         {
             if (_money > int.Parse(_priceText.text))
             {
                 _money -= int.Parse(_priceText.text);
                 _moneyText.text = _money.ToString();
                 PlayerPrefs.SetInt(Constantes.StrCountMoney, _money);
-                //StockCheck[_index] = true;
-                //_characters[_index].inStock = true;
                 _choosenButton.gameObject.SetActive(true);
                 _priceText.gameObject.SetActive(false);
                 Save();
             }
         }
-
-        //if (_buyButton.interactable && !_characters[_index].isChosen && _characters[_index].inStock)
-        //{
-        //    PlayerPrefs.SetInt(Constantes.StrSelectedScin, _index);
-        //    _buyButton.interactable = false;
-        //    _choosenText.gameObject.SetActive(true);
-        //    _priceText.gameObject.SetActive(false);
-        //}
     }
 
     public void ChoosenButtonAction()

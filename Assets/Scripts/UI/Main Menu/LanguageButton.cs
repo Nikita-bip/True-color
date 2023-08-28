@@ -18,6 +18,4 @@ public class LanguageButton : MonoBehaviour
         PlayerPrefs.SetString(Constantes.Language, _language);
         PlayerPrefs.Save();
     }
-
-
 }

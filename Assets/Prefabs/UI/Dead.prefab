@@ -553,7 +553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1557435788728662053
 RectTransform:
   m_ObjectHideFlags: 0
@@ -658,6 +658,7 @@ MonoBehaviour:
   _joystick: {fileID: 0}
   _switcher: {fileID: 0}
   _color: {fileID: 0}
+  _timer: {fileID: 0}
   _dead: {fileID: 0}
 --- !u!1 &1557435788897453620
 GameObject:
