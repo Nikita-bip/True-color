@@ -1,6 +1,5 @@
 using Agava.WebUtility;
 using UnityEngine;
-using Agava.YandexGames;
 
 public class MusicMuter : MonoBehaviour
 {

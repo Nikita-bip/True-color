@@ -1,6 +1,5 @@
 using Agava.YandexGames.Samples;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public abstract class AdShower : MonoBehaviour

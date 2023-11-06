@@ -49,11 +49,6 @@ public class FinishPanel : MonoBehaviour
         SaveScore();
     }
 
-    //private void OnDisable()
-    //{
-    //    _interstitialAdShower.Show();
-    //}
-
     private void SaveScore()
     {
         CountLevel++;
