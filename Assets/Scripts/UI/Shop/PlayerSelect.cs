@@ -1,5 +1,5 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerSelect : MonoBehaviour
@@ -46,6 +46,7 @@ public class PlayerSelect : MonoBehaviour
         {
             _index = _characters.Length - 1;
         }
+
         _characters[_index].SetActive(true);
     }
 
@@ -58,6 +59,7 @@ public class PlayerSelect : MonoBehaviour
         {
             _index = 0;
         }
+
         _characters[_index].SetActive(true);
     }
 

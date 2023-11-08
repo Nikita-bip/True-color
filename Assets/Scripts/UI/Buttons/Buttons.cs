@@ -5,10 +5,14 @@ public class Buttons : MonoBehaviour
 {
     public void PlayGame()
     {
-        if(PlayerPrefs.GetInt(Constantes.StrTutorial) > 0)
+        if (PlayerPrefs.GetInt(Constantes.StrTutorial) > 0)
+        {
             NextLevelButton();
+        }
         else
+        {
             SceneManager.LoadScene(Constantes.StrTutorialScene);
+        }
     }
 
     public void MainMenu()
@@ -20,7 +24,6 @@ public class Buttons : MonoBehaviour
     public void Shop()
     {
         SceneManager.LoadScene(Constantes.StrShopScene);
-
     }
 
     public void NextLevelButton()

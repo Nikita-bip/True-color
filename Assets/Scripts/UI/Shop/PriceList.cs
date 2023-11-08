@@ -19,8 +19,12 @@ public class Price
     [SerializeField] private Sprite _image;
 
     public PlayerCharacterName PlayerCharacterName => _playerCharacterName;
+
     public string NameKey => _nameKey;
+
     public int Cost => cost;
+
     public bool IsBuyForAd => _isBuyForAd;
+
     public Sprite Image => _image;
 }

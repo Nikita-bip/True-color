@@ -1,7 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using System;
 
 public class PlayerData : MonoBehaviour, IDisposable
 {
@@ -9,13 +9,13 @@ public class PlayerData : MonoBehaviour, IDisposable
     private const string ConditionsForCharactersKey = "Conditions";
 
     private const int SelectedCharacterDefault = 0;
-
-    public static PlayerData Instance { get; private set; }
-
     private int _money;
     private int _level;
     private int _selectedCharacter;
     private Dictionary<PlayerCharacterName, int> _conditionsForCharacters = new Dictionary<PlayerCharacterName, int>();
+
+    public static PlayerData Instance { get; private set; }
+    public bool IsDataLoaded { get; private set; } = false;
 
     public int Money
     {
@@ -23,10 +23,13 @@ public class PlayerData : MonoBehaviour, IDisposable
         {
             return _money;
         }
+
         set
         {
             if (value < 0 && value > Int32.MaxValue)
+            {
                 throw new RankException("Incorrect value of money");
+            }
 
             _money = value;
             MoneyChanged?.Invoke(_money);
@@ -40,6 +43,7 @@ public class PlayerData : MonoBehaviour, IDisposable
         {
             return _level;
         }
+
         set
         {
             _level = value;
@@ -53,26 +57,30 @@ public class PlayerData : MonoBehaviour, IDisposable
         {
             return _selectedCharacter;
         }
+
         set
         {
-            if (0 <= value)
+            if (value >= 0)
+            {
                 _selectedCharacter = value;
+            }
             else
+            {
                 throw new RankException("Incorrect value of character type!");
+            }
         }
     }
 
     public IReadOnlyDictionary<PlayerCharacterName, int> ConditionsForCharacters => _conditionsForCharacters;
-
-    public bool IsDataLoaded { get; private set; } = false;
-
     public event UnityAction<int> MoneyChanged;
     public event UnityAction<int> LevelChanged;
 
     public void Init()
     {
         if (Instance == null)
+        {
             Instance = this;
+        }
 
         LoadData();
     }
@@ -85,7 +93,9 @@ public class PlayerData : MonoBehaviour, IDisposable
     public void ChangeConditionForCharacter(PlayerCharacterName type)
     {
         if (_conditionsForCharacters[type] - 1 < 0)
+        {
             throw new RankException("Incorrect value for the character condition");
+        }
 
         _conditionsForCharacters[type]--;
     }
@@ -169,7 +179,6 @@ public class PlayerData : MonoBehaviour, IDisposable
         PlayerPrefs.SetInt(Constantes.StrCountMoney, _money);
         PlayerPrefs.Save();
     }
-
 
 #if UNITY_EDITOR
     [ContextMenu("Reset Data")]

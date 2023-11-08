@@ -14,8 +14,12 @@ public class LeaderboardButton : MonoBehaviour
     private void OpenLoginPanel()
     {
         if (PlayerAccount.IsAuthorized == false)
+        {
             _logInPanel.gameObject.SetActive(true);
+        }
         else
+        {
             _loginAcceptButton.OpenLeaderboard();
+        }
     }
 }

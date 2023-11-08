@@ -70,11 +70,11 @@ public class Movement : MonoBehaviour
 
     private void MoveByJoystick()
     {
-        Vector3 _moveVector = new Vector3(_joystick.Horizontal * _speedMove, 0, _joystick.Vertical * _speedMove);
+        Vector3 moveVector = new Vector3(_joystick.Horizontal * _speedMove, 0, _joystick.Vertical * _speedMove);
 
         if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
         {
-            Vector3 direct = Vector3.RotateTowards(transform.forward, _moveVector, _speedMove, 0.0f);
+            Vector3 direct = Vector3.RotateTowards(transform.forward, moveVector, _speedMove, 0.0f);
             transform.rotation = Quaternion.LookRotation(direct);
             _animator.SetBool(Constantes.StrMoveJoystic, true);
         }
@@ -83,8 +83,8 @@ public class Movement : MonoBehaviour
             _animator.SetBool(Constantes.StrMoveJoystic, false);
         }
 
-        _moveVector.y = _gravityForce;
-        _characterController.Move(_moveVector * Time.fixedDeltaTime);
+        moveVector.y = _gravityForce;
+        _characterController.Move(moveVector * Time.fixedDeltaTime);
     }
 
     private void GamingGravity()

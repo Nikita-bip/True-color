@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class LeaderboardView : MonoBehaviour
 {
+    private const string _openAnimation = nameof(OpenAnimation);
+
     [SerializeField] private LeaderboardPlayerView _leaderboardPlayerView;
     [SerializeField] private CloseButton _closeButton;
     [SerializeField] private GameObject _label;
@@ -17,9 +19,7 @@ public class LeaderboardView : MonoBehaviour
     [SerializeField] private Animator _closeSettingAnimator;
 
     private Animator _animator;
-    private const string _openAnimation = nameof(OpenAnimation);
-
-    private readonly List<LeaderboardPlayerView> _spawnedPlayerViews = new();
+    private readonly List<LeaderboardPlayerView> _spawnedPlayerViews = new ();
 
     private void Start()
     {
@@ -77,7 +77,9 @@ public class LeaderboardView : MonoBehaviour
     private void Clear()
     {
         foreach (var playerView in _spawnedPlayerViews)
+        {
             Destroy(playerView.gameObject);
+        }
 
         _spawnedPlayerViews.Clear();
     }

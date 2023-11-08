@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Setting : MonoBehaviour
 {
+    private const string _openAnimation = nameof(OpenAnimation);
+
     [SerializeField] private SettingsButton _settingsButton;
     [SerializeField] private PlayButton _playButton;
     [SerializeField] private LeaderboardButton _leaderboardButton;
@@ -14,7 +16,6 @@ public class Setting : MonoBehaviour
     [SerializeField] private Animator _closeSettingAnimator;
 
     private Animator _animator;
-    private const string _openAnimation = nameof(OpenAnimation);
 
     private void Start()
     {

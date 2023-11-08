@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LeaderboardScreen : Screen
+public class LeaderboardScreen : ScreenLeaderboard
 {
     [SerializeField] private GameObject _itemContainer;
     [SerializeField] private PlayerView _template;

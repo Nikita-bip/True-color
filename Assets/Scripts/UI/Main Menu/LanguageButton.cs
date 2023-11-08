@@ -1,5 +1,5 @@
-using UnityEngine;
 using Lean.Localization;
+using UnityEngine;
 
 public class LanguageButton : MonoBehaviour
 {

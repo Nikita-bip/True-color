@@ -9,49 +9,45 @@ public abstract class AdShower : MonoBehaviour
     [SerializeField] private AudioListener _audioListener;
     [SerializeField] private WebEventSystem _webEventSystem;
 
-    private static AudioSource[] s_audioSources;
-    private static float[] s_volumes;
-    private bool _isMuted;
     public static bool IsEnd = true;
-
-    private void Update()
-    {
-        if (IsEnd == false & _webEventSystem.isFocused == true)
-        {
-            SoundMuter.Mute();
-        }
-        else
-        {
-            SoundMuter.Unmute();
-        }
-    }
+    private static AudioSource[] _allAudioSources;
+    private static float[] _allVolumes;
+    private bool _isMuted;
 
     protected void OnOpenCallback()
     {
-        for (var i = 0; i < s_audioSources.Length; i++)
-            s_audioSources[i].volume = 0;
+        for (var i = 0; i < _allAudioSources.Length; i++)
+        {
+            _allAudioSources[i].volume = 0;
+        }
 
         PauseGame();
     }
 
     protected void OnCloseCallback()
     {
-        for (var i = 0; i < s_audioSources.Length; i++)
-            s_audioSources[i].volume = s_volumes[i];
+        for (var i = 0; i < _allAudioSources.Length; i++)
+        {
+            _allAudioSources[i].volume = _allVolumes[i];
+        }
     }
 
     protected void OnOpenCallbackInLevel()
     {
         foreach (var audioSource in _audioSources)
+        {
             audioSource.volume = 0;
+        }
 
         PauseGame();
     }
 
     protected void OnCloseCallbackInLevel(bool isClosed)
     {
-        for (var i = 0; i < s_audioSources.Length; i++)
-            s_audioSources[i].volume = s_volumes[i];
+        for (var i = 0; i < _allAudioSources.Length; i++)
+        {
+            _allAudioSources[i].volume = _allVolumes[i];
+        }
 
         ContinueGame();
 
@@ -72,13 +68,29 @@ public abstract class AdShower : MonoBehaviour
         ContinueGame();
     }
 
+    public abstract void Show();
+
+    private void Update()
+    {
+        if (IsEnd == false & _webEventSystem.isFocused == true)
+        {
+            SoundMuter.Mute();
+        }
+        else
+        {
+            SoundMuter.Unmute();
+        }
+    }
+
     private void ContinueGame()
     {
         Time.timeScale = 1;
 
         if (_isMuted)
+        {
             return;
-            
+        }
+
         IsEnd = true;
         _audioListener.enabled = true;
         SoundMuter.Unmute();
@@ -94,6 +106,4 @@ public abstract class AdShower : MonoBehaviour
         _audioListener.enabled = false;
         SoundMuter.Mute();
     }
-
-    public abstract void Show();
 }

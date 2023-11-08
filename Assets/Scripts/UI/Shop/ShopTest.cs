@@ -14,16 +14,6 @@ public class ShopTest : MonoBehaviour
     private Product _currentProduct;
     private Price _currentPrice;
 
-    private void OnDestroy()
-    {
-        foreach (var product in _products)
-        {
-            product.Clicked -= OnProductClicked;
-        }
-
-        _messageBoxBuy.IsConfirmAction -= ProcessingReceivedFromMessageBox;
-    }
-
     public void Init()
     {
         for (int i = 0; i < _priceList.Prices.Count; i++)
@@ -36,7 +26,16 @@ public class ShopTest : MonoBehaviour
 
             _products.Add(product);
         }
+    }
 
+    private void OnDestroy()
+    {
+        foreach (var product in _products)
+        {
+            product.Clicked -= OnProductClicked;
+        }
+
+        _messageBoxBuy.IsConfirmAction -= ProcessingReceivedFromMessageBox;
     }
 
     private void OnProductClicked(Product productItem, Price price)
@@ -46,17 +45,25 @@ public class ShopTest : MonoBehaviour
         _currentPrice = price;
 
         if (PlayerData.Instance.ConditionsForCharacters[characterType] == 0)
+        {
             ChangeSelectCar();
+        }
         else if (price.IsBuyForAd)
+        {
             ShowMessageBoxWatchAd();
+        }
         else
+        {
             TryBuyCharacter();
+        }
     }
 
     private void ChangeSelectCar()
     {
         foreach (var product in _products)
+        {
             product.UnSelect();
+        }
 
         _currentProduct.Select();
         PlayerData.Instance.SelectedCharacter = (int)_currentPrice.PlayerCharacterName;
@@ -67,9 +74,13 @@ public class ShopTest : MonoBehaviour
         bool ñanPay = PlayerData.Instance.Money - _currentPrice.Cost >= 0;
 
         if (ñanPay)
+        {
             ShowMessageBoxBuy();
+        }
         else
+        {
             _messageBoxNotEnoughMoney.ShowMessageBox();
+        }
     }
 
     private void ShowMessageBoxWatchAd()

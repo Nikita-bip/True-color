@@ -14,7 +14,6 @@ public class SpawnPlane : MonoBehaviour
     private int _selectedColorNumber = 0;
     private bool _flag = true;
 
-
     private void Start()
     {
         _countOfPlane = _plane.Length;
@@ -77,14 +76,14 @@ public class SpawnPlane : MonoBehaviour
 
     private void PaintPlane()
     {
-        int _countOfPlanesCertainColor  = _countOfPlane / _countOfColors;
+        int countOfPlanesCertainColor  = _countOfPlane / _countOfColors;
 
         for (int i = 0; i < _plane.Length; i++) 
         {
             _plane[i].GetComponent<MeshRenderer>().material = _colors[_indexOfColor];
             _counter++;
 
-            if (_counter >= _countOfPlanesCertainColor)
+            if (_counter >= countOfPlanesCertainColor)
             {
                 _counter = 0;
                 _indexOfColor++;

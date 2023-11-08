@@ -18,7 +18,7 @@ public class LoginPanel : MonoBehaviour
     }
 
     private void OnDisable()
-    {        
+    {
         _settingsButton.gameObject.SetActive(true);
         _playButton.gameObject.SetActive(true);
         _leaderboardButton.gameObject.SetActive(true);

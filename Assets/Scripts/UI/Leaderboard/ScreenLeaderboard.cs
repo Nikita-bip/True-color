@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Screen : MonoBehaviour
+public abstract class ScreenLeaderboard : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _canvasGroup;
 
@@ -9,6 +9,7 @@ public abstract class Screen : MonoBehaviour
     {
         Close();
     }
+
     public virtual void Open()
     {
         _canvasGroup.alpha = 1.0f;

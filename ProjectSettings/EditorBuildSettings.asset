@@ -47,4 +47,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 67bd0ae323714814d97e5a7aaf2d6ece
+  - enabled: 1
+    path: Assets/Plugins/CW/LeanLocalization/Examples/_12_Dropdown.unity
+    guid: cb79859ae9d9e5c4696efa7bd0958773
+  - enabled: 1
+    path: Assets/Plugins/CW/LeanLocalization/Examples/_02_Phrase.unity
+    guid: ea91da808dcf2284985a69dce68e1cad
   m_configObjects: {}

@@ -1,13 +1,13 @@
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CloseButton : MonoBehaviour
 {
+    private const string _close = nameof(Close);
+
     [SerializeField] private Image _panel;
     [SerializeField] private Animator _settingAnimator;
     [SerializeField] private Animator _labelSettingAnimator;
-
-    private const string _close = nameof(Close);
 
     private Animator _animator;
 

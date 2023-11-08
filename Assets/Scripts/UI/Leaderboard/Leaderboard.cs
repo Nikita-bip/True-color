@@ -1,21 +1,24 @@
+using Agava.YandexGames;
 using System.Collections.Generic;
 using UnityEngine;
-using Agava.YandexGames;
 
 public class Leaderboard : MonoBehaviour
 {
+    private const string LeaderboardName = "TrueColor";
+
     [SerializeField] private LeaderboardView _leaderboardView;
 
-    private const string LeaderboardName = "TrueColor";
     private const int MinPlayersCount = 1;
     private const int MaxPlayersCount = 5;
 
-    private readonly List<LeaderboardPlayer> _leaderboardPlayers = new();
+    private readonly List<LeaderboardPlayer> _leaderboardPlayers = new ();
 
     public static void AddPlayer(int score)
     {
         if (PlayerAccount.IsAuthorized == false)
+        {
             return;
+        }
 
         Agava.YandexGames.Leaderboard.GetPlayerEntry(LeaderboardName, _ =>
         {
@@ -29,7 +32,9 @@ public class Leaderboard : MonoBehaviour
         _leaderboardPlayers.Clear();
 
         if (PlayerAccount.IsAuthorized == false)
+        {
             return;
+        }
 
         Agava.YandexGames.Leaderboard.GetEntries(LeaderboardName, result =>
         {
@@ -41,10 +46,13 @@ public class Leaderboard : MonoBehaviour
                 var playerName = result.entries[i].player.publicName;
 
                 if (string.IsNullOrEmpty(playerName))
+                {
                     playerName = AnonimLanguage.GetAnonymous(PlayerPrefs.GetString(Constantes.Language));
+                }
 
                 _leaderboardPlayers.Add(new LeaderboardPlayer(playerName, score));
             }
+
             _leaderboardView.Create(_leaderboardPlayers);
         });
         PlayerPrefs.Save();

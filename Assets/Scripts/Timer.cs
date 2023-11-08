@@ -1,17 +1,18 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using TMPro;
 
 [RequireComponent(typeof(Animator))]
 public class Timer : MonoBehaviour
 {
+    private const string _restartTimer = nameof(RestartTimer);
+
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private float _timeStart;
 
     private float _countOfSeconds;
     private Animator _animator;
     private float _delay = 1f; 
-    private const string _restartTimer = nameof(RestartTimer);
 
     public event UnityAction<bool> IsZero;
     public event UnityAction<bool> Restarted;

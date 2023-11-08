@@ -1,5 +1,5 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class FinishPanel : MonoBehaviour
@@ -15,9 +15,9 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private GameObject _timer;
     [SerializeField] private InterstitialAdShower _interstitialAdShower;
 
+    private static int CountLevel;
     private Animator _animator;
     private int _countOfMoney;
-    private static int CountLevel;
 
     private void Start()
     {
