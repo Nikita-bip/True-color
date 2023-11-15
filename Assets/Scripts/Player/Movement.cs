@@ -13,6 +13,10 @@ public class Movement : MonoBehaviour
     private Vector3 _moveVector;
     private Animator _animator;
     private CharacterController _characterController;
+    private float _forceOfAttraction = -1f;
+    private float _stopSpeed = 0f;
+    private float _maximumMagnitudeDelta = 0.0f;
+    private float _forceOfWeightlessness = 20f;
 
     private void Start()
     {
@@ -24,7 +28,7 @@ public class Movement : MonoBehaviour
     {
         if ((_finish.IsFinished == true) || (_dead.IsDead == true))
         {
-            _speedMove = 0f;
+            _speedMove = _stopSpeed;
         }
 
         if (Application.isMobilePlatform)
@@ -60,7 +64,7 @@ public class Movement : MonoBehaviour
 
         if (Vector3.Angle(Vector3.forward, _moveVector) > 1f || Vector3.Angle(Vector3.forward, _moveVector) == 0)
         {
-            Vector3 direct = Vector3.RotateTowards(transform.forward, _moveVector, _speedMove, 0.0f);
+            Vector3 direct = Vector3.RotateTowards(transform.forward, _moveVector, _speedMove, _maximumMagnitudeDelta);
             transform.rotation = Quaternion.LookRotation(direct);
         }
 
@@ -74,7 +78,7 @@ public class Movement : MonoBehaviour
 
         if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
         {
-            Vector3 direct = Vector3.RotateTowards(transform.forward, moveVector, _speedMove, 0.0f);
+            Vector3 direct = Vector3.RotateTowards(transform.forward, moveVector, _speedMove, _maximumMagnitudeDelta);
             transform.rotation = Quaternion.LookRotation(direct);
             _animator.SetBool(Constantes.StrMoveJoystic, true);
         }
@@ -91,11 +95,11 @@ public class Movement : MonoBehaviour
     {
         if (!_characterController.isGrounded)
         {
-            _gravityForce -= 20f * Time.deltaTime;
+            _gravityForce -= _forceOfWeightlessness * Time.deltaTime;
         }
         else
         {
-            _gravityForce = -1f;
+            _gravityForce = _forceOfAttraction;
         }
     }
 }

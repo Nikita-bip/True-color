@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerData : MonoBehaviour, IDisposable
+public class PlayerData : MonoBehaviour
 {
     private const string SelectedCharacterKey = "Character";
     private const string ConditionsForCharactersKey = "Conditions";

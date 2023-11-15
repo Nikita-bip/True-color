@@ -33,7 +33,7 @@ public class Product : MonoBehaviour
 
         _iconCheck.SetActive(false);
 
-        var numberOfOperationBeforeBuy = PlayerData.Instance.ConditionsForCharacters[price.PlayerCharacterName];
+        int numberOfOperationBeforeBuy = PlayerData.Instance.ConditionsForCharacters[price.PlayerCharacterName];
 
         if (numberOfOperationBeforeBuy == 0)
         {
@@ -75,7 +75,7 @@ public class Product : MonoBehaviour
 
     public void UpdateCostText()
     {
-        var numberOfOperationBeforeBuy = PlayerData.Instance.ConditionsForCharacters[_price.PlayerCharacterName];
+        int numberOfOperationBeforeBuy = PlayerData.Instance.ConditionsForCharacters[_price.PlayerCharacterName];
         _cost.text = $"{numberOfOperationBeforeBuy} / {_price.Cost}";
     }
 }

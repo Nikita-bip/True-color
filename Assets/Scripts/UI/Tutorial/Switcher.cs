@@ -17,13 +17,13 @@ public class Switcher : MonoBehaviour
 
     private void OnEnable()
     {
-        _timer.Restarted += IncreaseTextNumber;
+        _timer.Restarting += IncreaseTextNumber;
         _timer.IsZero += SwitchText;
     }
 
     private void OnDisable()
     {
-        _timer.Restarted -= IncreaseTextNumber;
+        _timer.Restarting -= IncreaseTextNumber;
         _timer.IsZero -= SwitchText;
     }
 

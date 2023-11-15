@@ -63,9 +63,9 @@ public class LeaderboardView : MonoBehaviour
     {
         Clear();
 
-        foreach (var player in players)
+        foreach (LeaderboardPlayer player in players)
         {
-            var leaderboardPlayerView = Instantiate(_leaderboardPlayerView, transform);
+            LeaderboardPlayerView leaderboardPlayerView = Instantiate(_leaderboardPlayerView, transform);
             leaderboardPlayerView.Init(player.Name, player.Score.ToString());
 
             _spawnedPlayerViews.Add(leaderboardPlayerView);
@@ -76,7 +76,7 @@ public class LeaderboardView : MonoBehaviour
 
     private void Clear()
     {
-        foreach (var playerView in _spawnedPlayerViews)
+        foreach (LeaderboardPlayerView playerView in _spawnedPlayerViews)
         {
             Destroy(playerView.gameObject);
         }

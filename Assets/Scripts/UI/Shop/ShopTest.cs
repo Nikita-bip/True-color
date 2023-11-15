@@ -18,9 +18,9 @@ public class ShopTest : MonoBehaviour
     {
         for (int i = 0; i < _priceList.Prices.Count; i++)
         {
-            var item = _priceList.Prices[i];
+            Price item = _priceList.Prices[i];
 
-            var product = Instantiate(_productTemplate, _conteiner.transform).GetComponent<Product>();
+            Product product = Instantiate(_productTemplate, _conteiner.transform).GetComponent<Product>();
             product.Init(item);
             product.Clicked += OnProductClicked;
 
@@ -35,7 +35,7 @@ public class ShopTest : MonoBehaviour
             product.Clicked -= OnProductClicked;
         }
 
-        _messageBoxBuy.IsConfirmAction -= ProcessingReceivedFromMessageBox;
+        _messageBoxBuy.IsConfirmedAction -= ProcessingReceivedFromMessageBox;
     }
 
     private void OnProductClicked(Product productItem, Price price)
@@ -60,7 +60,7 @@ public class ShopTest : MonoBehaviour
 
     private void ChangeSelectCar()
     {
-        foreach (var product in _products)
+        foreach (Product product in _products)
         {
             product.UnSelect();
         }
@@ -86,19 +86,19 @@ public class ShopTest : MonoBehaviour
     private void ShowMessageBoxWatchAd()
     {
         _messageBoxWatchAd.ShowMessageBox();
-        _messageBoxWatchAd.IsConfirmAction += ProcessingReceivedFromMessageBox;
+        _messageBoxWatchAd.IsConfirmedAction += ProcessingReceivedFromMessageBox;
     }
 
     private void ShowMessageBoxBuy()
     {
         _messageBoxBuy.ShowMessageBox();
-        _messageBoxBuy.IsConfirmAction += ProcessingReceivedFromMessageBox;
+        _messageBoxBuy.IsConfirmedAction += ProcessingReceivedFromMessageBox;
     }
 
     private void ProcessingReceivedFromMessageBox(bool response)
     {
-        _messageBoxWatchAd.IsConfirmAction -= ProcessingReceivedFromMessageBox;
-        _messageBoxBuy.IsConfirmAction -= ProcessingReceivedFromMessageBox;
+        _messageBoxWatchAd.IsConfirmedAction -= ProcessingReceivedFromMessageBox;
+        _messageBoxBuy.IsConfirmedAction -= ProcessingReceivedFromMessageBox;
 
         if (response)
         {

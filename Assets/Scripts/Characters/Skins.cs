@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GarageOfHumans : MonoBehaviour
+public class Skins : MonoBehaviour
 {
     [SerializeField] private List<Character> _characters;
 

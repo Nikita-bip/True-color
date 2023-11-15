@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectedColor : MonoBehaviour
+public class SwitchColor : MonoBehaviour
 {
     [SerializeField] private Image _background;
     [SerializeField] private Material[] _colorsBackground;
@@ -17,14 +17,14 @@ public class SelectedColor : MonoBehaviour
 
     private void OnEnable()
     {
-        _timer.Restarted += IncreaseColor;
-        _timer.IsZero += SwitchColor;
+        _timer.Restarting += IncreaseColor;
+        _timer.IsZero += Switch;
     }
 
     private void OnDisable()
     {
-        _timer.Restarted -= IncreaseColor;
-        _timer.IsZero -= SwitchColor;
+        _timer.Restarting -= IncreaseColor;
+        _timer.IsZero -= Switch;
     }
 
     private void IncreaseColor(bool restart)
@@ -46,7 +46,7 @@ public class SelectedColor : MonoBehaviour
         }
     }
 
-    private void SwitchColor(bool zero)
+    private void Switch(bool zero)
     {
         if (zero == false)
         {

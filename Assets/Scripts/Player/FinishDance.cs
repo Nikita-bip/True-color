@@ -1,9 +1,10 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class CheckedFinish : MonoBehaviour
+public class FinishDance : MonoBehaviour
 {
     [SerializeField] private Finish _finish;
+
     private Animator _animator;
     private int _danceNumber = 2;
 

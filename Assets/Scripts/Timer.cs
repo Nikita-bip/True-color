@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     private float _delay = 1f; 
 
     public event UnityAction<bool> IsZero;
-    public event UnityAction<bool> Restarted;
+    public event UnityAction<bool> Restarting;
 
     private void Start()
     {
@@ -31,7 +31,7 @@ public class Timer : MonoBehaviour
             _countOfSeconds = 0;
             IsZero?.Invoke(true);
             Invoke(_restartTimer, _delay);
-            Restarted?.Invoke(false);
+            Restarting?.Invoke(false);
         }
         else
         {
@@ -44,6 +44,6 @@ public class Timer : MonoBehaviour
     {
         _countOfSeconds = _timeStart;
         IsZero?.Invoke(false);
-        Restarted?.Invoke(true);
+        Restarting?.Invoke(true);
     }
 }

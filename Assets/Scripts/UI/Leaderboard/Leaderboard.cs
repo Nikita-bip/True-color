@@ -38,12 +38,13 @@ public class Leaderboard : MonoBehaviour
 
         Agava.YandexGames.Leaderboard.GetEntries(LeaderboardName, result =>
         {
-            var results = result.entries.Length;
+            int results = result.entries.Length;
             results = Mathf.Clamp(results, MinPlayersCount, MaxPlayersCount);
+
             for (var i = 0; i < results; i++)
             {
-                var score = result.entries[i].score;
-                var playerName = result.entries[i].player.publicName;
+                int score = result.entries[i].score;
+                string playerName = result.entries[i].player.publicName;
 
                 if (string.IsNullOrEmpty(playerName))
                 {

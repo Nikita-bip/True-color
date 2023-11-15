@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class GameStart : MonoBehaviour
+public class LoadSkins : MonoBehaviour
 {
     [SerializeField] private PlayerData _playerData;
-    [SerializeField] private GarageOfHumans _garage;
+    [SerializeField] private Skins _skins;
 
     private void Awake()
     {
@@ -31,6 +31,6 @@ public class GameStart : MonoBehaviour
 
     private void ApplyGameSettings()
     {
-        _garage.Init();
+        _skins.Init();
     }
 }

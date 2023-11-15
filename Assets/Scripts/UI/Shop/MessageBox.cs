@@ -8,7 +8,7 @@ public class MessageBox : MonoBehaviour
     [SerializeField] private Button _buttonClose;
     [SerializeField] private Button _buttonConfirm;
 
-    public event UnityAction<bool> IsConfirmAction;
+    public event UnityAction<bool> IsConfirmedAction;
 
     private void Start()
     {
@@ -29,13 +29,13 @@ public class MessageBox : MonoBehaviour
 
     private void OnButtonCloseClick()
     {
-        IsConfirmAction?.Invoke(false);
+        IsConfirmedAction?.Invoke(false);
         _messageBox.SetActive(false);
     }
 
     private void OnButtonConfirmClick()
     {
-        IsConfirmAction?.Invoke(true);
+        IsConfirmedAction?.Invoke(true);
         _messageBox.SetActive(false);
     }
 }

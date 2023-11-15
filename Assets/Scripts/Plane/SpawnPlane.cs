@@ -24,13 +24,13 @@ public class SpawnPlane : MonoBehaviour
     private void OnEnable()
     {
         _timer.IsZero += SwitchPlane;
-        _timer.Restarted += IncreaseColorNumber;
+        _timer.Restarting += IncreaseColorNumber;
     }
 
     private void OnDisable()
     {
         _timer.IsZero -= SwitchPlane;
-        _timer.Restarted -= IncreaseColorNumber;
+        _timer.Restarting -= IncreaseColorNumber;
     }
 
     private void SwitchPlane(bool zero)
