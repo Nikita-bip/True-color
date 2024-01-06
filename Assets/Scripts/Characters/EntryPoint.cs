@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class LoadSkins : MonoBehaviour
+public class EntryPoint : MonoBehaviour
 {
     [SerializeField] private PlayerData _playerData;
     [SerializeField] private Skins _skins;

@@ -1,39 +1,40 @@
 using UnityEngine;
 
-public class SpawnPlane : MonoBehaviour
+public class PlaneSwither : MonoBehaviour
 {
     [SerializeField] private GameObject[] _plane;
-    [SerializeField] private Material[] _colors;
     [SerializeField] private Material[] _selectColor;
     [SerializeField] private Timer _timer;
+    [SerializeField] private PlanePainter _planePainter;
 
-    private int _countOfPlane;
-    private int _countOfColors;
-    private int _counter = 0;
-    private int _indexOfColor = 0;
     private int _selectedColorNumber = 0;
     private bool _flag = true;
 
+    [HideInInspector] public GameObject[] AllPlanes;
+
+    private void Awake()
+    {
+        AllPlanes = _plane;
+    }
+
     private void Start()
     {
-        _countOfPlane = _plane.Length;
-        _countOfColors = _colors.Length;
-        PaintPlane();
+        _planePainter.Paint();
     }
 
     private void OnEnable()
     {
-        _timer.IsZero += SwitchPlane;
+        _timer.IsZero += Switch;
         _timer.Restarting += IncreaseColorNumber;
     }
 
     private void OnDisable()
     {
-        _timer.IsZero -= SwitchPlane;
+        _timer.IsZero -= Switch;
         _timer.Restarting -= IncreaseColorNumber;
     }
 
-    private void SwitchPlane(bool zero)
+    private void Switch(bool zero)
     {
         for (int i = 0; i < _plane.Length; i++)
         {
@@ -71,28 +72,6 @@ public class SpawnPlane : MonoBehaviour
         if (restart == false)
         {
             _flag = true;
-        }
-    }
-
-    private void PaintPlane()
-    {
-        int countOfPlanesCertainColor  = _countOfPlane / _countOfColors;
-
-        for (int i = 0; i < _plane.Length; i++) 
-        {
-            _plane[i].GetComponent<MeshRenderer>().material = _colors[_indexOfColor];
-            _counter++;
-
-            if (_counter >= countOfPlanesCertainColor)
-            {
-                _counter = 0;
-                _indexOfColor++;
-            }
-
-            if (_indexOfColor >= _colors.Length)
-            {
-                _indexOfColor = 0;
-            }
         }
     }
 }

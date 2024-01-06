@@ -1170,6 +1170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeanLocalization
       objectReference: {fileID: 0}
+    - target: {fileID: 6299502332321805333, guid: 25f13c95720c4a349b9b54c629fa07ce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f13c95720c4a349b9b54c629fa07ce, type: 3}
 --- !u!4 &252061410 stripped
@@ -6537,6 +6541,7 @@ GameObject:
   - component: {fileID: 1756915787}
   - component: {fileID: 1756915786}
   - component: {fileID: 1756915789}
+  - component: {fileID: 1756915790}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6727,6 +6732,28 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3e7068e037dab1149a6db2942e37eb40, type: 2}
   - {fileID: 2100000, guid: 5b6a82ffff74d694396685653f3c8a52, type: 2}
   _timer: {fileID: 2136049093}
+  _planePainter: {fileID: 1756915790}
+  AllPlanes: []
+--- !u!114 &1756915790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756915782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b985fc04c10ff4f8bd26c6e64ae744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colors:
+  - {fileID: 2100000, guid: bc7370827c940834190579e13a612034, type: 2}
+  - {fileID: 2100000, guid: a0b839c96d7ae184dac3ce13335a3052, type: 2}
+  - {fileID: 2100000, guid: 3e7068e037dab1149a6db2942e37eb40, type: 2}
+  - {fileID: 2100000, guid: c3437df32023b4e4491859c2a24c341e, type: 2}
+  - {fileID: 2100000, guid: 61a7abfec8405ee41b770e60ab5908c0, type: 2}
+  - {fileID: 2100000, guid: 5b6a82ffff74d694396685653f3c8a52, type: 2}
+  _spawnPlane: {fileID: 1756915789}
 --- !u!1001 &1758848417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7122,7 +7149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2254658042976496419, guid: e3838481cde27be439eba9e22ca932e7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 51.899994
+      value: 51.899963
       objectReference: {fileID: 0}
     - target: {fileID: 2254658043300135844, guid: e3838481cde27be439eba9e22ca932e7, type: 3}
       propertyPath: m_SizeDelta.y
