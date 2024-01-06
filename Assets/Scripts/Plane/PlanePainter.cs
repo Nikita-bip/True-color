@@ -20,7 +20,7 @@ public class PlanePainter : MonoBehaviour
     {
         int countOfPlanesCertainColor = _countOfPlane / _countOfColors;
 
-        for (int i = 0; i < _spawnPlane.AllPlanes.Length; i++)
+        for (int i = 0; i < _countOfPlane; i++)
         {
             _spawnPlane.AllPlanes[i].GetComponent<MeshRenderer>().material = _colors[_indexOfColor];
             _counter++;
