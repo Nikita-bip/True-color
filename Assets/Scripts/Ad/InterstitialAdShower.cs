@@ -1,9 +1,12 @@
 using Agava.YandexGames;
 
-public class InterstitialAdShower : AdShower
+namespace Assets.Scripts.Ad
 {
-    public override void Show()
+    public class InterstitialAdShower : AdShower
     {
-        InterstitialAd.Show(OnOpenCallbackInLevel, OnCloseCallbackInLevel, OnErrorCallback);
+        public override void Show()
+        {
+            InterstitialAd.Show(OnOpenCallbackInLevel, OnCloseCallbackInLevel, OnErrorCallback);
+        }
     }
 }

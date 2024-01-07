@@ -1,18 +1,22 @@
+using Assets.Scripts.UI;
 using UnityEngine;
 
-public class Dead : MonoBehaviour
+namespace Assets.Scripts.Player
 {
-    [SerializeField] private CharacterController[] _characterControllers;
-    [SerializeField] private LosePanel _losePanel;
-
-    [HideInInspector] public bool IsDead = false;
-
-    private void OnTriggerEnter(Collider collider)
+    public class Dead : MonoBehaviour
     {
-        if (collider.TryGetComponent(out CharacterController characterController))
+        [SerializeField] private CharacterController[] _characterControllers;
+        [SerializeField] private LosePanel _losePanel;
+
+        [HideInInspector] public bool IsDead = false;
+
+        private void OnTriggerEnter(Collider collider)
         {
-            IsDead = true;
-            _losePanel.gameObject.SetActive(true);
+            if (collider.TryGetComponent(out CharacterController characterController))
+            {
+                IsDead = true;
+                _losePanel.gameObject.SetActive(true);
+            }
         }
     }
 }

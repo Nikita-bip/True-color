@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class TutorialCanvas : MonoBehaviour
+namespace Assets.Scripts.UI.Tutorial
 {
-    private void OnDisable()
+    public class TutorialCanvas : MonoBehaviour
     {
-        PlayerPrefs.SetInt(Constantes.StrTutorial, PlayerPrefs.GetInt(Constantes.StrTutorial) + 1);
+        private void OnDisable()
+        {
+            PlayerPrefs.SetInt(Constantes.StrTutorial, PlayerPrefs.GetInt(Constantes.StrTutorial) + 1);
 
-        PlayerPrefs.Save();
+            PlayerPrefs.Save();
+        }
     }
 }

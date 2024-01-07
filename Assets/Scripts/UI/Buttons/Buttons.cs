@@ -1,43 +1,46 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Buttons : MonoBehaviour
+namespace Assets.Scripts.UI.Buttons
 {
-    public void PlayGame()
+    public class Buttons : MonoBehaviour
     {
-        if (PlayerPrefs.GetInt(Constantes.StrTutorial) > 0)
+        public void PlayGame()
         {
-            NextLevelButton();
+            if (PlayerPrefs.GetInt(Constantes.StrTutorial) > 0)
+            {
+                NextLevelButton();
+            }
+            else
+            {
+                SceneManager.LoadScene(Constantes.StrTutorialScene);
+            }
         }
-        else
+
+        public void MainMenu()
         {
-            SceneManager.LoadScene(Constantes.StrTutorialScene);
+            SceneManager.LoadScene(Constantes.StrMainMenuScene);
+            PlayerPrefs.Save();
         }
-    }
 
-    public void MainMenu()
-    {
-        SceneManager.LoadScene(Constantes.StrMainMenuScene);
-        PlayerPrefs.Save();
-    }
+        public void Shop()
+        {
+            SceneManager.LoadScene(Constantes.StrShopScene);
+        }
 
-    public void Shop()
-    {
-        SceneManager.LoadScene(Constantes.StrShopScene);
-    }
+        public void NextLevelButton()
+        {
+            int nextLevel = Random.Range(3, 13);
 
-    public void NextLevelButton()
-    {
-        int nextLevel = Random.Range(3, 13);
+            SceneManager.LoadScene(nextLevel);
+            PlayerPrefs.Save();
+        }
 
-        SceneManager.LoadScene(nextLevel);
-        PlayerPrefs.Save();
-    }
+        public void RestartLevel()
+        {
+            int currentLevel = SceneManager.GetActiveScene().buildIndex;
 
-    public void RestartLevel()
-    {
-        int currentLevel = SceneManager.GetActiveScene().buildIndex;
-
-        SceneManager.LoadScene(currentLevel);
+            SceneManager.LoadScene(currentLevel);
+        }
     }
 }

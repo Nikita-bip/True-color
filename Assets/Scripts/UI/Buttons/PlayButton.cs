@@ -1,4 +1,7 @@
 using UnityEngine;
 
-public class PlayButton : MonoBehaviour
-{}
+namespace Assets.Scripts.UI.Buttons
+{
+    public class PlayButton : MonoBehaviour
+    { }
+}

@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class ScinBlueprint : MonoBehaviour
+namespace Assets.Scripts.Skins
 {
-    public string Name;
-    public int Index;
-    public int Price;
-    public bool IsUnlocked;
+    public class ScinBlueprint : MonoBehaviour
+    {
+        public string Name;
+        public int Index;
+        public int Price;
+        public bool IsUnlocked;
+    }
 }

@@ -1,29 +1,32 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
-public abstract class ScreenLeaderboard : MonoBehaviour
+namespace Assets.Scripts.UI.Leaderboard
 {
-    [SerializeField] private CanvasGroup _canvasGroup;
-
-    protected virtual void Awake()
+    public abstract class ScreenLeaderboard : MonoBehaviour
     {
-        Close();
-    }
+        [SerializeField] private CanvasGroup _canvasGroup;
 
-    public virtual void Open()
-    {
-        _canvasGroup.alpha = 1.0f;
-        _canvasGroup.blocksRaycasts = true;
-    }
+        protected virtual void Awake()
+        {
+            Close();
+        }
 
-    public virtual void Close()
-    {
-        _canvasGroup.alpha = 0.0f;
-        _canvasGroup.blocksRaycasts = false;
-    }
+        public virtual void Open()
+        {
+            _canvasGroup.alpha = 1.0f;
+            _canvasGroup.blocksRaycasts = true;
+        }
 
-    protected void OnButtonClicked(UnityAction action)
-    {
-        action?.Invoke();
+        public virtual void Close()
+        {
+            _canvasGroup.alpha = 0.0f;
+            _canvasGroup.blocksRaycasts = false;
+        }
+
+        protected void OnButtonClicked(Action action)
+        {
+            action?.Invoke();
+        }
     }
 }

@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class ActiveStateFrame : MonoBehaviour
+namespace Assets.Scripts.UI.Leaderboard
 {
-    public void TurnOn()
+    public class ActiveStateFrame : MonoBehaviour
     {
-        gameObject.SetActive(true);
-    }
+        public void TurnOn()
+        {
+            gameObject.SetActive(true);
+        }
 
-    public void TurnOff()
-    {
-        gameObject.SetActive(false);
+        public void TurnOff()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

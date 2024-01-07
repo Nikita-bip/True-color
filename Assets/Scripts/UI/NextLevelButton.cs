@@ -1,4 +1,7 @@
 using UnityEngine;
 
-public class NextLevelButton : MonoBehaviour
-{}
+namespace Assets.Scripts.UI
+{
+    public class NextLevelButton : MonoBehaviour
+    { }
+}

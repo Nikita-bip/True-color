@@ -1,27 +1,30 @@
 using Agava.YandexGames;
 using UnityEngine;
 
-public class LoginAcceptButton : MonoBehaviour
+namespace Assets.Scripts.UI.Leaderboard
 {
-    [SerializeField] private Leaderboard _leaderboard;
-    [SerializeField] private LeaderboardView _leaderboardView;
-
-    public void OpenLeaderboard()
+    public class LoginAcceptButton : MonoBehaviour
     {
-        PlayerAccount.Authorize();
+        [SerializeField] private Leaderboard _leaderboard;
+        [SerializeField] private LeaderboardView _leaderboardView;
 
-        if (PlayerAccount.IsAuthorized)
-            PlayerAccount.RequestPersonalProfileDataPermission();
+        public void OpenLeaderboard()
+        {
+            PlayerAccount.Authorize();
 
-        if (PlayerAccount.IsAuthorized == false)
-            return;
+            if (PlayerAccount.IsAuthorized)
+                PlayerAccount.RequestPersonalProfileDataPermission();
 
-        _leaderboardView.gameObject.SetActive(true);
-        _leaderboard.Fill();
-    }
+            if (PlayerAccount.IsAuthorized == false)
+                return;
 
-    public void OnClick()
-    {
-        OpenLeaderboard();
+            _leaderboardView.gameObject.SetActive(true);
+            _leaderboard.Fill();
+        }
+
+        public void OnClick()
+        {
+            OpenLeaderboard();
+        }
     }
 }

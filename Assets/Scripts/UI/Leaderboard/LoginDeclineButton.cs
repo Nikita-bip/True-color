@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class LoginDeclineButton : MonoBehaviour
+namespace Assets.Scripts.UI.Leaderboard
 {
-    [SerializeField] private LoginPanel _loginPanel;
-
-    public void OnClick()
+    public class LoginDeclineButton : MonoBehaviour
     {
-        Decline();
-    }
+        [SerializeField] private LoginPanel _loginPanel;
 
-    private void Decline()
-    {
-        _loginPanel.gameObject.SetActive(false);
+        public void OnClick()
+        {
+            Decline();
+        }
+
+        private void Decline()
+        {
+            _loginPanel.gameObject.SetActive(false);
+        }
     }
 }

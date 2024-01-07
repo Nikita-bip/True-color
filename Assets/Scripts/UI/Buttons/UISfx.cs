@@ -1,58 +1,61 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UISfx : MonoBehaviour
+namespace Assets.Scripts.UI.Buttons
 {
-    [SerializeField] private Sprite _volumeOff;
-    [SerializeField] private Sprite _volumeOn;
-    [SerializeField] private Button _volumeButton;
-    [SerializeField] private AudioSource[] _audios;
-
-    public static bool IsOnClick;
-
-    private void Start()
+    public class UISfx : MonoBehaviour
     {
-        IsOnClick = true;
-    }
+        [SerializeField] private Sprite _volumeOff;
+        [SerializeField] private Sprite _volumeOn;
+        [SerializeField] private Button _volumeButton;
+        [SerializeField] private AudioSource[] _audios;
 
-    private void Update()
-    {
-        ChangeVolume();
-    }
+        public static bool IsOnClick;
 
-    private void ChangeVolume()
-    {
-        if (PlayerPrefs.GetInt(Constantes.StrSfx) == 0)
+        private void Start()
         {
-            _volumeButton.GetComponent<Image>().sprite = _volumeOn;
             IsOnClick = true;
+        }
 
-            foreach (var audio in _audios)
+        private void Update()
+        {
+            ChangeVolume();
+        }
+
+        private void ChangeVolume()
+        {
+            if (PlayerPrefs.GetInt(Constantes.StrSfx) == 0)
             {
-                audio.enabled = true;
+                _volumeButton.GetComponent<Image>().sprite = _volumeOn;
+                IsOnClick = true;
+
+                foreach (var audio in _audios)
+                {
+                    audio.enabled = true;
+                }
+            }
+            else
+            {
+                _volumeButton.GetComponent<Image>().sprite = _volumeOff;
+                IsOnClick = false;
+
+                foreach (var audio in _audios)
+                {
+                    audio.enabled = false;
+                }
             }
         }
-        else
-        {
-            _volumeButton.GetComponent<Image>().sprite = _volumeOff;
-            IsOnClick = false;
 
-            foreach (var audio in _audios)
+        public void OffClickSound()
+        {
+            if (IsOnClick == false)
             {
-                audio.enabled = false;
+                PlayerPrefs.SetInt(Constantes.StrSfx, 0);
             }
-        }
-    }
-
-    public void OffClickSound()
-    {
-        if (IsOnClick == false)
-        {
-            PlayerPrefs.SetInt(Constantes.StrSfx, 0);
-        }
-        else
-        {
-            PlayerPrefs.SetInt(Constantes.StrSfx, 1);
+            else
+            {
+                PlayerPrefs.SetInt(Constantes.StrSfx, 1);
+            }
         }
     }
 }

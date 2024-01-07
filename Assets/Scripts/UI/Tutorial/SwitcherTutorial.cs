@@ -1,4 +1,7 @@
 using UnityEngine;
 
-public class SwitcherTutorial : MonoBehaviour
-{}
+namespace Assets.Scripts.UI.Tutorial
+{
+    public class SwitcherTutorial : MonoBehaviour
+    { }
+}

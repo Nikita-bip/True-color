@@ -1,37 +1,40 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Movement))]
-public class Particle : MonoBehaviour
+namespace Assets.Scripts.Player
 {
-    [SerializeField] private GameObject _effectWater;
-    [SerializeField] private GameObject _effectFinishFirst;
-    [SerializeField] private GameObject _effectFinishSecond;
-    [SerializeField] private GameObject _spawnPointFinishParticle;
-
-    private Movement _movement;
-    private Vector3 _changesHeight = new Vector3(0f, 0.57f, 0f);
-
-    private void Start()
+    [RequireComponent(typeof(Movement))]
+    public class Particle : MonoBehaviour
     {
-        _movement = GetComponent<Movement>();
-    }
+        [SerializeField] private GameObject _effectWater;
+        [SerializeField] private GameObject _effectFinishFirst;
+        [SerializeField] private GameObject _effectFinishSecond;
+        [SerializeField] private GameObject _spawnPointFinishParticle;
 
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.TryGetComponent(out Dead dead))
+        private Movement _movement;
+        private Vector3 _changesHeight = new Vector3(0f, 0.57f, 0f);
+
+        private void Start()
         {
-            Instantiate(_effectWater, _movement.transform.position + _changesHeight, Quaternion.identity);
+            _movement = GetComponent<Movement>();
         }
 
-        if (collider.TryGetComponent(out Finish finish))
+        private void OnTriggerEnter(Collider collider)
         {
-            Finish(_effectFinishFirst);
-            Finish(_effectFinishSecond);
-        }
-    }
+            if (collider.TryGetComponent(out Dead dead))
+            {
+                Instantiate(_effectWater, _movement.transform.position + _changesHeight, Quaternion.identity);
+            }
 
-    private void Finish(GameObject effect)
-    {
-        Instantiate(effect, _spawnPointFinishParticle.transform.position, Quaternion.identity);
+            if (collider.TryGetComponent(out Finish finish))
+            {
+                Finish(_effectFinishFirst);
+                Finish(_effectFinishSecond);
+            }
+        }
+
+        private void Finish(GameObject effect)
+        {
+            Instantiate(effect, _spawnPointFinishParticle.transform.position, Quaternion.identity);
+        }
     }
 }

@@ -1,11 +1,15 @@
+using Assets.Scripts.UI;
 using UnityEngine;
 
-public class ShopButton : MonoBehaviour
+namespace Assets.Scripts.UI.Buttons
 {
-    [SerializeField] private Shop _shop;
-
-    public void OnClick()
+    public class ShopButton : MonoBehaviour
     {
-        _shop.gameObject.SetActive(true);
+        [SerializeField] private Shop _shop;
+
+        public void OnClick()
+        {
+            _shop.gameObject.SetActive(true);
+        }
     }
 }

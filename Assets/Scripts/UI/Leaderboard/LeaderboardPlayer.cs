@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class LeaderboardPlayer : MonoBehaviour
+namespace Assets.Scripts.UI.Leaderboard
 {
-    public LeaderboardPlayer(string name, int score)
+    public class LeaderboardPlayer : MonoBehaviour
     {
-        Name = name;
-        Score = score;
+        public LeaderboardPlayer(string name, int score)
+        {
+            Name = name;
+            Score = score;
+        }
+
+        public string Name { get; private set; }
+
+        public int Score { get; private set; }
     }
-
-    public string Name { get; private set; }
-
-    public int Score { get; private set; }
 }

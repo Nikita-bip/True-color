@@ -1,11 +1,15 @@
+using Assets.Scripts.Ad;
 using UnityEngine;
 
-public class NextLevel : MonoBehaviour
+namespace Assets.Scripts.UI.Buttons
 {
-    [SerializeField] private InterstitialAdShower _interstitialAdShower;
-
-    public void OnClick()
+    public class NextLevel : MonoBehaviour
     {
-        _interstitialAdShower.Show();
+        [SerializeField] private InterstitialAdShower _interstitialAdShower;
+
+        public void OnClick()
+        {
+            _interstitialAdShower.Show();
+        }
     }
 }

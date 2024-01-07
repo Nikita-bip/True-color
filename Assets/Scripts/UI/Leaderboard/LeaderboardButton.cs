@@ -1,25 +1,28 @@
 using Agava.YandexGames;
 using UnityEngine;
 
-public class LeaderboardButton : MonoBehaviour
+namespace Assets.Scripts.UI.Leaderboard
 {
-    [SerializeField] private LoginPanel _logInPanel;
-    [SerializeField] private LoginAcceptButton _loginAcceptButton;
-
-    public void OnClick()
+    public class LeaderboardButton : MonoBehaviour
     {
-        OpenLoginPanel();
-    }
+        [SerializeField] private LoginPanel _logInPanel;
+        [SerializeField] private LoginAcceptButton _loginAcceptButton;
 
-    private void OpenLoginPanel()
-    {
-        if (PlayerAccount.IsAuthorized == false)
+        public void OnClick()
         {
-            _logInPanel.gameObject.SetActive(true);
+            OpenLoginPanel();
         }
-        else
+
+        private void OpenLoginPanel()
         {
-            _loginAcceptButton.OpenLeaderboard();
+            if (PlayerAccount.IsAuthorized == false)
+            {
+                _logInPanel.gameObject.SetActive(true);
+            }
+            else
+            {
+                _loginAcceptButton.OpenLeaderboard();
+            }
         }
     }
 }

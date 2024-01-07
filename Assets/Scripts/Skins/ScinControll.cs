@@ -1,19 +1,22 @@
 using UnityEngine;
 
-public class ScinControll : MonoBehaviour
+namespace Assets.Scripts.Skins
 {
-    [SerializeField] private int _scinIndex = 0;
-    [SerializeField] private GameObject[] _scins;
-
-    private void Start()
+    public class ScinControll : MonoBehaviour
     {
-        _scinIndex = PlayerPrefs.GetInt(Constantes.StrSelectedScin, 0);
+        [SerializeField] private int _scinIndex = 0;
+        [SerializeField] private GameObject[] _scins;
 
-        foreach (GameObject scin in _scins)
+        private void Start()
         {
-            scin.SetActive(false);
-        }
+            _scinIndex = PlayerPrefs.GetInt(Constantes.StrSelectedScin, 0);
 
-        _scins[_scinIndex].SetActive(true);
+            foreach (GameObject scin in _scins)
+            {
+                scin.SetActive(false);
+            }
+
+            _scins[_scinIndex].SetActive(true);
+        }
     }
 }

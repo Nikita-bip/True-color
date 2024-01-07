@@ -1,11 +1,15 @@
+using Assets.Scripts.UI.MainMenu;
 using UnityEngine;
 
-public class SettingsButton : MonoBehaviour
+namespace Assets.Scripts.UI.Buttons
 {
-    [SerializeField] private Setting _setting;
-
-    public void OnClick()
+    public class SettingsButton : MonoBehaviour
     {
-        _setting.gameObject.SetActive(true);
+        [SerializeField] private Setting _setting;
+
+        public void OnClick()
+        {
+            _setting.gameObject.SetActive(true);
+        }
     }
 }

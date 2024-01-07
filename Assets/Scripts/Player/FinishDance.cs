@@ -1,23 +1,26 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-public class FinishDance : MonoBehaviour
+namespace Assets.Scripts.Player
 {
-    [SerializeField] private Finish _finish;
-
-    private Animator _animator;
-    private int _danceNumber = 2;
-
-    private void Start()
+    [RequireComponent(typeof(Animator))]
+    public class FinishDance : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-    }
+        [SerializeField] private Finish _finish;
 
-    private void FixedUpdate()
-    {
-        if (_finish.IsFinished == true)
+        private Animator _animator;
+        private int _danceNumber = 2;
+
+        private void Start()
         {
-            _animator.SetInteger(Constantes.StrDance, _danceNumber);
+            _animator = GetComponent<Animator>();
+        }
+
+        private void FixedUpdate()
+        {
+            if (_finish.IsFinished == true)
+            {
+                _animator.SetInteger(Constantes.StrDance, _danceNumber);
+            }
         }
     }
 }

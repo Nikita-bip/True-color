@@ -1,4 +1,7 @@
 using UnityEngine;
 
-public class TimerSwitcher : MonoBehaviour
-{}
+namespace Assets.Scripts.UI.Tutorial
+{
+    public class TimerSwitcher : MonoBehaviour
+    { }
+}

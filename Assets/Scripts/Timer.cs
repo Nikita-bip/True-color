@@ -1,6 +1,6 @@
+using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 public class Timer : MonoBehaviour
@@ -14,8 +14,8 @@ public class Timer : MonoBehaviour
     private Animator _animator;
     private float _delay = 1f; 
 
-    public event UnityAction<bool> IsZero;
-    public event UnityAction<bool> Restarting;
+    public event Action<bool> IsZero;
+    public event Action<bool> Restarting;
 
     private void Start()
     {

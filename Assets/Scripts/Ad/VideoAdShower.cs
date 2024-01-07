@@ -1,9 +1,12 @@
 using Agava.YandexGames;
 
-public class VideoAdShower : AdShower
+namespace Assets.Scripts.Ad
 {
-    public override void Show()
+    public class VideoAdShower : AdShower
     {
-        VideoAd.Show(OnOpenCallback, OnCloseCallBackReward, OnCloseCallback);
+        public override void Show()
+        {
+            VideoAd.Show(OnOpenCallback, OnCloseCallBackReward, OnCloseCallback);
+        }
     }
 }

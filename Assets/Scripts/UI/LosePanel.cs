@@ -1,43 +1,47 @@
+using Assets.Scripts.Player;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-public class LosePanel : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    [SerializeField] private AudioSource _myFX;
-    [SerializeField] private AudioClip _lose;
-    [SerializeField] private Movement[] _movements;
-    [SerializeField] private GameObject _joystick;
-    [SerializeField] private GameObject _switcher;
-    [SerializeField] private GameObject _color;
-    [SerializeField] private GameObject _timer;
-    [SerializeField] private Dead _dead;
-
-    private Animator _animator;
-
-    private void Start()
+    [RequireComponent(typeof(Animator))]
+    public class LosePanel : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-    }
+        [SerializeField] private AudioSource _myFX;
+        [SerializeField] private AudioClip _lose;
+        [SerializeField] private Movement[] _movements;
+        [SerializeField] private GameObject _joystick;
+        [SerializeField] private GameObject _switcher;
+        [SerializeField] private GameObject _color;
+        [SerializeField] private GameObject _timer;
+        [SerializeField] private Dead _dead;
 
-    private void Update()
-    {
-        if (_dead.IsDead == true)
+        private Animator _animator;
+
+        private void Start()
         {
-            _animator.SetBool(Constantes.StrFinish, true);
-        }
-    }
-
-    private void OnEnable()
-    {
-        foreach (var movement in _movements)
-        {
-            movement.enabled = false;
+            _animator = GetComponent<Animator>();
         }
 
-        _switcher.SetActive(false);
-        _color.SetActive(false);
-        _joystick.SetActive(false);
-        _timer.SetActive(false);
-        _myFX.PlayOneShot(_lose);
+        private void Update()
+        {
+            if (_dead.IsDead == true)
+            {
+                _animator.SetBool(Constantes.StrFinish, true);
+            }
+        }
+
+        private void OnEnable()
+        {
+            foreach (var movement in _movements)
+            {
+                movement.enabled = false;
+            }
+
+            _switcher.SetActive(false);
+            _color.SetActive(false);
+            _joystick.SetActive(false);
+            _timer.SetActive(false);
+            _myFX.PlayOneShot(_lose);
+        }
     }
 }

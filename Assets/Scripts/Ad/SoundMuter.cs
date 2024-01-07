@@ -1,20 +1,23 @@
 using UnityEngine;
 
-public class SoundMuter : MonoBehaviour
+namespace Assets.Scripts.Ad
 {
-    [SerializeField] private VideoAdShower _adShower;
-
-    public static bool IsMuted { get; private set; }
-
-    public static void Mute()
+    public class SoundMuter : MonoBehaviour
     {
-        IsMuted = true;
-        AudioListener.volume = IsMuted ? 0f : 1f;
-    }
+        [SerializeField] private VideoAdShower _adShower;
 
-    public static void Unmute()
-    {
-        IsMuted = false;
-        AudioListener.volume = IsMuted ? 0f : 1f;
+        public static bool IsMuted { get; private set; }
+
+        public static void Mute()
+        {
+            IsMuted = true;
+            AudioListener.volume = IsMuted ? 0f : 1f;
+        }
+
+        public static void Unmute()
+        {
+            IsMuted = false;
+            AudioListener.volume = IsMuted ? 0f : 1f;
+        }
     }
 }

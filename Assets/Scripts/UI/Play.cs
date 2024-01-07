@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Play : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    public void PlayGame()
+    public class Play : MonoBehaviour
     {
-        SceneManager.LoadScene("Tutorial");
+        public void PlayGame()
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
     }
 }

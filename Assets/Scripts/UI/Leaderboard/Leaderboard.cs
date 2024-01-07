@@ -2,60 +2,63 @@ using Agava.YandexGames;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Leaderboard : MonoBehaviour
+namespace Assets.Scripts.UI.Leaderboard
 {
-    private const string LeaderboardName = "TrueColor";
-
-    [SerializeField] private LeaderboardView _leaderboardView;
-
-    private const int MinPlayersCount = 1;
-    private const int MaxPlayersCount = 5;
-
-    private readonly List<LeaderboardPlayer> _leaderboardPlayers = new ();
-
-    public static void AddPlayer(int score)
+    public class Leaderboard : MonoBehaviour
     {
-        if (PlayerAccount.IsAuthorized == false)
+        private const string LeaderboardName = "TrueColor";
+
+        [SerializeField] private LeaderboardView _leaderboardView;
+
+        private const int MinPlayersCount = 1;
+        private const int MaxPlayersCount = 5;
+
+        private readonly List<LeaderboardPlayer> _leaderboardPlayers = new();
+
+        public static void AddPlayer(int score)
         {
-            return;
-        }
-
-        Agava.YandexGames.Leaderboard.GetPlayerEntry(LeaderboardName, _ =>
-        {
-            Agava.YandexGames.Leaderboard.SetScore(LeaderboardName, score);
-        });
-        PlayerPrefs.Save();
-    }
-
-    public void Fill()
-    {
-        _leaderboardPlayers.Clear();
-
-        if (PlayerAccount.IsAuthorized == false)
-        {
-            return;
-        }
-
-        Agava.YandexGames.Leaderboard.GetEntries(LeaderboardName, result =>
-        {
-            int results = result.entries.Length;
-            results = Mathf.Clamp(results, MinPlayersCount, MaxPlayersCount);
-
-            for (var i = 0; i < results; i++)
+            if (PlayerAccount.IsAuthorized == false)
             {
-                int score = result.entries[i].score;
-                string playerName = result.entries[i].player.publicName;
-
-                if (string.IsNullOrEmpty(playerName))
-                {
-                    playerName = AnonimLanguage.GetAnonymous(PlayerPrefs.GetString(Constantes.Language));
-                }
-
-                _leaderboardPlayers.Add(new LeaderboardPlayer(playerName, score));
+                return;
             }
 
-            _leaderboardView.Create(_leaderboardPlayers);
-        });
-        PlayerPrefs.Save();
+            Agava.YandexGames.Leaderboard.GetPlayerEntry(LeaderboardName, _ =>
+            {
+                Agava.YandexGames.Leaderboard.SetScore(LeaderboardName, score);
+            });
+            PlayerPrefs.Save();
+        }
+
+        public void Fill()
+        {
+            _leaderboardPlayers.Clear();
+
+            if (PlayerAccount.IsAuthorized == false)
+            {
+                return;
+            }
+
+            Agava.YandexGames.Leaderboard.GetEntries(LeaderboardName, result =>
+            {
+                int results = result.entries.Length;
+                results = Mathf.Clamp(results, MinPlayersCount, MaxPlayersCount);
+
+                for (var i = 0; i < results; i++)
+                {
+                    int score = result.entries[i].score;
+                    string playerName = result.entries[i].player.publicName;
+
+                    if (string.IsNullOrEmpty(playerName))
+                    {
+                        playerName = AnonimLanguage.GetAnonymous(PlayerPrefs.GetString(Constantes.Language));
+                    }
+
+                    _leaderboardPlayers.Add(new LeaderboardPlayer(playerName, score));
+                }
+
+                _leaderboardView.Create(_leaderboardPlayers);
+            });
+            PlayerPrefs.Save();
+        }
     }
 }

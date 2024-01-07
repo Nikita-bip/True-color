@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class ButtonFX : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    [SerializeField] private AudioSource _myFX;
-    [SerializeField] private AudioClip _click;
-
-    public void ClickSound()
+    public class ButtonFX : MonoBehaviour
     {
-        _myFX.PlayOneShot(_click);
+        [SerializeField] private AudioSource _myFX;
+        [SerializeField] private AudioClip _click;
+
+        public void ClickSound()
+        {
+            _myFX.PlayOneShot(_click);
+        }
     }
 }

@@ -1,56 +1,59 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SwitchColor : MonoBehaviour
+namespace Assets.Scripts.Plane
 {
-    [SerializeField] private Image _background;
-    [SerializeField] private Material[] _colorsBackground;
-    [SerializeField] private Timer _timer;
-
-    private int _selectedColor = 0;
-    private bool _flag = true;
-
-    private void Start()
+    public class SwitchColor : MonoBehaviour
     {
-        _background.material = _colorsBackground[_selectedColor];
-    }
+        [SerializeField] private Image _background;
+        [SerializeField] private Material[] _colorsBackground;
+        [SerializeField] private Timer _timer;
 
-    private void OnEnable()
-    {
-        _timer.Restarting += IncreaseColor;
-        _timer.IsZero += Switch;
-    }
+        private int _selectedColor = 0;
+        private bool _flag = true;
 
-    private void OnDisable()
-    {
-        _timer.Restarting -= IncreaseColor;
-        _timer.IsZero -= Switch;
-    }
-
-    private void IncreaseColor(bool restart)
-    {
-        if (restart == true & _flag == true)
+        private void Start()
         {
-            _selectedColor++;
-            _flag = false;
+            _background.material = _colorsBackground[_selectedColor];
+        }
 
-            if (_selectedColor >= _colorsBackground.Length)
+        private void OnEnable()
+        {
+            _timer.Restarting += IncreaseColor;
+            _timer.IsZero += Switch;
+        }
+
+        private void OnDisable()
+        {
+            _timer.Restarting -= IncreaseColor;
+            _timer.IsZero -= Switch;
+        }
+
+        private void IncreaseColor(bool restart)
+        {
+            if (restart == true & _flag == true)
             {
-                _selectedColor = 0;
+                _selectedColor++;
+                _flag = false;
+
+                if (_selectedColor >= _colorsBackground.Length)
+                {
+                    _selectedColor = 0;
+                }
+            }
+
+            if (restart == false)
+            {
+                _flag = true;
             }
         }
 
-        if (restart == false)
+        private void Switch(bool zero)
         {
-            _flag = true;
-        }
-    }
-
-    private void Switch(bool zero)
-    {
-        if (zero == false)
-        {
-            _background.material = _colorsBackground[_selectedColor];
+            if (zero == false)
+            {
+                _background.material = _colorsBackground[_selectedColor];
+            }
         }
     }
 }

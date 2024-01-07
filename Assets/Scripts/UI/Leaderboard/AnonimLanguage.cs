@@ -1,19 +1,22 @@
 using UnityEngine;
 
-public class AnonimLanguage : MonoBehaviour
+namespace Assets.Scripts.UI.Leaderboard
 {
-    public static string GetAnonymous(string lang)
+    public class AnonimLanguage : MonoBehaviour
     {
-        switch (lang)
+        public static string GetAnonymous(string lang)
         {
-            case "en":
-                return "Anonymous";
-            case "ru":
-                return "Аноним";
-            case "tr":
-                return "Anonim";
-            default:
-                return "Anonymous";
+            switch (lang)
+            {
+                case "en":
+                    return "Anonymous";
+                case "ru":
+                    return "Аноним";
+                case "tr":
+                    return "Anonim";
+                default:
+                    return "Anonymous";
+            }
         }
     }
 }
