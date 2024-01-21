@@ -29,7 +29,7 @@ public class FsmStateIdle : FsmState
 
         if (Input.GetAxis("Horizontal") == 0f || Input.GetAxis("Vertical") == 0f)
         {
-
+            Debug.Log("658");
         }
     }
 }
