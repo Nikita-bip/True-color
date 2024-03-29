@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
         {
             _speedMove = _stopSpeed;
         }
-
+        
         if (Application.isMobilePlatform)
         {
             MoveByJoystick();
