@@ -52,20 +52,21 @@ namespace Assets.Scripts.Plane
 
         private void IncreaseColorNumber(bool restart)
         {
-            if (restart == true & _flag == true)
+            switch (restart)
             {
-                _selectedColorNumber++;
-                _flag = false;
+                case true when _flag == true:
+                    _selectedColorNumber++;
+                    _flag = false;
 
-                if (_selectedColorNumber >= _selectColor.Length)
-                {
-                    _selectedColorNumber = 0;
-                }
-            }
+                    if (_selectedColorNumber >= _selectColor.Length)
+                    {
+                        _selectedColorNumber = 0;
+                    }
+                    break;
 
-            if (restart == false)
-            {
-                _flag = true;
+                default:
+                    _flag = true;
+                    break;
             }
         }
     }

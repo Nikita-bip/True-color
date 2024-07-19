@@ -18,7 +18,6 @@ namespace Assets.Scripts.UI.Leaderboard
         [SerializeField] private GameObject _joystick;
         [SerializeField] private GameObject _switcher;
         [SerializeField] private GameObject _color;
-        [SerializeField] private Finish _finish;
         [SerializeField] private GameObject _timer;
         [SerializeField] private InterstitialAdShower _interstitialAdShower;
 
@@ -30,14 +29,6 @@ namespace Assets.Scripts.UI.Leaderboard
             _animator = GetComponent<Animator>();
         }
 
-        private void Update()
-        {
-            if (_finish.IsFinished == true)
-            {
-                _animator.SetBool(Constants.StrFinish, true);
-            }
-        }
-
         private void GenerateCountOfMoney()
         {
             _countOfMoney = Random.Range(5, 16);
@@ -46,6 +37,7 @@ namespace Assets.Scripts.UI.Leaderboard
 
         private void OnEnable()
         {
+            Finish._onFinished += OpenPanel;
             _joystick.SetActive(false);
             _switcher.SetActive(false);
             _color.SetActive(false);
@@ -53,6 +45,16 @@ namespace Assets.Scripts.UI.Leaderboard
             GenerateCountOfMoney();
             _myFX.PlayOneShot(_win);
             SaveScore();
+        }
+
+        private void OnDisable()
+        {
+            Finish._onFinished -= OpenPanel;
+        }
+
+        private void OpenPanel()
+        {
+            _animator.SetBool(Constants.StrFinish, true);
         }
 
         private void SaveScore()

@@ -5,8 +5,6 @@ namespace Assets.Scripts.Player
     [RequireComponent(typeof(Animator))]
     public class FinishDance : MonoBehaviour
     {
-        [SerializeField] private Finish _finish;
-
         private Animator _animator;
         private int _danceNumber = 2;
 
@@ -15,12 +13,19 @@ namespace Assets.Scripts.Player
             _animator = GetComponent<Animator>();
         }
 
-        private void FixedUpdate()
+        private void OnEnable()
         {
-            if (_finish.IsFinished == true)
-            {
-                _animator.SetInteger(Constants.StrDance, _danceNumber);
-            }
+            Finish._onFinished += Dance;
+        }
+
+        private void OnDisable()
+        {
+            Finish._onFinished -= Dance;
+        }
+
+        private void Dance()
+        {
+            _animator.SetInteger(Constants.StrDance, _danceNumber);
         }
     }
 }

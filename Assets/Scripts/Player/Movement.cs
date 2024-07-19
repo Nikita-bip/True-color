@@ -7,7 +7,6 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float _speedMove;
     [SerializeField] private Joystick _joystick;
-    [SerializeField] private Finish _finish;
     [SerializeField] private PlayerDead _dead;
 
     private float _gravityForce;
@@ -27,7 +26,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ((_finish.IsFinished == true) || (_dead.IsDead == true))
+        if (_dead.IsDead == true)
         {
             _speedMove = _stopSpeed;
         }

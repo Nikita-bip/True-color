@@ -31,19 +31,21 @@ namespace Assets.Scripts.Plane
 
         private void IncreaseColor(bool restart)
         {
-            if (restart == true & _flag == true)
+            switch (restart)
             {
-                _selectedColor++;
-                _flag = false;
+                case true when _flag == true:
+                    _selectedColor++;
+                    _flag = false;
 
-                if (_selectedColor >= _colorsBackground.Length)
-                {
-                    _selectedColor = 0;
-                }
-            }
-            else
-            {
-                _flag = true;
+                    if (_selectedColor >= _colorsBackground.Length)
+                    {
+                        _selectedColor = 0;
+                    }
+                    break;
+
+                default:
+                    _flag = true;
+                    break;
             }
         }
 

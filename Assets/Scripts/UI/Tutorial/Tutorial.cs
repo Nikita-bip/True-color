@@ -5,10 +5,7 @@ namespace Assets.Scripts.UI.Tutorial
 {
     public class Tutorial : MonoBehaviour
     {
-        [HideInInspector] public bool IsOpenedSwitcher = false;
-        [HideInInspector] public bool IsOpenedTimer = false;
-
-        [SerializeField] private TMP_Text[] _texts;
+        [SerializeField] private TMP_Text[] _tutorialTexts;
         [SerializeField] private GameObject _mainCamera;
         [SerializeField] private GameObject[] _plane;
         [SerializeField] private GameObject _mainCanvas;
@@ -31,14 +28,15 @@ namespace Assets.Scripts.UI.Tutorial
             _tutorialCamera.SetActive(true);
             _tutorialCanvas.SetActive(true);
             _counter = 0;
-            _texts[_counter].gameObject.SetActive(true);
+            _tutorialTexts[_counter].gameObject.SetActive(true);
         }
 
         public void OnClick()
         {
+            _tutorialTexts[_counter].gameObject.SetActive(false);
             _counter++;
 
-            if (_counter >= _texts.Length)
+            if (_counter >= _tutorialTexts.Length)
             {
                 _counter = 0;
                 _mainCamera.SetActive(true);
@@ -48,57 +46,34 @@ namespace Assets.Scripts.UI.Tutorial
                 Time.timeScale = 1f;
             }
 
+            switch (_counter)
+            {
+                case 1:
+                    _tutorialTimer.SetActive(true);
+                    _timerPointer.SetActive(true);
+                    break;
+                case 2:
+                    foreach (var plane in _plane)
+                    {
+                        plane.SetActive(false);
+                    }
+                    break;
+                case 3:
+                    _tutorialColor.SetActive(true);
+                    _colorPointer.SetActive(true);
+                    break;
+                case 5:
+                    _tutorialSwitcher.SetActive(true);
+                    _switcherPointer.SetActive(true);
+                    break;
+            }
+
             if (_counter != 0)
             {
-                _texts[_counter - 1].gameObject.SetActive(false);
+                _tutorialTexts[_counter - 1].gameObject.SetActive(false);
             }
 
-            if (_counter == 1)
-            {
-                _tutorialTimer.SetActive(true);
-                _timerPointer.SetActive(true);
-            }
-            else
-            {
-                _timerPointer.SetActive(false);
-            }
-
-            if (_counter == 2)
-            {
-                foreach (var plane in _plane)
-                {
-                    plane.SetActive(false);
-                }
-            }
-            else
-            {
-                foreach (var plane in _plane)
-                {
-                    plane.SetActive(true);
-                }
-            }
-
-            if (_counter == 3)
-            {
-                _tutorialColor.SetActive(true);
-                _colorPointer.SetActive(true);
-            }
-            else
-            {
-                _colorPointer.SetActive(false);
-            }
-
-            if (_counter == 5)
-            {
-                _tutorialSwitcher.SetActive(true);
-                _switcherPointer.SetActive(true);
-            }
-            else
-            {
-                _switcherPointer.SetActive(false);
-            }
-
-            _texts[_counter].gameObject.SetActive(true);
+            _tutorialTexts[_counter].gameObject.SetActive(true);
         }
     }
 }

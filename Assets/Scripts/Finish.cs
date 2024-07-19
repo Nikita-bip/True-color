@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
 
 public class Finish : MonoBehaviour
 {
-    [HideInInspector] public bool IsFinished = false;
     [SerializeField] private GameObject _finishPanel;
     [SerializeField] private CharacterController[] _characterControllers;
 
+    public static event Action _onFinished;
     private Vector3 _changesAngles = new Vector3(0f, 180f, 0f);
 
     private void OnTriggerEnter(Collider collision)
@@ -17,8 +18,9 @@ public class Finish : MonoBehaviour
                 characterController.transform.eulerAngles = _changesAngles;
             }
 
+            _onFinished?.Invoke();
+
             _finishPanel.SetActive(true);
-            IsFinished = true;
         }
     }
 }
