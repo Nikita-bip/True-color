@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class Finish : MonoBehaviour
 {
+    [HideInInspector] public bool IsFinished = false;
     [SerializeField] private GameObject _finishPanel;
     [SerializeField] private CharacterController[] _characterControllers;
-
-    [HideInInspector] public bool IsFinished = false;
 
     private Vector3 _changesAngles = new Vector3(0f, 180f, 0f);
 

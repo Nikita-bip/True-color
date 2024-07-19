@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _speedMove;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private Finish _finish;
-    [SerializeField] private Dead _dead;
+    [SerializeField] private PlayerDead _dead;
 
     private float _gravityForce;
     private Vector3 _moveVector;
@@ -56,11 +56,11 @@ public class Movement : MonoBehaviour
 
         if (_moveVector.x != 0 || _moveVector.z != 0)
         {
-            _animator.SetBool(Constantes.StrMove, true);
+            _animator.SetBool(Constants.StrMove, true);
         }
         else
         {
-            _animator.SetBool(Constantes.StrMove, false);
+            _animator.SetBool(Constants.StrMove, false);
         }
 
         if (Vector3.Angle(Vector3.forward, _moveVector) > 1f || Vector3.Angle(Vector3.forward, _moveVector) == 0)
@@ -81,11 +81,11 @@ public class Movement : MonoBehaviour
         {
             Vector3 direct = Vector3.RotateTowards(transform.forward, moveVector, _speedMove, _maximumMagnitudeDelta);
             transform.rotation = Quaternion.LookRotation(direct);
-            _animator.SetBool(Constantes.StrMoveJoystic, true);
+            _animator.SetBool(Constants.StrMoveJoystic, true);
         }
         else
         {
-            _animator.SetBool(Constantes.StrMoveJoystic, false);
+            _animator.SetBool(Constants.StrMoveJoystic, false);
         }
 
         moveVector.y = _gravityForce;

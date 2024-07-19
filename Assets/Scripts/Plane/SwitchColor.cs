@@ -41,8 +41,7 @@ namespace Assets.Scripts.Plane
                     _selectedColor = 0;
                 }
             }
-
-            if (restart == false)
+            else
             {
                 _flag = true;
             }

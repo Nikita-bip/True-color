@@ -5,12 +5,24 @@ namespace Assets.Scripts.UI.Buttons
 {
     public class UISfx : MonoBehaviour
     {
+        public static bool IsOnClick;
+
         [SerializeField] private Sprite _volumeOff;
         [SerializeField] private Sprite _volumeOn;
         [SerializeField] private Button _volumeButton;
         [SerializeField] private AudioSource[] _audios;
 
-        public static bool IsOnClick;
+        public void OffClickSound()
+        {
+            if (IsOnClick == false)
+            {
+                PlayerPrefs.SetInt(Constants.StrSfx, 0);
+            }
+            else
+            {
+                PlayerPrefs.SetInt(Constants.StrSfx, 1);
+            }
+        }
 
         private void Start()
         {
@@ -24,7 +36,7 @@ namespace Assets.Scripts.UI.Buttons
 
         private void ChangeVolume()
         {
-            if (PlayerPrefs.GetInt(Constantes.StrSfx) == 0)
+            if (PlayerPrefs.GetInt(Constants.StrSfx) == 0)
             {
                 _volumeButton.GetComponent<Image>().sprite = _volumeOn;
                 IsOnClick = true;
@@ -43,18 +55,6 @@ namespace Assets.Scripts.UI.Buttons
                 {
                     audio.enabled = false;
                 }
-            }
-        }
-
-        public void OffClickSound()
-        {
-            if (IsOnClick == false)
-            {
-                PlayerPrefs.SetInt(Constantes.StrSfx, 0);
-            }
-            else
-            {
-                PlayerPrefs.SetInt(Constantes.StrSfx, 1);
             }
         }
     }

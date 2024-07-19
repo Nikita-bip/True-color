@@ -13,7 +13,7 @@ namespace Assets.Scripts.UI
         [SerializeField] private GameObject _switcher;
         [SerializeField] private GameObject _color;
         [SerializeField] private GameObject _timer;
-        [SerializeField] private Dead _dead;
+        [SerializeField] private PlayerDead _dead;
 
         private Animator _animator;
 
@@ -26,7 +26,7 @@ namespace Assets.Scripts.UI
         {
             if (_dead.IsDead == true)
             {
-                _animator.SetBool(Constantes.StrFinish, true);
+                _animator.SetBool(Constants.StrFinish, true);
             }
         }
 

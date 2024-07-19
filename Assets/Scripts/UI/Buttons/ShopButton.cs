@@ -1,4 +1,3 @@
-using Assets.Scripts.UI;
 using UnityEngine;
 
 namespace Assets.Scripts.UI.Buttons

@@ -5,7 +5,7 @@ namespace Assets.Scripts.Plane
     public class PlanePainter : MonoBehaviour
     {
         [SerializeField] private Material[] _colors;
-        [SerializeField] private PlaneSwither _spawnPlane;
+        [SerializeField] private PlaneSwitcher _spawnPlane;
 
         private int _countOfPlane;
         private int _countOfColors;

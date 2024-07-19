@@ -18,7 +18,7 @@ namespace Assets.Scripts.UI.MainMenu
 
         private void ChangeLanguage()
         {
-            switch (PlayerPrefs.GetString(Constantes.Language))
+            switch (PlayerPrefs.GetString(Constants.Language))
             {
                 case "ru":
                     _russianButton.gameObject.SetActive(true);

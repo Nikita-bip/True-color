@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Skins
 {
-    public class ScinBlueprint : MonoBehaviour
+    public class SkinInfo : MonoBehaviour
     {
         public string Name;
         public int Index;

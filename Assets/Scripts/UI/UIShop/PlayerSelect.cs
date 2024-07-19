@@ -20,7 +20,7 @@ namespace Assets.Scripts.UI.UIShop
         private void Start()
         {
             _index = PlayerPrefs.GetInt("CharacterSelected");
-            _money = PlayerPrefs.GetInt(Constantes.StrCountMoney);
+            _money = PlayerPrefs.GetInt(Constants.StrCountMoney);
             _characters = new GameObject[transform.childCount];
 
             for (int i = 0; i < transform.childCount; i++)
@@ -73,7 +73,7 @@ namespace Assets.Scripts.UI.UIShop
                 {
                     _money -= int.Parse(_priceText.text);
                     _moneyText.text = _money.ToString();
-                    PlayerPrefs.SetInt(Constantes.StrCountMoney, _money);
+                    PlayerPrefs.SetInt(Constants.StrCountMoney, _money);
                     _choosenButton.gameObject.SetActive(true);
                     _priceText.gameObject.SetActive(false);
                     Save();

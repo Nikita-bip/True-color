@@ -3,12 +3,10 @@ using UnityEngine;
 
 namespace Assets.Scripts.Player
 {
-    public class Dead : MonoBehaviour
+    public class PlayerDead : MonoBehaviour
     {
-        [SerializeField] private CharacterController[] _characterControllers;
-        [SerializeField] private LosePanel _losePanel;
-
         [HideInInspector] public bool IsDead = false;
+        [SerializeField] private LosePanel _losePanel;
 
         private void OnTriggerEnter(Collider collider)
         {

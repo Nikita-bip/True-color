@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
 
     private float _countOfSeconds;
     private Animator _animator;
-    private float _delay = 1f; 
+    private float _delay = 1f;
 
     public event Action<bool> IsZero;
     public event Action<bool> Restarting;

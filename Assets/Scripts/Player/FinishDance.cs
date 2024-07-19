@@ -19,7 +19,7 @@ namespace Assets.Scripts.Player
         {
             if (_finish.IsFinished == true)
             {
-                _animator.SetInteger(Constantes.StrDance, _danceNumber);
+                _animator.SetInteger(Constants.StrDance, _danceNumber);
             }
         }
     }

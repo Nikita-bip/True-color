@@ -7,15 +7,18 @@ namespace Assets.Scripts.Ad
 {
     public abstract class AdShower : MonoBehaviour
     {
+        public static bool IsEnd = true;
+
         [SerializeField] private AudioSource[] _audioSources;
         [SerializeField] private float[] _volumes;
         [SerializeField] private AudioListener _audioListener;
         [SerializeField] private WebEventSystem _webEventSystem;
 
-        public static bool IsEnd = true;
         private static AudioSource[] _allAudioSources;
         private static float[] _allVolumes;
         private bool _isMuted;
+
+        public abstract void Show();
 
         protected void OnOpenCallback()
         {
@@ -70,8 +73,6 @@ namespace Assets.Scripts.Ad
         {
             ContinueGame();
         }
-
-        public abstract void Show();
 
         private void Update()
         {

@@ -1,5 +1,5 @@
-using Assets.Scripts.UI.UIShop;
 using System.Collections;
+using Assets.Scripts.UI.UIShop;
 using UnityEngine;
 
 public class EntryPoint : MonoBehaviour

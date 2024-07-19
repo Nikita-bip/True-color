@@ -7,6 +7,8 @@ namespace Assets.Scripts.UI.UIShop
 {
     public class Product : MonoBehaviour
     {
+        public event Action<Product, Price> Clicked;
+
         [SerializeField] private Image _image;
         [SerializeField] private GameObject _iconCheck;
         [SerializeField] private GameObject _iconLock;
@@ -16,8 +18,6 @@ namespace Assets.Scripts.UI.UIShop
 
         private Price _price;
         private Button _button;
-
-        public event Action<Product, Price> Clicked;
 
         private void OnDestroy()
         {
@@ -62,7 +62,7 @@ namespace Assets.Scripts.UI.UIShop
             _iconLock.SetActive(false);
             _adIcon.SetActive(false);
             _coinIcon.SetActive(false);
-            _cost.text = "";
+            _cost.text = " ";
         }
 
         public void Select()

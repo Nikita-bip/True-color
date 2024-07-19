@@ -31,7 +31,7 @@ public class ParticleEffectsLibrary : MonoBehaviour {
 	public int CurrentParticleEffectNum = 0;
 //	public string[] ParticleEffectDisplayNames;
 	public Vector3[] ParticleEffectSpawnOffsets;
-	// How long until Particle Effect is Destroyed - 0 = never
+	// How long until PlayerParticle Effect is Destroyed - 0 = never
 	public float[] ParticleEffectLifetimes;
 	public GameObject[] ParticleEffectPrefabs;
 
@@ -49,7 +49,7 @@ public class ParticleEffectsLibrary : MonoBehaviour {
 	}
 
 	public void PreviousParticleEffect() {
-		// Destroy Looping Particle Effects
+		// Destroy Looping PlayerParticle Effects
 		if (ParticleEffectLifetimes [CurrentParticleEffectIndex] == 0) {
 			if (currentActivePEList.Count > 0) {
 				for (int i = 0; i < currentActivePEList.Count; i++) {
@@ -61,7 +61,7 @@ public class ParticleEffectsLibrary : MonoBehaviour {
 			}
 		}
 
-		// Select Previous Particle Effect
+		// Select Previous PlayerParticle Effect
 		if (CurrentParticleEffectIndex > 0) {
 			CurrentParticleEffectIndex -= 1;
 		} else {
@@ -73,7 +73,7 @@ public class ParticleEffectsLibrary : MonoBehaviour {
 		effectNameString = ParticleEffectPrefabs [CurrentParticleEffectIndex].name + " (" + CurrentParticleEffectNum.ToString() + " of " + TotalEffects.ToString() + ")";
 	}
 	public void NextParticleEffect() {
-		// Destroy Looping Particle Effects
+		// Destroy Looping PlayerParticle Effects
 		if (ParticleEffectLifetimes [CurrentParticleEffectIndex] == 0) {
 			if (currentActivePEList.Count > 0) {
 				for (int i = 0; i < currentActivePEList.Count; i++) {
@@ -85,7 +85,7 @@ public class ParticleEffectsLibrary : MonoBehaviour {
 			}
 		}
 
-		// Select Next Particle Effect
+		// Select Next PlayerParticle Effect
 		if (CurrentParticleEffectIndex < TotalEffects - 1) {
 			CurrentParticleEffectIndex += 1;
 		} else {
@@ -99,16 +99,16 @@ public class ParticleEffectsLibrary : MonoBehaviour {
 
 	private Vector3 spawnPosition = Vector3.zero;
 	public void SpawnParticleEffect(Vector3 positionInWorldToSpawn) {
-		// Spawn Currently Selected Particle Effect
+		// Spawn Currently Selected PlayerParticle Effect
 		spawnPosition = positionInWorldToSpawn + ParticleEffectSpawnOffsets[CurrentParticleEffectIndex];
 		GameObject newParticleEffect = GameObject.Instantiate(ParticleEffectPrefabs[CurrentParticleEffectIndex], spawnPosition, ParticleEffectPrefabs[CurrentParticleEffectIndex].transform.rotation) as GameObject;
 		newParticleEffect.name = "PE_" + ParticleEffectPrefabs[CurrentParticleEffectIndex];
-		// Store Looping Particle Effects Systems
+		// Store Looping PlayerParticle Effects Systems
 		if (ParticleEffectLifetimes [CurrentParticleEffectIndex] == 0) {
 			currentActivePEList.Add (newParticleEffect.transform);
 		}
 		currentActivePEList.Add(newParticleEffect.transform);
-		// Destroy Particle Effect After Lifetime expired
+		// Destroy PlayerParticle Effect After Lifetime expired
 		if (ParticleEffectLifetimes [CurrentParticleEffectIndex] != 0) {
 			Destroy(newParticleEffect, ParticleEffectLifetimes[CurrentParticleEffectIndex]);
 		}

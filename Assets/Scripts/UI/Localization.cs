@@ -1,7 +1,7 @@
+using System.Collections;
 using Agava.YandexGames;
 using Lean.Localization;
 using UnityEngine;
-using System.Collections;
 
 namespace Assets.Scripts.UI
 {
@@ -31,7 +31,7 @@ namespace Assets.Scripts.UI
                     break;
             }
 
-            PlayerPrefs.SetString(Constantes.Language, language);
+            PlayerPrefs.SetString(Constants.Language, language);
             PlayerPrefs.Save();
         }
     }

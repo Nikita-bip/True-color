@@ -2,8 +2,9 @@ using UnityEngine;
 
 namespace Assets.Scripts.Plane
 {
-    public class PlaneSwither : MonoBehaviour
+    public class PlaneSwitcher : MonoBehaviour
     {
+        [HideInInspector] public GameObject[] AllPlanes;
         [SerializeField] private GameObject[] _plane;
         [SerializeField] private Material[] _selectColor;
         [SerializeField] private Timer _timer;
@@ -11,8 +12,6 @@ namespace Assets.Scripts.Plane
 
         private int _selectedColorNumber = 0;
         private bool _flag = true;
-
-        [HideInInspector] public GameObject[] AllPlanes;
 
         private void Awake()
         {
@@ -40,16 +39,9 @@ namespace Assets.Scripts.Plane
         {
             for (int i = 0; i < _plane.Length; i++)
             {
-                if (zero == true)
+                if ((zero == true) & (_plane[i].GetComponent<MeshRenderer>().sharedMaterial != _selectColor[_selectedColorNumber]))
                 {
-                    if (_plane[i].GetComponent<MeshRenderer>().sharedMaterial == _selectColor[_selectedColorNumber])
-                    {
-                        _plane[i].SetActive(true);
-                    }
-                    else
-                    {
-                        _plane[i].SetActive(false);
-                    }
+                    _plane[i].SetActive(false);
                 }
                 else
                 {

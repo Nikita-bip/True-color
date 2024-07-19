@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Assets.Scripts.Player
 {
     [RequireComponent(typeof(Movement))]
-    public class Particle : MonoBehaviour
+    public class PlayerParticle : MonoBehaviour
     {
         [SerializeField] private GameObject _effectWater;
         [SerializeField] private GameObject _effectFinishFirst;
@@ -20,7 +20,7 @@ namespace Assets.Scripts.Player
 
         private void OnTriggerEnter(Collider collider)
         {
-            if (collider.TryGetComponent(out Dead dead))
+            if (collider.TryGetComponent(out PlayerDead dead))
             {
                 Instantiate(_effectWater, _movement.transform.position + _changesHeight, Quaternion.identity);
             }

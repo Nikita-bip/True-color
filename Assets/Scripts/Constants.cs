@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Constantes : MonoBehaviour
+public class Constants : MonoBehaviour
 {
     public const string StrCountLevel = "CountLevel";
     public const string StrCountMoney = "Money";
@@ -13,7 +13,7 @@ public class Constantes : MonoBehaviour
     public const string StrFinish = "Finish";
     public const string StrMusic = "Music";
     public const string StrSfx = "Sfx";
-    public const string StrSelectedScin = "ChosenSkin";
+    public const string StrSelectedSkin = "ChosenSkin";
     public const string StrTutorial = "Tutorial";
     public const string Language = "Language";
 }

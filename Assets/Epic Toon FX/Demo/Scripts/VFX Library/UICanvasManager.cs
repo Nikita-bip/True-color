@@ -25,7 +25,7 @@ public class UICanvasManager : MonoBehaviour {
 		if (!MouseOverButton) {
 			// Left Button Click
 			if (Input.GetMouseButtonUp (0)) {
-				// Spawn Currently Selected Particle System
+				// Spawn Currently Selected PlayerParticle System
 				SpawnCurrentParticleEffect();
 			}
 		}
@@ -69,7 +69,7 @@ public class UICanvasManager : MonoBehaviour {
 
 	private RaycastHit rayHit;
 	private void SpawnCurrentParticleEffect() {
-        // Spawn Particle Effect
+        // Spawn PlayerParticle Effect
         Ray mouseRay = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast (mouseRay, out rayHit)) {
 			ParticleEffectsLibrary.GlobalAccess.SpawnParticleEffect (rayHit.point);

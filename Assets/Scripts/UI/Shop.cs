@@ -25,7 +25,7 @@ namespace Assets.Scripts.UI
             _shopButton.gameObject.SetActive(false);
             _cube.gameObject.SetActive(false);
 
-            _countOfMoney.text = PlayerPrefs.GetInt(Constantes.StrCountMoney).ToString();
+            _countOfMoney.text = PlayerPrefs.GetInt(Constants.StrCountMoney).ToString();
         }
 
         private void OnDisable()

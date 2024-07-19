@@ -6,7 +6,7 @@ namespace Assets.Scripts.UI.Tutorial
     {
         private void OnDisable()
         {
-            PlayerPrefs.SetInt(Constantes.StrTutorial, PlayerPrefs.GetInt(Constantes.StrTutorial) + 1);
+            PlayerPrefs.SetInt(Constants.StrTutorial, PlayerPrefs.GetInt(Constants.StrTutorial) + 1);
 
             PlayerPrefs.Save();
         }

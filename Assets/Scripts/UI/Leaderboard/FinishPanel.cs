@@ -8,6 +8,9 @@ namespace Assets.Scripts.UI.Leaderboard
     [RequireComponent(typeof(Animator))]
     public class FinishPanel : MonoBehaviour
     {
+
+        private static int CountLevel;
+
         [SerializeField] private TMP_Text _countOfMoneyText;
         [SerializeField] private AudioSource _myFX;
         [SerializeField] private AudioClip _win;
@@ -19,7 +22,6 @@ namespace Assets.Scripts.UI.Leaderboard
         [SerializeField] private GameObject _timer;
         [SerializeField] private InterstitialAdShower _interstitialAdShower;
 
-        private static int CountLevel;
         private Animator _animator;
         private int _countOfMoney;
 
@@ -32,7 +34,7 @@ namespace Assets.Scripts.UI.Leaderboard
         {
             if (_finish.IsFinished == true)
             {
-                _animator.SetBool(Constantes.StrFinish, true);
+                _animator.SetBool(Constants.StrFinish, true);
             }
         }
 
@@ -58,7 +60,7 @@ namespace Assets.Scripts.UI.Leaderboard
             CountLevel++;
             PlayerData.Instance.Money += _countOfMoney;
             PlayerData.Instance.Level += 1;
-            PlayerPrefs.SetInt(Constantes.StrCountLevel, PlayerPrefs.GetInt(Constantes.StrCountLevel) + CountLevel);
+            PlayerPrefs.SetInt(Constants.StrCountLevel, PlayerPrefs.GetInt(Constants.StrCountLevel) + CountLevel);
             Leaderboard.AddPlayer(PlayerData.Instance.Level);
             PlayerPrefs.Save();
         }

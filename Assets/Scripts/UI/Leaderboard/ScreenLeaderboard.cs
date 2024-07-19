@@ -7,11 +7,6 @@ namespace Assets.Scripts.UI.Leaderboard
     {
         [SerializeField] private CanvasGroup _canvasGroup;
 
-        protected virtual void Awake()
-        {
-            Close();
-        }
-
         public virtual void Open()
         {
             _canvasGroup.alpha = 1.0f;
@@ -22,6 +17,11 @@ namespace Assets.Scripts.UI.Leaderboard
         {
             _canvasGroup.alpha = 0.0f;
             _canvasGroup.blocksRaycasts = false;
+        }
+
+        protected virtual void Awake()
+        {
+            Close();
         }
 
         protected void OnButtonClicked(Action action)

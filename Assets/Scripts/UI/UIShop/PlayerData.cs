@@ -6,9 +6,10 @@ namespace Assets.Scripts.UI.UIShop
 {
     public class PlayerData : MonoBehaviour
     {
+        public event Action<int> MoneyChanged;
+
         private const string SelectedCharacterKey = "Character";
         private const string ConditionsForCharactersKey = "Conditions";
-
         private const int SelectedCharacterDefault = 0;
         private int _money;
         private int _level;
@@ -73,8 +74,7 @@ namespace Assets.Scripts.UI.UIShop
         }
 
         public IReadOnlyDictionary<PlayerCharacterName, int> ConditionsForCharacters => _conditionsForCharacters;
-        public event Action<int> MoneyChanged;
-
+        
         public void Init()
         {
             if (Instance == null)
@@ -102,8 +102,8 @@ namespace Assets.Scripts.UI.UIShop
 
         public void SaveData()
         {
-            PlayerPrefs.SetInt(Constantes.StrCountMoney, _money);
-            PlayerPrefs.SetInt(Constantes.StrCountLevel, _level);
+            PlayerPrefs.SetInt(Constants.StrCountMoney, _money);
+            PlayerPrefs.SetInt(Constants.StrCountLevel, _level);
             PlayerPrefs.SetInt(SelectedCharacterKey, _selectedCharacter);
             PlayerPrefs.SetString(ConditionsForCharactersKey, ConvertConditionsForCharacterToString());
 
@@ -112,8 +112,8 @@ namespace Assets.Scripts.UI.UIShop
 
         private void LoadData()
         {
-            _money = PlayerPrefs.GetInt(Constantes.StrCountMoney);
-            _level = PlayerPrefs.GetInt(Constantes.StrCountLevel);
+            _money = PlayerPrefs.GetInt(Constants.StrCountMoney);
+            _level = PlayerPrefs.GetInt(Constants.StrCountLevel);
             _selectedCharacter = PlayerPrefs.HasKey(SelectedCharacterKey) ? PlayerPrefs.GetInt(SelectedCharacterKey) : SelectedCharacterDefault;
             LoadConditionsForCharacters();
 
@@ -170,13 +170,13 @@ namespace Assets.Scripts.UI.UIShop
 
         private void SaveLevel()
         {
-            PlayerPrefs.SetInt(Constantes.StrCountLevel, PlayerPrefs.GetInt(Constantes.StrCountLevel) + _level);
+            PlayerPrefs.SetInt(Constants.StrCountLevel, PlayerPrefs.GetInt(Constants.StrCountLevel) + _level);
             PlayerPrefs.Save();
         }
 
         private void SaveMoney()
         {
-            PlayerPrefs.SetInt(Constantes.StrCountMoney, _money);
+            PlayerPrefs.SetInt(Constants.StrCountMoney, _money);
             PlayerPrefs.Save();
         }
 

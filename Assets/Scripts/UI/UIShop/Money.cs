@@ -9,7 +9,7 @@ namespace Assets.Scripts.UI.UIShop
 
         private void Update()
         {
-            _countOfMoney.text = PlayerPrefs.GetInt(Constantes.StrCountMoney).ToString();
+            _countOfMoney.text = PlayerPrefs.GetInt(Constants.StrCountMoney).ToString();
         }
     }
 }

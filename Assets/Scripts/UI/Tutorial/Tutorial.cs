@@ -5,6 +5,9 @@ namespace Assets.Scripts.UI.Tutorial
 {
     public class Tutorial : MonoBehaviour
     {
+        [HideInInspector] public bool IsOpenedSwitcher = false;
+        [HideInInspector] public bool IsOpenedTimer = false;
+
         [SerializeField] private TMP_Text[] _texts;
         [SerializeField] private GameObject _mainCamera;
         [SerializeField] private GameObject[] _plane;
@@ -19,9 +22,6 @@ namespace Assets.Scripts.UI.Tutorial
         [SerializeField] private GameObject _colorPointer;
 
         private int _counter;
-
-        [HideInInspector] public bool IsOpenedSwitcher = false;
-        [HideInInspector] public bool IsOpenedTimer = false;
 
         private void Start()
         {

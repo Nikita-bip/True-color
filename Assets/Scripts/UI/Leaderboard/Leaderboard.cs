@@ -1,5 +1,5 @@
-using Agava.YandexGames;
 using System.Collections.Generic;
+using Agava.YandexGames;
 using UnityEngine;
 
 namespace Assets.Scripts.UI.Leaderboard
@@ -7,13 +7,12 @@ namespace Assets.Scripts.UI.Leaderboard
     public class Leaderboard : MonoBehaviour
     {
         private const string LeaderboardName = "TrueColor";
-
-        [SerializeField] private LeaderboardView _leaderboardView;
-
         private const int MinPlayersCount = 1;
         private const int MaxPlayersCount = 5;
 
-        private readonly List<LeaderboardPlayer> _leaderboardPlayers = new();
+        [SerializeField] private LeaderboardView _leaderboardView;
+
+        private readonly List<LeaderboardPlayer> _leaderboardPlayers = new ();
 
         public static void AddPlayer(int score)
         {
@@ -50,7 +49,7 @@ namespace Assets.Scripts.UI.Leaderboard
 
                     if (string.IsNullOrEmpty(playerName))
                     {
-                        playerName = AnonimLanguage.GetAnonymous(PlayerPrefs.GetString(Constantes.Language));
+                        playerName = AnonimLanguage.GetAnonymous(PlayerPrefs.GetString(Constants.Language));
                     }
 
                     _leaderboardPlayers.Add(new LeaderboardPlayer(playerName, score));

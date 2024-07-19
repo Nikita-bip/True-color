@@ -7,25 +7,25 @@ namespace Assets.Scripts.UI.Buttons
     {
         public void PlayGame()
         {
-            if (PlayerPrefs.GetInt(Constantes.StrTutorial) > 0)
+            if (PlayerPrefs.GetInt(Constants.StrTutorial) > 0)
             {
                 NextLevelButton();
             }
             else
             {
-                SceneManager.LoadScene(Constantes.StrTutorialScene);
+                SceneManager.LoadScene(Constants.StrTutorialScene);
             }
         }
 
         public void MainMenu()
         {
-            SceneManager.LoadScene(Constantes.StrMainMenuScene);
+            SceneManager.LoadScene(Constants.StrMainMenuScene);
             PlayerPrefs.Save();
         }
 
         public void Shop()
         {
-            SceneManager.LoadScene(Constantes.StrShopScene);
+            SceneManager.LoadScene(Constants.StrShopScene);
         }
 
         public void NextLevelButton()

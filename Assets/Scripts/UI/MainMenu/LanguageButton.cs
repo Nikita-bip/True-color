@@ -17,7 +17,7 @@ namespace Assets.Scripts.UI.MainMenu
             LeanLocalization.SetCurrentLanguageAll(_language);
             LeanLocalization.UpdateTranslations();
 
-            PlayerPrefs.SetString(Constantes.Language, _language);
+            PlayerPrefs.SetString(Constants.Language, _language);
             PlayerPrefs.Save();
         }
     }

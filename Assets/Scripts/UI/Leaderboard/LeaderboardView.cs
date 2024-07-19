@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using Assets.Scripts.UI.Buttons;
 using Assets.Scripts.UI.MainMenu;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.UI.Leaderboard
@@ -9,6 +9,7 @@ namespace Assets.Scripts.UI.Leaderboard
     public class LeaderboardView : MonoBehaviour
     {
         private const string _openAnimation = nameof(OpenAnimation);
+        private readonly List<LeaderboardPlayerView> _spawnedPlayerViews = new();
 
         [SerializeField] private LeaderboardPlayerView _leaderboardPlayerView;
         [SerializeField] private CloseButton _closeButton;
@@ -23,7 +24,21 @@ namespace Assets.Scripts.UI.Leaderboard
         [SerializeField] private Animator _closeSettingAnimator;
 
         private Animator _animator;
-        private readonly List<LeaderboardPlayerView> _spawnedPlayerViews = new();
+
+        public void Create(List<LeaderboardPlayer> players)
+        {
+            Clear();
+
+            foreach (LeaderboardPlayer player in players)
+            {
+                LeaderboardPlayerView leaderboardPlayerView = Instantiate(_leaderboardPlayerView, transform);
+                leaderboardPlayerView.Init(player.Name, player.Score.ToString());
+
+                _spawnedPlayerViews.Add(leaderboardPlayerView);
+            }
+
+            PlayerPrefs.Save();
+        }
 
         private void Start()
         {
@@ -61,21 +76,6 @@ namespace Assets.Scripts.UI.Leaderboard
             _animator.SetBool("Open", true);
             _labelSettingAnimator.SetBool("Open", true);
             _closeSettingAnimator.SetBool("Open", true);
-        }
-
-        public void Create(List<LeaderboardPlayer> players)
-        {
-            Clear();
-
-            foreach (LeaderboardPlayer player in players)
-            {
-                LeaderboardPlayerView leaderboardPlayerView = Instantiate(_leaderboardPlayerView, transform);
-                leaderboardPlayerView.Init(player.Name, player.Score.ToString());
-
-                _spawnedPlayerViews.Add(leaderboardPlayerView);
-            }
-
-            PlayerPrefs.Save();
         }
 
         private void Clear()
