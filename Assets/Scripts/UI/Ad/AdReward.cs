@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class AdReward : MonoBehaviour
 {
-    [SerializeField] private AdShower _adShower;
+    [SerializeField] private AdShowerMainMenu _adShower;
     [SerializeField] private Button _adv;
 
     private const string _inactiveButton = nameof(InactiveButton);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class AdShower : MonoBehaviour
+public abstract class AdShowerMainMenu : MonoBehaviour
 {
     [SerializeField] private AudioSource[] _audioSources;
     [SerializeField] private float[] _volumes;

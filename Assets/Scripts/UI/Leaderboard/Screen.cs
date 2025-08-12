@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public abstract class Screen : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _canvasGroup;
+    internal static float height;
 
     protected virtual void Awake()
     {

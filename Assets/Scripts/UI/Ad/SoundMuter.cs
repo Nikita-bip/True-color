@@ -32,7 +32,7 @@ public class SoundMuter : MonoBehaviour
 
     //private void OnInBackgroundChange(bool inBackground)
     //{
-    //    //if (!IsMuted & AdShower.IsEnd == true)
+    //    //if (!IsMuted & AdShowerMainMenu.IsEnd == true)
     //    //{
     //    //    AudioListener.pause = inBackground;
     //    //    AudioListener.volume = inBackground ? 0f : 1f;

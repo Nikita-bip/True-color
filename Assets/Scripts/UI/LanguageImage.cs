@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Language : MonoBehaviour
+public class LanguageImage : MonoBehaviour
 {
     [SerializeField] private Sprite _mainImage;
     [SerializeField] private Sprite[] _languages;

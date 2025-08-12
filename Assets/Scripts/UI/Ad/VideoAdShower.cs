@@ -1,9 +1,9 @@
 using Agava.YandexGames;
 
-public class VideoAdShower : AdShower
+public class VideoAdShower : AdShowerMainMenu
 {
     public override void Show()
     {
-        VideoAd.Show(OnOpenCallback, OnCloseCallBackReward, OnCloseCallback);
+        //VideoAd.Show(OnOpenCallback, OnCloseCallBackReward, OnCloseCallback);
     }
 }
