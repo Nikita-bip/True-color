@@ -370,8 +370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 252062930}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &121649622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2214,8 +2212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 252062930}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &1072224791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2321,8 +2317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3578aa36c06b246a4d3c55ffd2fe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _adShower: {fileID: 1249247977}
-  _adv: {fileID: 2113364244}
 --- !u!4 &1245215367
 Transform:
   m_ObjectHideFlags: 0
@@ -2367,12 +2361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f12fac074432a47ab917bd0aea8de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSources:
-  - {fileID: 2024331489}
-  _volumes:
-  - 0.01
-  _audioListener: {fileID: 1396630270}
-  _webEventSystem: {fileID: 996041553}
 --- !u!4 &1249247978
 Transform:
   m_ObjectHideFlags: 0
@@ -2586,8 +2574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 252062930}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &1488616201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2683,8 +2669,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1612403217}
   - component: {fileID: 1612403220}
-  - component: {fileID: 1612403218}
   - component: {fileID: 1612403219}
+  - component: {fileID: 1612403222}
+  - component: {fileID: 1612403221}
   m_Layer: 0
   m_Name: '### ShopStart ###'
   m_TagString: Untagged
@@ -2707,24 +2694,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1612403218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612403216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c982e48b0d3a62d4399d29b35cadbf34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _priceList: {fileID: 11400000, guid: 8b9e1091769d8bf4aa867c2a2a96f0ef, type: 2}
-  _productTemplate: {fileID: 1158635355561412525, guid: 2ecccf526ec91d74090f3e1e4bc34a04, type: 3}
-  _conteiner: {fileID: 2107146430}
-  _messageBoxWatchAd: {fileID: 957755874}
-  _messageBoxBuy: {fileID: 1072224783}
-  _messageBoxNotEnoughMoney: {fileID: 709689480}
 --- !u!114 &1612403219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2750,8 +2719,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerData: {fileID: 1612403219}
-  _shop: {fileID: 1612403218}
+  _shop: {fileID: 1612403221}
   _money: {fileID: 759639450}
+--- !u!114 &1612403221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612403216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbe0487517274e40a0b29d0904f86ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _priceList: {fileID: 11400000, guid: 8b9e1091769d8bf4aa867c2a2a96f0ef, type: 2}
+  _productTemplate: {fileID: 1158635355561412525, guid: 2ecccf526ec91d74090f3e1e4bc34a04, type: 3}
+  _conteiner: {fileID: 2107146430}
+  _messageBoxWatchAd: {fileID: 957755874}
+  _messageBoxBuy: {fileID: 1072224783}
+  _messageBoxNotEnoughMoney: {fileID: 709689480}
+--- !u!95 &1612403222
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612403216}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1631327777 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4848866079202057265, guid: bc41fe6aa2c6aa64a9a5929d077667bf, type: 3}
@@ -2769,8 +2776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 252062930}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &1631327782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2899,8 +2904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 252062930}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &1687019365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3074,8 +3077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 252062930}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &1725031710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3338,8 +3339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 252062930}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &1931555558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3732,7 +3731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1003.31946, y: 0}
+  m_AnchoredPosition: {x: 829.1548, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2107146432
@@ -3921,8 +3920,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3578aa36c06b246a4d3c55ffd2fe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _adShower: {fileID: 1249247977}
-  _adv: {fileID: 2113364244}
 --- !u!1 &2134778579
 GameObject:
   m_ObjectHideFlags: 0

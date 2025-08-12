@@ -5,7 +5,8 @@ public class Buttons : MonoBehaviour
 {
     public void PlayGame()
     {
-        if(PlayerPrefs.GetInt(Constantes.StrTutorial) > 0)
+        PlayerPrefs.DeleteAll();
+        if (PlayerPrefs.GetInt(Constantes.StrTutorial) > 0)
             NextLevelButton();
         else
             SceneManager.LoadScene(Constantes.StrTutorialScene);
@@ -25,9 +26,20 @@ public class Buttons : MonoBehaviour
 
     public void NextLevelButton()
     {
-        int nextLevel = Random.Range(3, 13);
+        //int nextLevel = Random.Range(3, 13);
 
-        SceneManager.LoadScene(nextLevel);
+        //SceneManager.LoadScene(nextLevel);
+        //PlayerPrefs.Save();
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        // Если дошли до последней сцены — можно вернуться к первой или остаться
+        if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings)
+        {
+            nextSceneIndex = 0; // Перезапускаем с первой сцены
+        }
+
+        SceneManager.LoadScene(nextSceneIndex);
         PlayerPrefs.Save();
     }
 

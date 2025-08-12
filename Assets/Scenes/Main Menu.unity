@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &28206751 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3374438337927358100, guid: e4d68e6ff8648b44baf0f098d1219419, type: 3}
+  m_PrefabInstance: {fileID: 6527882718579548212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &32765973
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +862,6 @@ GameObject:
   - component: {fileID: 156883666}
   - component: {fileID: 156883665}
   - component: {fileID: 156883664}
-  - component: {fileID: 156883663}
   - component: {fileID: 156883668}
   m_Layer: 5
   m_Name: ShopButton
@@ -886,20 +890,6 @@ RectTransform:
   m_AnchoredPosition: {x: 162, y: -124}
   m_SizeDelta: {x: 668, y: 558}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &156883663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156883661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myFX: {fileID: 836735582}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &156883664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,7 +907,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 156883663}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: ButtonFX, Assembly-CSharp
           m_MethodName: ClickSound
           m_Mode: 1
@@ -973,7 +963,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 156883668}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
@@ -1032,10 +1022,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 156883661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 597428f6f49bea846ad49c01bbfe7b19, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bb06f21df55a4a49b9dbdd4c035798a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shop: {fileID: 877870638}
+  _shop: {fileID: 0}
 --- !u!1 &187256694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,17 +1349,6 @@ MonoBehaviour:
       \u0434\u043E\u0441\u0442\u0443\u043F \u043A \u043B\u0438\u0434\u0435\u0440\u0431\u043E\u0440\u0434\u0443,
       \u0432\u0430\u043C \u043D\u0443\u0436\u043D\u043E \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F."
     Object: {fileID: 0}
---- !u!114 &239256824 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6527882718810383564, guid: e4d68e6ff8648b44baf0f098d1219419, type: 3}
-  m_PrefabInstance: {fileID: 6527882718579548212}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &241065888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,17 +1409,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6527882718821921782, guid: e4d68e6ff8648b44baf0f098d1219419, type: 3}
   m_PrefabInstance: {fileID: 6527882718579548212}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &244503491 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6527882718821921783, guid: e4d68e6ff8648b44baf0f098d1219419, type: 3}
-  m_PrefabInstance: {fileID: 6527882718579548212}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a91db81b9af6c1d4cbfaee750991f3c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &302591004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,7 +1859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 697643362}
   - component: {fileID: 697643363}
-  - component: {fileID: 697643364}
+  - component: {fileID: 697643365}
   m_Layer: 5
   m_Name: Cube
   m_TagString: Untagged
@@ -1943,7 +1911,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &697643364
+--- !u!114 &697643365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1952,7 +1920,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 697643361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323a00c9554b96e4183b2f9378b3ac84, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a32b4a66e1069f45bbbab623cf40378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &741623244
@@ -2275,8 +2243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 836735582}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &756387013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2633,16 +2599,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1defd671ef676fe46a3f93dbd4dd2b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingsButton: {fileID: 1968057271}
-  _playButton: {fileID: 83979870}
-  _shopButton: {fileID: 156883668}
-  _cube: {fileID: 697643364}
-  _leaderboardButton: {fileID: 1455095712}
-  _countOfMoney: {fileID: 2042746429}
-  _scinIndex: 0
-  _scin: []
-  _scins: []
-  _buyButton: {fileID: 0}
 --- !u!114 &877870639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3390,8 +3346,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 836735582}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &1125892143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3560,11 +3514,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d1765eb0616a040b943a1eb811c492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingsButton: {fileID: 1968057271}
+  _settingsButton: {fileID: 0}
   _playButton: {fileID: 83979870}
   _leaderboardButton: {fileID: 1455095712}
-  _shopButton: {fileID: 156883668}
-  _cube: {fileID: 697643364}
+  _shopButton: {fileID: 0}
+  _cube: {fileID: 0}
 --- !u!1 &1234710665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3857,8 +3811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 836735582}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!1 &1375300301
 GameObject:
   m_ObjectHideFlags: 0
@@ -4028,8 +3980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 836735582}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &1409520363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4333,11 +4283,11 @@ MonoBehaviour:
   _leaderboardPlayerView: {fileID: 2585297479119665103, guid: 942d6690d0d3e274a9e00eeca74f4f03, type: 3}
   _closeButton: {fileID: 756387011}
   _label: {fileID: 452131302}
-  _settingsButton: {fileID: 1968057271}
+  _settingsButton: {fileID: 0}
   _playButton: {fileID: 83979870}
   _leaderboardButton: {fileID: 1455095712}
-  _shopButton: {fileID: 156883668}
-  _cube: {fileID: 697643364}
+  _shopButton: {fileID: 0}
+  _cube: {fileID: 0}
   _loginPanel: {fileID: 1204837040}
   _labelSettingAnimator: {fileID: 452131306}
   _closeSettingAnimator: {fileID: 756387014}
@@ -4549,8 +4499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 836735582}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &1455095712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4843,13 +4791,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f12fac074432a47ab917bd0aea8de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSources:
-  - {fileID: 1755483607}
-  - {fileID: 836735582}
-  _volumes:
-  - 0.01
-  - 0.2
-  _audioListener: {fileID: 100507000}
 --- !u!4 &1530660106
 Transform:
   m_ObjectHideFlags: 0
@@ -5619,10 +5560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50c3785a39c2a342ac1fe1ad0228319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _volumeOff: {fileID: 21300000, guid: 0ec7367a7b9646f4e808d711249b7980, type: 3}
-  _volumeOn: {fileID: 21300000, guid: e65661ab752db3648b1d9f6390ae75ba, type: 3}
-  _volumeButton: {fileID: 239256824}
-  _audio: {fileID: 1755483607}
 --- !u!82 &1755483607
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6280,8 +6217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myFX: {fileID: 836735582}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &1959899778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6445,9 +6380,8 @@ GameObject:
   - component: {fileID: 1968057274}
   - component: {fileID: 1968057273}
   - component: {fileID: 1968057272}
-  - component: {fileID: 1968057271}
-  - component: {fileID: 1968057277}
   - component: {fileID: 1968057278}
+  - component: {fileID: 1968057279}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -6455,19 +6389,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1968057271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968057270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32f46ec18b8c3fb4180ea98ab5daffa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _setting: {fileID: 244503491}
 --- !u!114 &1968057272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6524,7 +6445,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1968057271}
+      - m_Target: {fileID: 1968057279}
         m_TargetAssemblyTypeName: SettingsButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
@@ -6594,20 +6515,6 @@ RectTransform:
   m_AnchoredPosition: {x: 173.17, y: 180.30005}
   m_SizeDelta: {x: 261, y: 268}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1968057277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968057270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34379a9c3cbd4d44aa0ca646e690c1e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myFX: {fileID: 836735582}
-  _click: {fileID: 8300000, guid: b8cab79e81e870148a3ca59bbcf31d1e, type: 3}
 --- !u!114 &1968057278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6625,7 +6532,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1968057277}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: ButtonFX, Assembly-CSharp
           m_MethodName: ClickSound
           m_Mode: 1
@@ -6637,6 +6544,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1968057279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968057270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b95d9b64450af4db9fd2f9beb22b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settingsPanel: {fileID: 8377781027946808986}
 --- !u!1 &1995464009
 GameObject:
   m_ObjectHideFlags: 0
@@ -7068,8 +6988,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3578aa36c06b246a4d3c55ffd2fe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _adShower: {fileID: 1530660105}
-  _adv: {fileID: 2145495963}
 --- !u!1001 &4433807767567803815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7345,7 +7263,7 @@ PrefabInstance:
     - target: {fileID: 6527882718821921783, guid: e4d68e6ff8648b44baf0f098d1219419, type: 3}
       propertyPath: _cube
       value: 
-      objectReference: {fileID: 697643364}
+      objectReference: {fileID: 0}
     - target: {fileID: 6527882718821921783, guid: e4d68e6ff8648b44baf0f098d1219419, type: 3}
       propertyPath: _label
       value: 
@@ -7357,7 +7275,7 @@ PrefabInstance:
     - target: {fileID: 6527882718821921783, guid: e4d68e6ff8648b44baf0f098d1219419, type: 3}
       propertyPath: _shopButton
       value: 
-      objectReference: {fileID: 156883668}
+      objectReference: {fileID: 0}
     - target: {fileID: 6527882718821921783, guid: e4d68e6ff8648b44baf0f098d1219419, type: 3}
       propertyPath: _closeButton
       value: 
@@ -7365,7 +7283,7 @@ PrefabInstance:
     - target: {fileID: 6527882718821921783, guid: e4d68e6ff8648b44baf0f098d1219419, type: 3}
       propertyPath: _settingsButton
       value: 
-      objectReference: {fileID: 1968057271}
+      objectReference: {fileID: 0}
     - target: {fileID: 6527882718821921783, guid: e4d68e6ff8648b44baf0f098d1219419, type: 3}
       propertyPath: _leaderboardButton
       value: 
@@ -7413,7 +7331,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3374438337927358126, guid: e4d68e6ff8648b44baf0f098d1219419, type: 3}
   m_PrefabInstance: {fileID: 6527882718579548212}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 28206751}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -7424,3 +7342,24 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3374438337927358101, guid: e4d68e6ff8648b44baf0f098d1219419, type: 3}
   m_PrefabInstance: {fileID: 6527882718579548212}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8377781027946808997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28206751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f786d238cde8841b9292db2aeda258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settingsButton: {fileID: 1968057279}
+  _playButton: {fileID: 83979870}
+  _leaderboardButton: {fileID: 1455095712}
+  _shopButton: {fileID: 156883668}
+  _cube: {fileID: 697643365}
+  _closeButton: {fileID: 1409520363}
+  _label: {fileID: 618647762}
+  _labelSettingAnimator: {fileID: 618647766}
+  _closeSettingAnimator: {fileID: 618647766}
